@@ -1,0 +1,22 @@
+{
+  "chapter.spongefactory.chapter_1.cut_logs_first.subtitle": "经典开局",
+  "chapter.spongefactory.chapter_1.cut_logs_first.title": "先撸树",
+  "chapter.spongefactory.chapter_1.title": "第一章",
+  "chapter.spongefactory.welcome.title": "欢迎",
+  "chapter.spongefactory.welcome.welcome.title": "欢迎来到海绵工厂！",
+  "item.spongefactory.charcoal_copper_ore_mixture": "木炭铜矿混合物",
+  "item.spongefactory.charcoal_iron_ore_mixture": "木炭铁矿混合物",
+  "item.spongefactory.crushed_copper_ore": "破碎的铜矿石",
+  "item.spongefactory.crushed_iron_ore": "破碎的铁矿石",
+  "item.spongefactory.furnace_lining": "熔炉内衬",
+  "item.spongefactory.ground_copper_ore": "粉碎的铜矿石",
+  "item.spongefactory.ground_iron_ore": "粉碎的铁矿石",
+  "item.spongefactory.impure_crushed_copper_ore": "含杂的破碎铜矿石",
+  "item.spongefactory.impure_crushed_iron_ore": "含杂的破碎铁矿石",
+  "item.spongefactory.quicklime": "生石灰",
+  "item.spongefactory.slaked_lime": "熟石灰",
+  "item.spongefactory.stone_hammer": "石锤",
+  "itemGroup.material": "海绵工厂：材料",
+  "itemGroup.tool": "海绵工厂：工具",
+  "questGroup.spongefactory.getting_start": "入门"
+}

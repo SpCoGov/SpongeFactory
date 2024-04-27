@@ -21,6 +21,7 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.Translatable;
 import top.spco.spongefactory.item.ModCreativeModTabs;
 import top.spco.spongefactory.item.ModItems;
+import top.spco.spongefactory.quest.ModQuests;
 
 /**
  * Provides supported language providers for generating language files.
@@ -36,6 +37,7 @@ public class SupportedLanguageProviders {
     public final LanguageProvider english;
 
     public SupportedLanguageProviders(DataGenerator generator) {
+        ModQuests.init();
         chinese = new ChineseProvider(generator);
         english = new EnglishProvider(generator);
     }
@@ -53,6 +55,9 @@ public class SupportedLanguageProviders {
             for (Translatable tabs : ModCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getChineseName());
             }
+            for (Translatable questContents : ModQuests.QUESTS) {
+                add(questContents.getTranslationKey(), questContents.getChineseName());
+            }
         }
     }
 
@@ -68,6 +73,9 @@ public class SupportedLanguageProviders {
             }
             for (Translatable tabs : ModCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getEnglishName());
+            }
+            for (Translatable questContents : ModQuests.QUESTS) {
+                add(questContents.getTranslationKey(), questContents.getEnglishName());
             }
         }
     }

@@ -35,7 +35,6 @@ public class ItemMapping<T extends Item> implements ItemLike, Translatable {
     private final String id;
     private final String translationKey;
     private final RegistryObject<T> item;
-    private String itemModel;
 
     public ItemMapping(String englishName, String chineseName, String id, RegistryObject<T> item) {
         this.englishName = englishName;

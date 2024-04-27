@@ -24,6 +24,9 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.ModItems;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Generate item models
  *
@@ -38,8 +41,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        List<ItemMapping<?>> handheldItems = new ArrayList<>();
+        handheldItems.add(ModItems.STONE_HAMMER);
         for (var item : ModItems.ITEMS) {
-            generatedItem(item);
+            if (handheldItems.contains(item)) {
+                handheldItem(item);
+            } else {
+                generatedItem(item);
+            }
         }
     }
 

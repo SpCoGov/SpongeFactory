@@ -15,10 +15,7 @@
  */
 package top.spco.spongefactory.item;
 
-import appeng.api.stacks.AEKeyType;
-import appeng.items.storage.BasicStorageCell;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,9 +40,38 @@ public class ModItems {
     public static final ItemMapping<Item> FURNACE_LINING = item("Furnace Lining", "熔炉内衬", "furnace_lining",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
 
-    public static final ItemMapping<BasicStorageCell> TEST_CELL = item("Test Cell", "测试磁盘", "test_cell",
-            () -> new BasicStorageCell(new Item.Properties().stacksTo(1).tab(ModCreativeModTabs.MATERIAL_TAB), Items.ACACIA_LEAVES, Items.ACACIA_LOG,
-                    2.0F, 999998,9999, 99, AEKeyType.items()));
+    public static final ItemMapping<Item> QUICKLIME = item("Quicklime", "生石灰", "quicklime",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> SLAKED_LIME = item("Slaked Lime", "熟石灰", "slaked_lime",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> STONE_HAMMER = item("Stone Hammer", "石锤", "stone_hammer",
+            () -> new Item(new Item.Properties().durability(64).tab(ModCreativeModTabs.TOOL_TAB)));
+
+    public static final ItemMapping<Item> IMPURE_CRUSHED_COPPER_ORE = item("Impure Crushed Copper Ore", "含杂的破碎铜矿石","impure_crushed_copper_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> CRUSHED_COPPER_ORE = item("Crushed Copper Ore", "破碎的铜矿石","crushed_copper_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> GROUND_COPPER_ORE = item("Ground Copper Ore", "粉碎的铜矿石","ground_copper_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> CHARCOAL_COPPER_ORE_MIXTURE = item("Charcoal-Copper Ore Mixture", "木炭铜矿混合物","charcoal_copper_ore_mixture",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> IMPURE_CRUSHED_IRON_ORE = item("Impure Crushed Iron Ore", "含杂的破碎铁矿石","impure_crushed_iron_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> CRUSHED_IRON_ORE = item("Crushed Copper Ore", "破碎的铁矿石","crushed_iron_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> GROUND_IRON_ORE = item("Ground Iron Ore", "粉碎的铁矿石","ground_iron_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
+    public static final ItemMapping<Item> CHARCOAL_IRON_ORE_MIXTURE = item("Charcoal-Iron Ore Mixture", "木炭铁矿混合物","charcoal_iron_ore_mixture",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
 
     private static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item) {
         RegistryObject<T> registeredItem = REGISTER.register(id, item);
