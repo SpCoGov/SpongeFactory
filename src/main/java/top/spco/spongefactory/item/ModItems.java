@@ -40,8 +40,9 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final HashSet<ItemMapping<?>> ITEMS = new HashSet<>();
     public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, SpongeFactory.MOD_ID);
-    public static final ItemMapping<Item> FOO = item("Foo", "占位符", "foo",
+    public static final ItemMapping<Item> FURNACE_LINING = item("Furnace Lining", "熔炉内衬", "furnace_lining",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+
     public static final ItemMapping<BasicStorageCell> TEST_CELL = item("Test Cell", "测试磁盘", "test_cell",
             () -> new BasicStorageCell(new Item.Properties().stacksTo(1).tab(ModCreativeModTabs.MATERIAL_TAB), Items.ACACIA_LEAVES, Items.ACACIA_LOG,
                     2.0F, 999998,9999, 99, AEKeyType.items()));

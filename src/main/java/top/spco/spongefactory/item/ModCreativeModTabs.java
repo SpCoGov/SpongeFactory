@@ -32,7 +32,7 @@ import java.util.function.Supplier;
 public class ModCreativeModTabs {
     public static final HashSet<CreativeModeTabMapping> TABS = new HashSet<>();
     public static final CreativeModeTabMapping MATERIAL_TAB = tab("SpongeFactory: Material", "海绵工厂：材料", "material",
-            () -> new ItemStack(ModItems.FOO.getRegisteredItem().get()));
+            () -> new ItemStack(ModItems.FURNACE_LINING.getRegisteredItem().get()));
 
     private static CreativeModeTabMapping tab(String englishName, String chineseName, String id, @NotNull Supplier<ItemStack> icon) {
         CreativeModeTabMapping tab = new CreativeModeTabMapping(englishName, chineseName, id, icon);

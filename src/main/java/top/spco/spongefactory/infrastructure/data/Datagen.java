@@ -40,5 +40,8 @@ public class Datagen {
 
         ModItemModelProvider itemModelProvider = new ModItemModelProvider(generator, existingFileHelper);
         generator.addProvider(true, itemModelProvider);
+
+        ModRecipeProvider recipeProvider = new ModRecipeProvider(generator);
+        generator.addProvider(true, recipeProvider);
     }
 }

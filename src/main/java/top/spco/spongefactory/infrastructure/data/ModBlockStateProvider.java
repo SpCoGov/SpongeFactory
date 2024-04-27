@@ -21,7 +21,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
- * generate blockstates
+ * Generate blockstates
  *
  * @author SpCo
  * @version 0.1.0

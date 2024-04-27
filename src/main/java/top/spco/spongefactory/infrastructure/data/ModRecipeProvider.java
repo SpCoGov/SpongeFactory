@@ -15,12 +15,21 @@
  */
 package top.spco.spongefactory.infrastructure.data;
 
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+
 /**
- * Created on 2024/04/27 12:11
+ * Generate recipes
  *
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class ModRecipeProvider {
+public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+    public ModRecipeProvider(DataGenerator generator) {
+        super(generator);
+    }
+
+
 }

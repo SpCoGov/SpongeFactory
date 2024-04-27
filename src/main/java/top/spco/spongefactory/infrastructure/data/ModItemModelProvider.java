@@ -25,7 +25,7 @@ import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.ModItems;
 
 /**
- * Created on 2024/04/27 12:10
+ * Generate item models
  *
  * @author SpCo
  * @version 0.1.0
