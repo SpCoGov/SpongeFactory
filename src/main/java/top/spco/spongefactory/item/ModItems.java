@@ -96,6 +96,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> IMPURE_CRUSHED_TIN_ORE = item("Impure Crushed Silver Ore", "含杂的破碎锡矿石", "impure_crushed_tin_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> IMPURE_CRUSHED_LEAD_ORE = item("Impure Crushed Lead Ore", "含杂的破碎铅矿石", "impure_crushed_lead_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> IMPURE_CRUSHED_URANIUM_ORE = item("Impure Crushed Uranium Ore", "含杂的破碎铀矿石", "impure_crushed_uranium_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CRUSHED_COPPER_ORE = item("Crushed Copper Ore", "破碎的铜矿石", "crushed_copper_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CRUSHED_IRON_ORE = item("Crushed Iron Ore", "破碎的铁矿石", "crushed_iron_ore",
@@ -113,6 +117,10 @@ public class ModItems {
     public static final ItemMapping<Item> CRUSHED_OSMIUM_ORE = item("Crushed Osmium Ore", "破碎的锇矿石", "crushed_osmium_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CRUSHED_TIN_ORE = item("Crushed Tin Ore", "破碎的锡矿石", "crushed_tin_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> CRUSHED_URANIUM_ORE = item("Crushed Uranium Ore", "破碎的铀矿石", "crushed_uranium_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> CRUSHED_LEAD_ORE = item("Crushed Lead Ore", "破碎的铅矿石", "crushed_lead_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> GROUND_COPPER_ORE = item("Ground Copper Ore", "粉碎的铜矿石", "ground_copper_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
@@ -132,6 +140,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> GROUND_TIN_ORE = item("Ground Tin Ore", "粉碎的锡矿石", "ground_tin_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> GROUND_LEAD_ORE = item("Ground Lead Ore", "粉碎的铅矿石", "ground_lead_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> GROUND_URANIUM_ORE = item("Ground Uranium Ore", "粉碎的铀矿石", "ground_uranium_ore",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CHARCOAL_COPPER_ORE_MIXTURE = item("Charcoal-Copper Ore Mixture", "木炭铜矿混合物", "charcoal_copper_ore_mixture",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CHARCOAL_IRON_ORE_MIXTURE = item("Charcoal-Iron Ore Mixture", "木炭铁矿混合物", "charcoal_iron_ore_mixture",
@@ -141,6 +153,8 @@ public class ModItems {
     public static final ItemMapping<Item> CHARCOAL_SILVER_ORE_MIXTURE = item("Charcoal-Silver Ore Mixture", "木炭银矿混合物", "charcoal_silver_ore_mixture",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> CHARCOAL_TIN_ORE_MIXTURE = item("Charcoal-Tin Ore Mixture", "木炭锡矿混合物", "charcoal_tin_ore_mixture",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> CHARCOAL_LEAD_ORE_MIXTURE = item("Charcoal-Lead Ore Mixture", "木炭铅矿混合物", "charcoal_lead_ore_mixture",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> NEGATIVE_ENTHALPY_CHANGE_CYCLE_CATALYST = item("Adsorption-Desorption Negative Enthalpy Change Cycle Catalyst",
             "吸附-脱附负焓变循环催化剂", "negative_enthalpy_change_cycle_catalyst"
