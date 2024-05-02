@@ -30,6 +30,8 @@ public class ModQuests {
     public static final QuestItem WELCOME_ITEM = new QuestItem(WELCOME, "welcome", "欢迎来到海绵工厂！", "Welcome to Sponge Factory!");
     public static final QuestGroup GETTING_START = new QuestGroup("getting_start", "入门","Getting Start");
     public static final QuestChapter CHAPTER_1 = new QuestChapter(null, "chapter_1", "第一章", "Chapter 1");
+    public static final QuestChapter CHAPTER_2 = new QuestChapter(null, "chapter_2", "第二章", "Chapter 2");
+    public static final QuestChapter CHAPTER_3 = new QuestChapter(null, "chapter_3", "第三章", "Chapter 3");
     public static final QuestItem CUT_LOGS_FIRST = new QuestItem(CHAPTER_1, "cut_logs_first", "先撸树", "Cut logs first").subtitle("经典开局","Classic Start");
 
     private static void add(QuestChapter chapter) {
@@ -50,5 +52,7 @@ public class ModQuests {
         add(GETTING_START);
         add(CHAPTER_1);
         add(CUT_LOGS_FIRST);
+        add(CHAPTER_2);
+        add(CHAPTER_3);
     }
 }
