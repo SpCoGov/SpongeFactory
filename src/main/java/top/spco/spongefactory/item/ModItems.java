@@ -74,6 +74,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> STRESS_ENDURANCE_MECHANISM = item("Stress Endurance Mechanism", "耐应力构件", "stress_endurance_mechanism",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> INERT_STRESS_ENDURANCE_MECHANISM = item("Inert Stress Endurance Mechanism", "惰性耐应力构件", "inert_stress_endurance_mechanism",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> STRESS_RESISTANCE_MECHANISM = item("Stress Resistance Mechanism", "抗应力构件", "stress_resistance_mechanism",
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<Item> YIELDING_MECHANISM = item("Yielding Mechanism", "顺应力构件", "yielding_mechanism",
@@ -167,6 +169,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
     public static final ItemMapping<SimpleFoiledItem> HOLY_SHIT = item("Holy Shit", "上帝的屎", "holy_shit",
             () -> new SimpleFoiledItem((new Item.Properties()).tab(ModCreativeModTabs.MATERIAL_TAB).rarity(Rarity.create("HOLY", ChatFormatting.GOLD))));
+    public static final ItemMapping<Item> PLASTIC_LATTICE = item("Plastic Lattice", "塑料格栅", "plastic_lattice",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+    public static final ItemMapping<Item> DISTILLATION_FILLER = item("Distillation Filler", "蒸馏填料", "distillation_filler",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
 
     private static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item) {
         RegistryObject<T> registeredItem = REGISTER.register(id, item);
