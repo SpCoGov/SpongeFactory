@@ -15,9 +15,11 @@
  */
 package top.spco.spongefactory.infrastructure.data;
 
+import mekanism.api.chemical.gas.Gas;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.gas.ModGases;
 import top.spco.spongefactory.infrastructure.Translatable;
 import top.spco.spongefactory.item.ModCreativeModTabs;
 import top.spco.spongefactory.item.ModItems;
@@ -58,6 +60,9 @@ public class SupportedLanguageProviders {
             for (Translatable questContents : ModQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getChineseName());
             }
+            for (Translatable gas : ModGases.GASES) {
+                add(gas.getTranslationKey(), gas.getChineseName());
+            }
         }
     }
 
@@ -76,6 +81,9 @@ public class SupportedLanguageProviders {
             }
             for (Translatable questContents : ModQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getEnglishName());
+            }
+            for (Translatable gas : ModGases.GASES) {
+                add(gas.getTranslationKey(), gas.getEnglishName());
             }
         }
     }
