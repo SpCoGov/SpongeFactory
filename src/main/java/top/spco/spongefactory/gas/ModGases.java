@@ -18,31 +18,36 @@ package top.spco.spongefactory.gas;
 import mekanism.api.chemical.gas.Gas;
 import mekanism.common.registration.impl.GasDeferredRegister;
 import mekanism.common.registration.impl.GasRegistryObject;
-import net.minecraftforge.eventbus.api.IEventBus;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.GasMapping;
 
 import java.util.HashSet;
 
 public class ModGases {
-    public static final HashSet<GasMapping<?>> GASES = new HashSet<>();
-    private static final GasDeferredRegister REGISTER = new GasDeferredRegister(SpongeFactory.MOD_ID);
+    public static final HashSet<GasMapping> GASES = new HashSet<>();
+    public static final GasDeferredRegister REGISTER = new GasDeferredRegister(SpongeFactory.MOD_ID);
+    // 费米子
+    public static final GasRegistryObject<Gas> UP_QUARK = gas("Up Quark", "上夸克", "up_quark", 0x6969E0);
+    public static final GasRegistryObject<Gas> DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", 0x2CDE2C);
+    public static final GasRegistryObject<Gas> STRANGE_QUARK = gas("Strange Quark", "奇夸克", "strange_quark", 0xDEB0ED);
+    public static final GasRegistryObject<Gas> CHARM_QUARK = gas("Charm Quark", "粲夸克", "charm_quark", 0xFB7299);
+    public static final GasRegistryObject<Gas> BOTTOM_QUARK = gas("Bottom Quark", "底夸克", "bottom_quark", 0x4FC3F7);
+    public static final GasRegistryObject<Gas> TOP_QUARK = gas("Top Quark", "顶夸克", "top_quark", 0xFBE000);
+    public static final GasRegistryObject<Gas> ELECTRON = gas("Electron", "电子", "electron", 0x044289);
+    public static final GasRegistryObject<Gas> MUON = gas("Muon", "μ子", "muon", 0x24292E);
+    public static final GasRegistryObject<Gas> TAUON = gas("Tauon", "τ子", "tauon", 0xF97570);
+    public static final GasRegistryObject<Gas> NEUTRINO = gas("Neutrino", "中微子", "neutrino", 0xADD8E6);
+    // 玻色子
+    public static final GasRegistryObject<Gas> BOSON = gas("Boson","W及Z玻色子","boson", 0x6495ED);
+    public static final GasRegistryObject<Gas> PHOTON = gas("Photon" ,"光子","photon", 0xFFFF00);
+    public static final GasRegistryObject<Gas> GLUON = gas("Gluon" ,"胶子","gluon", 0xFFD700);
+    public static final GasRegistryObject<Gas> HIGGS_BOSON = gas("Higgs Boson" ,"希格斯玻色子","higgs_boson", 0x800080);
+    public static final GasRegistryObject<Gas> GRAVITON = gas("Graviton" ,"引力子","graviton", 0x333333);
 
-    public static final GasMapping<Gas> UP_QUARK = gas("Up Quark", "上夸克", "up_quark", 0x6969e0);
-    public static final GasMapping<Gas> DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", 0x2cde2c);
-    public static final GasMapping<Gas> STRANGE_QUARK = gas(  "Strange Quark", "奇夸克", "strange_quark", 0xdeb0ed);
-    public static final GasMapping<Gas> CHARM_QUARK = gas("Charm Quark", "粲夸克", "charm_quark", 0xfb7299);
-    public static final GasMapping<Gas> BOTTOM_QUARK = gas("Bottom Quark", "底夸克", "bottom_quark", 0x4fc3f7);
-    public static final GasMapping<Gas> TOP_QUARK = gas("Top Quark", "顶夸克", "top_quark", 0xfbe000);
-
-    private static GasMapping<Gas> gas(String englishName, String chineseName, String id, int color) {
+    private static GasRegistryObject<Gas> gas(String englishName, String chineseName, String id, int color) {
         GasRegistryObject<Gas> registeredGas = REGISTER.register(id, color);
-        GasMapping<Gas> gasMapping = new GasMapping<>(englishName, chineseName, id, registeredGas);
+        GasMapping gasMapping = new GasMapping(englishName, chineseName, id);
         GASES.add(gasMapping);
-        return gasMapping;
-    }
-
-    public static void register(IEventBus eventBus) {
-        REGISTER.createAndRegister(eventBus);
+        return registeredGas;
     }
 }

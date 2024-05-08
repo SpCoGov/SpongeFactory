@@ -47,3 +47,9 @@ mandatory = true
 versionRange = "[12.9.5,)"
 ordering = "AFTER"
 side=  "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "mekanism"
+mandatory = true
+versionRange = "[10.3.2,)"
+ordering = "AFTER"
+side=  "BOTH"

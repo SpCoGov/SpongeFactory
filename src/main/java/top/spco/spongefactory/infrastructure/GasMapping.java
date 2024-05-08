@@ -17,30 +17,26 @@ package top.spco.spongefactory.infrastructure;
 
 import mekanism.api.chemical.gas.Gas;
 import mekanism.common.registration.impl.GasRegistryObject;
-import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
  * A class representing the mapping of an {@link Gas}.
  *
- * @param <T> The type of the gas
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class GasMapping<T extends Gas> implements Translatable {
+public class GasMapping implements Translatable {
     private final String englishName;
     private final String chineseName;
     private final String id;
     private final String translationKey;
-    private final GasRegistryObject<T> gas;
 
-    public GasMapping(String englishName, String chineseName, String id, GasRegistryObject<T> gas) {
+    public GasMapping(String englishName, String chineseName, String id) {
         this.englishName = englishName;
         this.chineseName = chineseName;
         this.id = id;
         this.translationKey = "gas." + SpongeFactory.MOD_ID + "." + id;
-        this.gas = gas;
     }
 
 

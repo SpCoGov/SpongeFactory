@@ -1,6 +1,7 @@
 package top.spco.spongefactory;
 
 import com.mojang.logging.LogUtils;
+import mekanism.common.registration.impl.GasDeferredRegister;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -24,7 +25,7 @@ public class SpongeFactory {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
-        ModGases.register(modEventBus);
+        ModGases.REGISTER.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(EventPriority.LOWEST, Datagen::gatherData);
 
