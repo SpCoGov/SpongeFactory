@@ -1,7 +1,6 @@
 package top.spco.spongefactory;
 
 import com.mojang.logging.LogUtils;
-import mekanism.common.registration.impl.GasDeferredRegister;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -12,9 +11,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import top.spco.spongefactory.gas.ModGases;
 import top.spco.spongefactory.infrastructure.data.Datagen;
-import top.spco.spongefactory.item.ModItems;
+import top.spco.spongefactory.registries.ModBlocks;
+import top.spco.spongefactory.registries.ModGases;
+import top.spco.spongefactory.registries.ModItems;
 
 @Mod(SpongeFactory.MOD_ID)
 public class SpongeFactory {
@@ -25,7 +25,8 @@ public class SpongeFactory {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
-        ModGases.REGISTER.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModGases.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(EventPriority.LOWEST, Datagen::gatherData);
 

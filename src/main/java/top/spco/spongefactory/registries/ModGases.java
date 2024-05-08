@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.gas;
+package top.spco.spongefactory.registries;
 
 import mekanism.api.chemical.gas.Gas;
 import mekanism.common.registration.impl.GasDeferredRegister;
 import mekanism.common.registration.impl.GasRegistryObject;
+import net.minecraftforge.eventbus.api.IEventBus;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.GasMapping;
 
@@ -49,5 +50,9 @@ public class ModGases {
         GasMapping gasMapping = new GasMapping(englishName, chineseName, id);
         GASES.add(gasMapping);
         return registeredGas;
+    }
+
+    public static void register(IEventBus eventBus) {
+        REGISTER.register(eventBus);
     }
 }

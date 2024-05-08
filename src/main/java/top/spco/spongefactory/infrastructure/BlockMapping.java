@@ -15,29 +15,34 @@
  */
 package top.spco.spongefactory.infrastructure;
 
-import mekanism.api.chemical.gas.Gas;
+import mekanism.common.registration.impl.BlockRegistryObject;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.Block;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
- * A class representing the mapping of an {@link Gas}.
+ * A class representing the mapping of an {@link Block}.
  *
+ * @param <BLOCK> The type of the block
+ * @param <ITEM>  The type of the blockItem
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class GasMapping implements Translatable {
+public class BlockMapping<BLOCK extends Block, ITEM extends BlockItem> implements Translatable {
     private final String englishName;
     private final String chineseName;
     private final String id;
     private final String translationKey;
+    private final BlockRegistryObject<BLOCK, ITEM> block;
 
-    public GasMapping(String englishName, String chineseName, String id) {
+    public BlockMapping(String englishName, String chineseName, String id, BlockRegistryObject<BLOCK, ITEM> block) {
         this.englishName = englishName;
         this.chineseName = chineseName;
         this.id = id;
-        this.translationKey = "gas." + SpongeFactory.MOD_ID + "." + id;
+        this.translationKey = "block." + SpongeFactory.MOD_ID + "." + id;
+        this.block = block;
     }
-
 
     @Override
     public String getChineseName() {

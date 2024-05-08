@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.item;
+package top.spco.spongefactory.registries;
 
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;

@@ -22,7 +22,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
-import top.spco.spongefactory.item.ModItems;
+import top.spco.spongefactory.registries.ModItems;
 
 import java.util.ArrayList;
 import java.util.List;

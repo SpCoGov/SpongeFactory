@@ -18,11 +18,8 @@ package top.spco.spongefactory.infrastructure.data;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
-import top.spco.spongefactory.item.ModItems;
 
 import java.util.function.Consumer;
 
@@ -41,14 +38,5 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-/*
-        ShapedRecipeBuilder.shaped(ModItems.STONE_HAMMER.getItem())
-                .define('S', Items.STONE)//ItemTags.create(new ResourceLocation("quark", "stone_tool_materials")))
-                .define('T', Items.STICK)
-                .pattern(" ST")
-                .pattern(" TS")
-                .pattern("T  ")
-                .save(consumer);
-*/
     }
 }

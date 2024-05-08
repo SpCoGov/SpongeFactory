@@ -15,14 +15,15 @@
  */
 package top.spco.spongefactory.infrastructure.data;
 
-import mekanism.api.chemical.gas.Gas;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.gas.ModGases;
-import top.spco.spongefactory.infrastructure.Translatable;
-import top.spco.spongefactory.item.ModCreativeModTabs;
-import top.spco.spongefactory.item.ModItems;
+import top.spco.spongefactory.infrastructure.*;
+import top.spco.spongefactory.infrastructure.quest.QuestContent;
+import top.spco.spongefactory.registries.ModBlocks;
+import top.spco.spongefactory.registries.ModGases;
+import top.spco.spongefactory.registries.ModCreativeModTabs;
+import top.spco.spongefactory.registries.ModItems;
 import top.spco.spongefactory.quest.ModQuests;
 
 /**
@@ -51,16 +52,19 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (Translatable item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : ModItems.ITEMS) {
                 add(item.getTranslationKey(), item.getChineseName());
             }
-            for (Translatable tabs : ModCreativeModTabs.TABS) {
+            for (BlockMapping<?, ?> block : ModBlocks.BLOCKS) {
+                add(block.getTranslationKey(), block.getChineseName());
+            }
+            for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getChineseName());
             }
-            for (Translatable questContents : ModQuests.QUESTS) {
+            for (QuestContent questContents : ModQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getChineseName());
             }
-            for (Translatable gas : ModGases.GASES) {
+            for (GasMapping gas : ModGases.GASES) {
                 add(gas.getTranslationKey(), gas.getChineseName());
             }
         }
@@ -73,16 +77,19 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (Translatable item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : ModItems.ITEMS) {
                 add(item.getTranslationKey(), item.getEnglishName());
             }
-            for (Translatable tabs : ModCreativeModTabs.TABS) {
+            for (BlockMapping<?, ?> block : ModBlocks.BLOCKS) {
+                add(block.getTranslationKey(), block.getEnglishName());
+            }
+            for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getEnglishName());
             }
-            for (Translatable questContents : ModQuests.QUESTS) {
+            for (QuestContent questContents : ModQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getEnglishName());
             }
-            for (Translatable gas : ModGases.GASES) {
+            for (GasMapping gas : ModGases.GASES) {
                 add(gas.getTranslationKey(), gas.getEnglishName());
             }
         }
