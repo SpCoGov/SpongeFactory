@@ -15,12 +15,34 @@
  */
 package top.spco.spongefactory.infrastructure.data.loot;
 
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
+import top.spco.spongefactory.infrastructure.BlockMapping;
+import top.spco.spongefactory.registries.ModBlocks;
+
 /**
- * Created on 2024/04/27 12:12
+ * Generate block's loottables
  *
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class ModBlockLootTables {
+public class ModBlockLootTables extends BlockLoot {
+    public ModBlockLootTables() {
+
+    }
+
+    @Override
+    protected void addTables() {
+        for (BlockMapping<?> block : ModBlocks.BLOCKS) {
+            dropSelf(block.getRegisteredBlock().get());
+        }
+    }
+
+    @Override
+    protected @NotNull Iterable<Block> getKnownBlocks() {
+        return ModBlocks.REGISTER.getEntries().stream().flatMap(RegistryObject::stream)::iterator;
+    }
 }

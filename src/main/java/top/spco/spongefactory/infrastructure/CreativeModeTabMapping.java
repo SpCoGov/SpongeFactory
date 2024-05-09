@@ -28,37 +28,20 @@ import java.util.function.Supplier;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class CreativeModeTabMapping extends CreativeModeTab implements Translatable {
-    private final Supplier<ItemStack> icon;
-    private final String englishName;
-    private final String chineseName;
-    private final String translationKey;
+public class CreativeModeTabMapping extends Translatable {
+    private final CreativeModeTab tab;
 
     public CreativeModeTabMapping(String englishName, String chineseName, String id, @NotNull Supplier<ItemStack> icon) {
-        super(id);
-        this.icon = icon;
-        this.englishName = englishName;
-        this.chineseName = chineseName;
-        this.translationKey = "itemGroup." + id;
+        super(englishName, chineseName, "itemGroup." + id);
+        this.tab = new CreativeModeTab(id) {
+            @Override
+            public @NotNull ItemStack makeIcon() {
+                return icon.get();
+            }
+        };
     }
 
-    @Override
-    public @NotNull ItemStack makeIcon() {
-        return icon.get();
-    }
-
-    @Override
-    public String getChineseName() {
-        return chineseName;
-    }
-
-    @Override
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return translationKey;
+    public CreativeModeTab get() {
+        return tab;
     }
 }

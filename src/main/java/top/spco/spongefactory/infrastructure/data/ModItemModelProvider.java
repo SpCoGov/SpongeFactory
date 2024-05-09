@@ -44,6 +44,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         List<ItemMapping<?>> handheldItems = new ArrayList<>();
         handheldItems.add(ModItems.STONE_HAMMER);
         for (var item : ModItems.ITEMS) {
+            if (item.isBlockItem()) {
+                continue;
+            }
             if (handheldItems.contains(item)) {
                 handheldItem(item);
             } else {

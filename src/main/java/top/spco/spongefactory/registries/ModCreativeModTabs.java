@@ -31,11 +31,14 @@ import java.util.function.Supplier;
  */
 public class ModCreativeModTabs {
     public static final HashSet<CreativeModeTabMapping> TABS = new HashSet<>();
-    public static final CreativeModeTabMapping MATERIAL_TAB = tab("SpongeFactory: Material", "海绵工厂：材料", "material",
+    public static final CreativeModeTabMapping MATERIAL = tab("SpongeFactory: Material", "海绵工厂：材料", "material",
             () -> new ItemStack(ModItems.MYSTERIUM_LINING.getRegisteredItem().get()));
 
-    public static final CreativeModeTabMapping TOOL_TAB = tab("SpongeFactory: Tool", "海绵工厂：工具", "tool",
+    public static final CreativeModeTabMapping TOOL = tab("SpongeFactory: Tool", "海绵工厂：工具", "tool",
             () -> new ItemStack(ModItems.STONE_HAMMER.getRegisteredItem().get()));
+
+    public static final CreativeModeTabMapping BLOCK = tab("SpongeFactory: Block", "海绵工厂：方块", "block",
+            () -> new ItemStack(ModBlocks.TEST_BLOCK.getRegisteredBlockItem()));
 
     private static CreativeModeTabMapping tab(String englishName, String chineseName, String id, @NotNull Supplier<ItemStack> icon) {
         CreativeModeTabMapping tab = new CreativeModeTabMapping(englishName, chineseName, id, icon);

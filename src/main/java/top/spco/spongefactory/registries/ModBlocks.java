@@ -15,29 +15,46 @@
  */
 package top.spco.spongefactory.registries;
 
-import mekanism.common.registration.impl.BlockDeferredRegister;
-import mekanism.common.registration.impl.BlockRegistryObject;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.BlockMapping;
+import top.spco.spongefactory.infrastructure.ItemMapping;
 
 import java.util.HashSet;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final HashSet<BlockMapping<?, ?>> BLOCKS = new HashSet<>();
-    public static final BlockDeferredRegister REGISTER = new BlockDeferredRegister(SpongeFactory.MOD_ID);
+    public static final HashSet<BlockMapping<?>> BLOCKS = new HashSet<>();
+    public static final DeferredRegister<Block> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, SpongeFactory.MOD_ID);
+    public static final BlockMapping<Block> TEST_BLOCK = blockWithItem("testBlock", "测试方块", "test_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1F)));
 
+    private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
+                                                                            Supplier<T> block) {
+        return blockWithItem(englishName, chineseName, id, block, ModCreativeModTabs.BLOCK.get());
+    }
 
-    private static <BLOCK extends Block, ITEM extends BlockItem> @NotNull BlockMapping<BLOCK, ITEM> block(String englishName, String chineseName, String id,
-                                                                                                          Supplier<? extends BLOCK> block, Function<BLOCK, ITEM> itemCreator) {
-        BlockRegistryObject<BLOCK, ITEM> registeredBlock = REGISTER.register(id, block, itemCreator);
+    private static <T extends Block> ItemMapping<BlockItem> blockItem(String englishName, String chineseName, String id, RegistryObject<T> block,
+                                                                      CreativeModeTab tab) {
+        return ModItems.item(englishName,chineseName,id,() -> new BlockItem(block.get(), new Item.Properties().tab(tab)), true);
+    }
 
-        var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock);
+    private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
+                                                                            Supplier<T> block, CreativeModeTab tab) {
+        RegistryObject<T> registeredBlock = REGISTER.register(id, block);
+
+        var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock,
+                blockItem(englishName, chineseName, id, registeredBlock, tab));
         BLOCKS.add(blockMapping);
         return blockMapping;
     }

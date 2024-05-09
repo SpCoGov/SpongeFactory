@@ -17,29 +17,8 @@ package top.spco.spongefactory.infrastructure.quest;
 
 import top.spco.spongefactory.infrastructure.Translatable;
 
-public abstract class QuestContent implements Translatable {
-    protected final String translationKey;
-    protected final String chinese;
-    protected final String english;
-
+public abstract class QuestContent extends Translatable {
     protected QuestContent(String translationKey, String chinese, String english) {
-        this.translationKey = translationKey;
-        this.chinese = chinese;
-        this.english = english;
-    }
-
-    @Override
-    public String getChineseName() {
-        return chinese;
-    }
-
-    @Override
-    public String getEnglishName() {
-        return english;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return translationKey;
+        super(english, chinese, translationKey);
     }
 }

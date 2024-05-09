@@ -1,4 +1,5 @@
 {
+  "block.spongefactory.test_block": "测试方块",
   "chapter.spongefactory.chapter_1.cut_logs_first.subtitle": "经典开局",
   "chapter.spongefactory.chapter_1.cut_logs_first.title": "先撸树",
   "chapter.spongefactory.chapter_1.title": "第一章",
@@ -94,6 +95,7 @@
   "item.spongefactory.stress_endurance_mechanism": "耐应力构件",
   "item.spongefactory.stress_resistance_mechanism": "抗应力构件",
   "item.spongefactory.yielding_mechanism": "顺应力构件",
+  "itemGroup.block": "海绵工厂：方块",
   "itemGroup.material": "海绵工厂：材料",
   "itemGroup.tool": "海绵工厂：工具",
   "questGroup.spongefactory.getting_start": "入门"

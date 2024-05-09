@@ -47,7 +47,7 @@ public class ModItems {
     public static final ItemMapping<Item> QUICKLIME = defaultMaterialItem("Quicklime", "生石灰", "quicklime");
     public static final ItemMapping<Item> SLAKED_LIME = defaultMaterialItem("Slaked Lime", "熟石灰", "slaked_lime");
     public static final ItemMapping<Item> STONE_HAMMER = item("Stone Hammer", "石锤", "stone_hammer",
-            () -> new Item(new Item.Properties().durability(64).tab(ModCreativeModTabs.TOOL_TAB)));
+            () -> new Item(new Item.Properties().durability(64).tab(ModCreativeModTabs.TOOL.get())));
     public static final ItemMapping<Item> POLISHED_BLACK_CORUNDUM = defaultMaterialItem("Polished Black Corundum", "磨制黑色刚玉", "polished_black_corundum");
     public static final ItemMapping<Item> POLISHED_BLUE_CORUNDUM = defaultMaterialItem("Polished Blue Corundum", "磨制蓝色刚玉", "polished_blue_corundum");
     public static final ItemMapping<Item> POLISHED_GREEN_CORUNDUM = defaultMaterialItem("Polished Green Corundum", "磨制绿色刚玉", "polished_green_corundum");
@@ -106,7 +106,7 @@ public class ModItems {
     public static final ItemMapping<Item> OTHERWORLD_ELECTRUM_INGOT = defaultMaterialItem("Otherworld Electrum Ingot", "异界琥珀金锭", "otherworld_electrum_ingot");
     public static final ItemMapping<Item> INFUSED_BRASS = defaultMaterialItem("Infused Brass", "灌注黄铜", "infused_brass");
     public static final ItemMapping<SimpleFoiledItem> HOLY_SHIT = item("Holy Shit", "上帝的屎", "holy_shit",
-            () -> new SimpleFoiledItem((new Item.Properties()).tab(ModCreativeModTabs.MATERIAL_TAB).rarity(Rarity.create("HOLY", ChatFormatting.GOLD))));
+            () -> new SimpleFoiledItem((new Item.Properties()).tab(ModCreativeModTabs.MATERIAL.get()).rarity(Rarity.create("HOLY", ChatFormatting.GOLD))));
     public static final ItemMapping<Item> PLASTIC_LATTICE = defaultMaterialItem("Plastic Lattice", "塑料格栅", "plastic_lattice");
     public static final ItemMapping<Item> DISTILLATION_FILLER = defaultMaterialItem("Distillation Filler", "蒸馏填料", "distillation_filler");
     public static final ItemMapping<Item> SPARK_PLUG = defaultMaterialItem("Spark Plug", "火花塞", "spark_plug");
@@ -118,13 +118,17 @@ public class ModItems {
     public static final ItemMapping<Item> MAGNET_WIRE = defaultMaterialItem("Magnet Wire", "漆包线", "magnet_wire");
 
     private static ItemMapping<Item> defaultMaterialItem(String englishName, String chineseName, String id) {
-        return item(englishName, chineseName, id, () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL_TAB)));
+        return item(englishName, chineseName, id, () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL.get())));
     }
 
     private static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item) {
+        return item(englishName, chineseName, id, item, false);
+    }
+
+    static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item, boolean isBlockItem) {
         RegistryObject<T> registeredItem = REGISTER.register(id, item);
 
-        var itemDef = new ItemMapping<>(englishName, chineseName, id, registeredItem);
+        var itemDef = new ItemMapping<>(englishName, chineseName, id, registeredItem, isBlockItem);
         ITEMS.add(itemDef);
         return itemDef;
     }

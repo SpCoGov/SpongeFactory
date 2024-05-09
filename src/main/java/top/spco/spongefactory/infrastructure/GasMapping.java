@@ -25,32 +25,11 @@ import top.spco.spongefactory.SpongeFactory;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class GasMapping implements Translatable {
-    private final String englishName;
-    private final String chineseName;
+public class GasMapping extends Translatable {
     private final String id;
-    private final String translationKey;
 
     public GasMapping(String englishName, String chineseName, String id) {
-        this.englishName = englishName;
-        this.chineseName = chineseName;
+        super(englishName, chineseName, "gas." + SpongeFactory.MOD_ID + "." + id);
         this.id = id;
-        this.translationKey = "gas." + SpongeFactory.MOD_ID + "." + id;
-    }
-
-
-    @Override
-    public String getChineseName() {
-        return chineseName;
-    }
-
-    @Override
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return translationKey;
     }
 }

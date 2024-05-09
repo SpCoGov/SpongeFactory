@@ -19,6 +19,8 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.infrastructure.BlockMapping;
+import top.spco.spongefactory.registries.ModBlocks;
 
 /**
  * Generate blockstates
@@ -34,6 +36,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        for (BlockMapping<?> block : ModBlocks.BLOCKS) {
+            blockWithItem(block);
+        }
+    }
 
+    private void blockWithItem(BlockMapping<?> block) {
+        simpleBlock(block.getRegisteredBlock().get(), cubeAll(block.getRegisteredBlock().get()));
+        simpleBlockItem(block.getRegisteredBlock().get(), cubeAll(block.getRegisteredBlock().get()));
     }
 }

@@ -43,5 +43,8 @@ public class Datagen {
 
         ModRecipeProvider recipeProvider = new ModRecipeProvider(generator);
         generator.addProvider(true, recipeProvider);
+
+        ModLootTableProvider lootTableProvider = new ModLootTableProvider(generator);
+        generator.addProvider(true, lootTableProvider);
     }
 }

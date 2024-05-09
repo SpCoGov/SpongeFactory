@@ -15,47 +15,36 @@
  */
 package top.spco.spongefactory.infrastructure;
 
-import mekanism.common.registration.impl.BlockRegistryObject;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
  * A class representing the mapping of an {@link Block}.
  *
- * @param <BLOCK> The type of the block
- * @param <ITEM>  The type of the blockItem
+ * @param <T> The type of the block
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class BlockMapping<BLOCK extends Block, ITEM extends BlockItem> implements Translatable {
-    private final String englishName;
-    private final String chineseName;
+public class BlockMapping<T extends Block> extends Translatable {
     private final String id;
-    private final String translationKey;
-    private final BlockRegistryObject<BLOCK, ITEM> block;
+    private final RegistryObject<T> block;
+    private final ItemMapping<BlockItem> blockItem;
 
-    public BlockMapping(String englishName, String chineseName, String id, BlockRegistryObject<BLOCK, ITEM> block) {
-        this.englishName = englishName;
-        this.chineseName = chineseName;
+    public BlockMapping(String englishName, String chineseName, String id, RegistryObject<T> block, ItemMapping<BlockItem> blockItem) {
+        super(englishName, chineseName, "block." + SpongeFactory.MOD_ID + "." + id);
         this.id = id;
-        this.translationKey = "block." + SpongeFactory.MOD_ID + "." + id;
         this.block = block;
+        this.blockItem = blockItem;
     }
 
-    @Override
-    public String getChineseName() {
-        return chineseName;
+    public RegistryObject<T> getRegisteredBlock() {
+        return block;
     }
 
-    @Override
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return translationKey;
+    public ItemMapping<BlockItem> getRegisteredBlockItem() {
+        return blockItem;
     }
 }

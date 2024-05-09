@@ -18,13 +18,16 @@ package top.spco.spongefactory.infrastructure.data;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.infrastructure.*;
+import top.spco.spongefactory.infrastructure.BlockMapping;
+import top.spco.spongefactory.infrastructure.CreativeModeTabMapping;
+import top.spco.spongefactory.infrastructure.GasMapping;
+import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.infrastructure.quest.QuestContent;
-import top.spco.spongefactory.registries.ModBlocks;
-import top.spco.spongefactory.registries.ModGases;
-import top.spco.spongefactory.registries.ModCreativeModTabs;
-import top.spco.spongefactory.registries.ModItems;
 import top.spco.spongefactory.quest.ModQuests;
+import top.spco.spongefactory.registries.ModBlocks;
+import top.spco.spongefactory.registries.ModCreativeModTabs;
+import top.spco.spongefactory.registries.ModGases;
+import top.spco.spongefactory.registries.ModItems;
 
 /**
  * Provides supported language providers for generating language files.
@@ -53,9 +56,12 @@ public class SupportedLanguageProviders {
         @Override
         protected void addTranslations() {
             for (ItemMapping<?> item : ModItems.ITEMS) {
+                if (item.isBlockItem()) {
+                    continue;
+                }
                 add(item.getTranslationKey(), item.getChineseName());
             }
-            for (BlockMapping<?, ?> block : ModBlocks.BLOCKS) {
+            for (BlockMapping<?> block : ModBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getChineseName());
             }
             for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
@@ -78,9 +84,12 @@ public class SupportedLanguageProviders {
         @Override
         protected void addTranslations() {
             for (ItemMapping<?> item : ModItems.ITEMS) {
+                if (item.isBlockItem()) {
+                    continue;
+                }
                 add(item.getTranslationKey(), item.getEnglishName());
             }
-            for (BlockMapping<?, ?> block : ModBlocks.BLOCKS) {
+            for (BlockMapping<?> block : ModBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getEnglishName());
             }
             for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
