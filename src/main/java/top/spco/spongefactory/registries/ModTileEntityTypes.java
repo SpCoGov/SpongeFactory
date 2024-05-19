@@ -15,6 +15,14 @@
  */
 package top.spco.spongefactory.registries;
 
-public class ModBlockTypes {
+import mekanism.common.registration.impl.TileEntityTypeDeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import top.spco.spongefactory.SpongeFactory;
 
+public class ModTileEntityTypes {
+    public static final TileEntityTypeDeferredRegister REGISTER = new TileEntityTypeDeferredRegister(SpongeFactory.MOD_ID);
+
+    public static void register(IEventBus eventBus) {
+        REGISTER.register(eventBus);
+    }
 }

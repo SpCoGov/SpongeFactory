@@ -26,6 +26,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.item.HammerItem;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
@@ -46,8 +47,7 @@ public class ModItems {
     public static final ItemMapping<Item> MYSTERIUM_LINING = defaultMaterialItem("Mysterium Lining", "神秘元质内衬", "mysterium_lining");
     public static final ItemMapping<Item> QUICKLIME = defaultMaterialItem("Quicklime", "生石灰", "quicklime");
     public static final ItemMapping<Item> SLAKED_LIME = defaultMaterialItem("Slaked Lime", "熟石灰", "slaked_lime");
-    public static final ItemMapping<Item> STONE_HAMMER = item("Stone Hammer", "石锤", "stone_hammer",
-            () -> new Item(new Item.Properties().durability(64).tab(ModCreativeModTabs.TOOL.get())));
+    public static final ItemMapping<HammerItem> STONE_HAMMER = item("Stone Hammer", "石锤", "stone_hammer", () -> new HammerItem(64));
     public static final ItemMapping<Item> POLISHED_BLACK_CORUNDUM = defaultMaterialItem("Polished Black Corundum", "磨制黑色刚玉", "polished_black_corundum");
     public static final ItemMapping<Item> POLISHED_BLUE_CORUNDUM = defaultMaterialItem("Polished Blue Corundum", "磨制蓝色刚玉", "polished_blue_corundum");
     public static final ItemMapping<Item> POLISHED_GREEN_CORUNDUM = defaultMaterialItem("Polished Green Corundum", "磨制绿色刚玉", "polished_green_corundum");
@@ -116,6 +116,12 @@ public class ModItems {
     public static final ItemMapping<Item> IGNITION_COIL = defaultMaterialItem("Ignition Coil", "放电线圈", "ignition_coil");
     public static final ItemMapping<Item> INTERNAL_COMBUSTION_ENGINE = defaultMaterialItem("Internal Combustion Engine", "内燃机", "internal_combustion_engine");
     public static final ItemMapping<Item> MAGNET_WIRE = defaultMaterialItem("Magnet Wire", "漆包线", "magnet_wire");
+    public static final ItemMapping<Item> STATOR = defaultMaterialItem("Stator", "定子", "stator");
+    public static final ItemMapping<Item> ROTOR = defaultMaterialItem("Rotor", "转子", "rotor");
+    public static final ItemMapping<Item> FERROMAGNETIC_MATERIAL = defaultMaterialItem("Ferromagnetic Material", "铁磁材料", "ferromagnetic_material");
+    public static final ItemMapping<Item> DIELECTRIC_PASTE_SHEET = defaultMaterialItem("Dielectric Paste Sheet", "绝缘覆层片", "dielectric_paste_sheet");
+    public static final ItemMapping<Item> LOGO = defaultMaterialItem("Logo", "Logo", "logo");
+    public static final ItemMapping<Item> HIGH_TEMPERATURE_DEPOSITION_SUBSTRATE = defaultMaterialItem("High Temperature Deposition Substrate","高温沉积基底","high_temperature_deposition_substrate");
 
     private static ItemMapping<Item> defaultMaterialItem(String englishName, String chineseName, String id) {
         return item(englishName, chineseName, id, () -> new Item(new Item.Properties().tab(ModCreativeModTabs.MATERIAL.get())));

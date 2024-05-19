@@ -13,8 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.registries;
+package top.spco.spongefactory.item;
 
-public class ModBlockTypes {
+import net.minecraft.world.item.Item;
+import top.spco.spongefactory.registries.ModCreativeModTabs;
 
+/**
+ * @author SpCo
+ * @version 0.1.0
+ * @since 0.1.0
+ */
+public class HammerItem extends Item {
+    public HammerItem(int durability) {
+        super(new Properties().durability(durability).tab(ModCreativeModTabs.TOOL.get()).defaultDurability(durability));
+    }
 }

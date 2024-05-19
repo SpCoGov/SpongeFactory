@@ -15,6 +15,7 @@ import top.spco.spongefactory.infrastructure.data.Datagen;
 import top.spco.spongefactory.registries.ModBlocks;
 import top.spco.spongefactory.registries.ModGases;
 import top.spco.spongefactory.registries.ModItems;
+import top.spco.spongefactory.registries.ModTileEntityTypes;
 
 @Mod(SpongeFactory.MOD_ID)
 public class SpongeFactory {
@@ -27,6 +28,7 @@ public class SpongeFactory {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModGases.register(modEventBus);
+        ModTileEntityTypes.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(EventPriority.LOWEST, Datagen::gatherData);
 

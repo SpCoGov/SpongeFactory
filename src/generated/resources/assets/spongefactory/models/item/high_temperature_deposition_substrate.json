@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "spongefactory:item/high_temperature_deposition_substrate"
+  }
+}

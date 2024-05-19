@@ -19,8 +19,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,8 +34,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final HashSet<BlockMapping<?>> BLOCKS = new HashSet<>();
     public static final DeferredRegister<Block> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, SpongeFactory.MOD_ID);
-    public static final BlockMapping<Block> TEST_BLOCK = blockWithItem("testBlock", "测试方块", "test_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1F)));
+
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                             Supplier<T> block) {
@@ -46,7 +43,7 @@ public class ModBlocks {
 
     private static <T extends Block> ItemMapping<BlockItem> blockItem(String englishName, String chineseName, String id, RegistryObject<T> block,
                                                                       CreativeModeTab tab) {
-        return ModItems.item(englishName,chineseName,id,() -> new BlockItem(block.get(), new Item.Properties().tab(tab)), true);
+        return ModItems.item(englishName, chineseName, id, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)), true);
     }
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,

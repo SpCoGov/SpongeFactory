@@ -28,11 +28,13 @@ public abstract class Translatable {
     protected final String englishName;
     protected final String chineseName;
     protected final String translationKey;
+
     public Translatable(String englishName, String chineseName, String translationKey) {
         this.englishName = englishName;
         this.chineseName = chineseName;
         this.translationKey = translationKey;
     }
+
     /**
      * Gets the name of the object in Chinese.
      *

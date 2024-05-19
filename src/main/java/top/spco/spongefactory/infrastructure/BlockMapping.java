@@ -15,9 +15,13 @@
  */
 package top.spco.spongefactory.infrastructure;
 
+import mekanism.common.registration.impl.BlockRegistryObject;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
@@ -28,7 +32,7 @@ import top.spco.spongefactory.SpongeFactory;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class BlockMapping<T extends Block> extends Translatable {
+public class BlockMapping<T extends Block> extends Translatable implements ItemLike {
     private final String id;
     private final RegistryObject<T> block;
     private final ItemMapping<BlockItem> blockItem;
@@ -46,5 +50,14 @@ public class BlockMapping<T extends Block> extends Translatable {
 
     public ItemMapping<BlockItem> getRegisteredBlockItem() {
         return blockItem;
+    }
+
+    public BlockRegistryObject<T, BlockItem> toMekRegistryObject() {
+        return new BlockRegistryObject<>(block, blockItem.getRegisteredItem());
+    }
+
+    @Override
+    public @NotNull Item asItem() {
+        return blockItem.getItem();
     }
 }
