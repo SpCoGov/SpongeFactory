@@ -1,6 +1,10 @@
 {
+  "block.spongefactory.mass_energy_converter": "Mass-Energy Converter",
+  "block.spongefactory.portal_frame": "Portal Frame",
   "chapter.spongefactory.welcome.title": "Welcome",
   "chapter.spongefactory.welcome.welcome.title": "Welcome to Sponge Factory!",
+  "container.spongefactory.mass_energy_converter": "Mass-Energy Converter",
+  "description.spongefactory.mass_energy_converter": "A machine that completely converts the rest mass of a specific substance into energy.",
   "electric_age.chapter.spongefactory.chapter_5.title": "Chapter 5",
   "gas.spongefactory.boson": "Boson",
   "gas.spongefactory.bottom_quark": "Bottom Quark",
@@ -90,6 +94,7 @@
   "item.spongefactory.scribing_tools": "Scribing Tools",
   "item.spongefactory.secondary_coil": "Secondary Coil",
   "item.spongefactory.slaked_lime": "Slaked Lime",
+  "item.spongefactory.space_link_eye": "Eye of Space Link",
   "item.spongefactory.spark_plug": "Spark Plug",
   "item.spongefactory.stator": "Stator",
   "item.spongefactory.stone_hammer": "Stone Hammer",

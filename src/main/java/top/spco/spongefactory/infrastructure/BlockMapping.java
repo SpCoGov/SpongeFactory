@@ -35,9 +35,9 @@ import top.spco.spongefactory.SpongeFactory;
 public class BlockMapping<T extends Block> extends Translatable implements ItemLike {
     private final String id;
     private final RegistryObject<T> block;
-    private final ItemMapping<BlockItem> blockItem;
+    private final ItemMapping<? extends BlockItem> blockItem;
 
-    public BlockMapping(String englishName, String chineseName, String id, RegistryObject<T> block, ItemMapping<BlockItem> blockItem) {
+    public BlockMapping(String englishName, String chineseName, String id, RegistryObject<T> block, ItemMapping<? extends BlockItem> blockItem) {
         super(englishName, chineseName, "block." + SpongeFactory.MOD_ID + "." + id);
         this.id = id;
         this.block = block;
@@ -48,12 +48,16 @@ public class BlockMapping<T extends Block> extends Translatable implements ItemL
         return block;
     }
 
-    public ItemMapping<BlockItem> getRegisteredBlockItem() {
+    public ItemMapping<? extends BlockItem> getRegisteredBlockItem() {
         return blockItem;
     }
 
-    public BlockRegistryObject<T, BlockItem> toMekRegistryObject() {
+    public BlockRegistryObject<T, ? extends BlockItem> toMekRegistryObject() {
         return new BlockRegistryObject<>(block, blockItem.getRegisteredItem());
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

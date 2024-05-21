@@ -18,16 +18,10 @@ package top.spco.spongefactory.infrastructure.data;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.infrastructure.BlockMapping;
-import top.spco.spongefactory.infrastructure.CreativeModeTabMapping;
-import top.spco.spongefactory.infrastructure.GasMapping;
-import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.infrastructure.*;
 import top.spco.spongefactory.infrastructure.quest.QuestContent;
-import top.spco.spongefactory.quest.ModQuests;
-import top.spco.spongefactory.registries.ModBlocks;
-import top.spco.spongefactory.registries.ModCreativeModTabs;
-import top.spco.spongefactory.registries.ModGases;
-import top.spco.spongefactory.registries.ModItems;
+import top.spco.spongefactory.quest.SpongeFactoryQuests;
+import top.spco.spongefactory.registries.*;
 
 /**
  * Provides supported language providers for generating language files.
@@ -43,7 +37,7 @@ public class SupportedLanguageProviders {
     public final LanguageProvider english;
 
     public SupportedLanguageProviders(DataGenerator generator) {
-        ModQuests.init();
+        SpongeFactoryQuests.init();
         chinese = new ChineseProvider(generator);
         english = new EnglishProvider(generator);
     }
@@ -55,23 +49,29 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (ItemMapping<?> item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : SpongeFactoryItems.ITEMS) {
                 if (item.isBlockItem()) {
                     continue;
                 }
                 add(item.getTranslationKey(), item.getChineseName());
             }
-            for (BlockMapping<?> block : ModBlocks.BLOCKS) {
+            for (BlockMapping<?> block : SpongeFactoryBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getChineseName());
             }
-            for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
+            for (CreativeModeTabMapping tabs : SpongeFactoryCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getChineseName());
             }
-            for (QuestContent questContents : ModQuests.QUESTS) {
+            for (QuestContent questContents : SpongeFactoryQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getChineseName());
             }
-            for (GasMapping gas : ModGases.GASES) {
+            for (GasMapping gas : SpongeFactoryGases.GASES) {
                 add(gas.getTranslationKey(), gas.getChineseName());
+            }
+            for (ContainerMapping<?> container : SpongeFactoryContainerTypes.CONTAINERS) {
+                add(container.getTranslationKey(), container.getChineseName());
+            }
+            for (SpongeFactoryMachineDescription description : SpongeFactoryMachineDescription.DESCRIPTIONS) {
+                add(description.getTranslationKey(), description.getChineseName());
             }
         }
     }
@@ -83,23 +83,29 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (ItemMapping<?> item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : SpongeFactoryItems.ITEMS) {
                 if (item.isBlockItem()) {
                     continue;
                 }
                 add(item.getTranslationKey(), item.getEnglishName());
             }
-            for (BlockMapping<?> block : ModBlocks.BLOCKS) {
+            for (BlockMapping<?> block : SpongeFactoryBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getEnglishName());
             }
-            for (CreativeModeTabMapping tabs : ModCreativeModTabs.TABS) {
+            for (CreativeModeTabMapping tabs : SpongeFactoryCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getEnglishName());
             }
-            for (QuestContent questContents : ModQuests.QUESTS) {
+            for (QuestContent questContents : SpongeFactoryQuests.QUESTS) {
                 add(questContents.getTranslationKey(), questContents.getEnglishName());
             }
-            for (GasMapping gas : ModGases.GASES) {
+            for (GasMapping gas : SpongeFactoryGases.GASES) {
                 add(gas.getTranslationKey(), gas.getEnglishName());
+            }
+            for (ContainerMapping<?> container : SpongeFactoryContainerTypes.CONTAINERS) {
+                add(container.getTranslationKey(), container.getEnglishName());
+            }
+            for (SpongeFactoryMachineDescription description : SpongeFactoryMachineDescription.DESCRIPTIONS) {
+                add(description.getTranslationKey(), description.getEnglishName());
             }
         }
     }

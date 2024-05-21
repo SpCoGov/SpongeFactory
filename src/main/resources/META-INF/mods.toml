@@ -50,6 +50,12 @@ side=  "BOTH"
 [[dependencies."${mod_id}"]]
 modId = "mekanism"
 mandatory = true
-versionRange = "[10.3.2,)"
+versionRange = "${mekanism_version_range}"
 ordering = "AFTER"
 side=  "BOTH"
+[[dependencies."${mod_id}"]]
+modId="jei"
+mandatory=false
+versionRange="${jei_version_range}"
+ordering="AFTER"
+side="BOTH"

@@ -67,6 +67,7 @@ minecraft {
     // This default location is a best practice to automatically put the file in the right place in the final jar.
     // See https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/ for more information.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -147,6 +148,7 @@ repositories {
         content {
             includeGroup 'appeng'
             includeGroup 'mekanism'
+            includeGroup 'mezz.jei'
         }
     }
     maven {
@@ -165,9 +167,12 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    compileOnly fg.deobf("appeng:appliedenergistics2-forge:12.9.5")
+    compileOnly fg.deobf("appeng:appliedenergistics2-forge:${ae_veriosn}")
     runtimeOnly fg.deobf("curse.maven:applied-energistics-2-223794:4548558")
-    implementation fg.deobf("mekanism:Mekanism:1.19.2-10.3.2.469")
+    implementation fg.deobf("mekanism:Mekanism:${minecraft_version}-${mekanism_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -197,6 +202,7 @@ tasks.named('processResources', ProcessResources).configure {
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description,
+            jei_version_range   : jei_version_range, mekanism_version_range : mekanism_version_range
     ]
 
     inputs.properties replaceProperties

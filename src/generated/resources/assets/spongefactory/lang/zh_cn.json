@@ -1,6 +1,10 @@
 {
+  "block.spongefactory.mass_energy_converter": "质能转换器",
+  "block.spongefactory.portal_frame": "传送门框架",
   "chapter.spongefactory.welcome.title": "欢迎",
   "chapter.spongefactory.welcome.welcome.title": "欢迎来到海绵工厂！",
+  "container.spongefactory.mass_energy_converter": "质能转换器",
+  "description.spongefactory.mass_energy_converter": "将特定物质的静止质量完全转化为能量的机器。",
   "electric_age.chapter.spongefactory.chapter_5.title": "第五章",
   "gas.spongefactory.boson": "W及Z玻色子",
   "gas.spongefactory.bottom_quark": "底夸克",
@@ -90,6 +94,7 @@
   "item.spongefactory.scribing_tools": "笔与墨",
   "item.spongefactory.secondary_coil": "次级线圈",
   "item.spongefactory.slaked_lime": "熟石灰",
+  "item.spongefactory.space_link_eye": "空间链接之眼",
   "item.spongefactory.spark_plug": "火花塞",
   "item.spongefactory.stator": "定子",
   "item.spongefactory.stone_hammer": "石锤",

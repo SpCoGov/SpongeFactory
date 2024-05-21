@@ -13,18 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.item;
+package top.spco.spongefactory.client.jei;
 
-import net.minecraft.world.item.Item;
-import top.spco.spongefactory.registries.SpongeFactoryCreativeModTabs;
+import mekanism.api.recipes.GasToGasRecipe;
+import mekanism.client.jei.MekanismJEIRecipeType;
+import top.spco.spongefactory.registries.SpongeFactoryBlocks;
 
-/**
- * @author SpCo
- * @version 0.1.0
- * @since 0.1.0
- */
-public class HammerItem extends Item {
-    public HammerItem(int durability) {
-        super(new Properties().durability(durability).tab(SpongeFactoryCreativeModTabs.TOOL.get()).defaultDurability(durability));
-    }
+public class SpongeFactoryJEIRecipeType {
+    public static final MekanismJEIRecipeType<GasToGasRecipe> ME_CONVERTING = new MekanismJEIRecipeType<>(SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), GasToGasRecipe.class);
 }

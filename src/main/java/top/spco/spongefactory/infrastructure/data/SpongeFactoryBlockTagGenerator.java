@@ -13,18 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.item;
-
-import net.minecraft.world.item.Item;
-import top.spco.spongefactory.registries.SpongeFactoryCreativeModTabs;
+package top.spco.spongefactory.infrastructure.data;
 
 /**
+ * Created on 2024/04/27 12:10
+ *
  * @author SpCo
  * @version 0.1.0
  * @since 0.1.0
  */
-public class HammerItem extends Item {
-    public HammerItem(int durability) {
-        super(new Properties().durability(durability).tab(SpongeFactoryCreativeModTabs.TOOL.get()).defaultDurability(durability));
-    }
+public class SpongeFactoryBlockTagGenerator {
 }

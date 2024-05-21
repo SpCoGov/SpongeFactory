@@ -1,0 +1,12 @@
+{
+  "parent": "mekanism:block/machine",
+  "textures": {
+    "sides": "spongefactory:block/mass_energy_converter/right",
+    "front": "spongefactory:block/mass_energy_converter/front",
+    "west": "spongefactory:block/mass_energy_converter/right",
+    "east": "spongefactory:block/mass_energy_converter/left",
+    "south": "spongefactory:block/mass_energy_converter/back",
+    "up": "spongefactory:block/mass_energy_converter/top",
+    "down": "spongefactory:block/mass_energy_converter/bottom"
+  }
+}
