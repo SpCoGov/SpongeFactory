@@ -5,7 +5,7 @@
     "gas": "mekanism:antimatter"
   },
   "output": {
-    "amount": 20,
+    "amount": 10,
     "gas": "spongefactory:photon"
   }
 }

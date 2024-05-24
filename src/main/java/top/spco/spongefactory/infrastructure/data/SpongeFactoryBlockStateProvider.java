@@ -22,6 +22,8 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.registries.SpongeFactoryBlocks;
 
+import java.util.HashSet;
+
 /**
  * Generate blockstates
  *
@@ -36,8 +38,12 @@ public class SpongeFactoryBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        HashSet<BlockMapping<?>> skip = new HashSet<>();
+        skip.add(SpongeFactoryBlocks.MASS_ENERGY_CONVERTER);
+        skip.add(SpongeFactoryBlocks.STORAGE_STABILIZER_BASE);
+        skip.add(SpongeFactoryBlocks.UNPROCESSED_MACHINE_FRAME);
         for (BlockMapping<?> block : SpongeFactoryBlocks.BLOCKS) {
-            if (block == SpongeFactoryBlocks.MASS_ENERGY_CONVERTER) {
+            if (skip.contains(block)) {
                 continue;
             }
             blockWithItem(block);

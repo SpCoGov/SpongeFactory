@@ -73,6 +73,12 @@ public class SupportedLanguageProviders {
             for (SpongeFactoryMachineDescription description : SpongeFactoryMachineDescription.DESCRIPTIONS) {
                 add(description.getTranslationKey(), description.getChineseName());
             }
+            for (FluidMapping fluid : SpongeFactoryFluids.FLUIDS) {
+                add(fluid.getTranslationKey(), fluid.getChineseName());
+            }
+            for (InfuseTypeMapping infuseType : SpongeFactoryInfuseTypes.INFUSE_TYPES) {
+                add(infuseType.getTranslationKey(), infuseType.getChineseName());
+            }
         }
     }
 
@@ -92,11 +98,11 @@ public class SupportedLanguageProviders {
             for (BlockMapping<?> block : SpongeFactoryBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getEnglishName());
             }
-            for (CreativeModeTabMapping tabs : SpongeFactoryCreativeModTabs.TABS) {
-                add(tabs.getTranslationKey(), tabs.getEnglishName());
+            for (CreativeModeTabMapping tab : SpongeFactoryCreativeModTabs.TABS) {
+                add(tab.getTranslationKey(), tab.getEnglishName());
             }
-            for (QuestContent questContents : SpongeFactoryQuests.QUESTS) {
-                add(questContents.getTranslationKey(), questContents.getEnglishName());
+            for (QuestContent questContent : SpongeFactoryQuests.QUESTS) {
+                add(questContent.getTranslationKey(), questContent.getEnglishName());
             }
             for (GasMapping gas : SpongeFactoryGases.GASES) {
                 add(gas.getTranslationKey(), gas.getEnglishName());
@@ -106,6 +112,12 @@ public class SupportedLanguageProviders {
             }
             for (SpongeFactoryMachineDescription description : SpongeFactoryMachineDescription.DESCRIPTIONS) {
                 add(description.getTranslationKey(), description.getEnglishName());
+            }
+            for (FluidMapping fluid : SpongeFactoryFluids.FLUIDS) {
+                add(fluid.getTranslationKey(), fluid.getEnglishName());
+            }
+            for (InfuseTypeMapping infuseType : SpongeFactoryInfuseTypes.INFUSE_TYPES) {
+                add(infuseType.getTranslationKey(), infuseType.getEnglishName());
             }
         }
     }

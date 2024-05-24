@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spongefactory:mass_energy_converter"
+          "name": "spongefactory:unprocessed_machine_frame"
         }
       ],
       "rolls": 1.0

@@ -19,6 +19,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SimpleFoiledItem;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,6 +27,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.item.FluidBucketItem;
 import top.spco.spongefactory.item.HammerItem;
 
 import java.util.HashSet;
@@ -121,14 +123,20 @@ public class SpongeFactoryItems {
     public static final ItemMapping<Item> FERROMAGNETIC_MATERIAL = defaultMaterialItem("Ferromagnetic Material", "铁磁材料", "ferromagnetic_material");
     public static final ItemMapping<Item> DIELECTRIC_PASTE_SHEET = defaultMaterialItem("Dielectric Paste Sheet", "绝缘覆层片", "dielectric_paste_sheet");
     public static final ItemMapping<Item> LOGO = defaultMaterialItem("Logo", "Logo", "logo");
-    public static final ItemMapping<Item> HIGH_TEMPERATURE_DEPOSITION_SUBSTRATE = defaultMaterialItem("High Temperature Deposition Substrate","高温沉积基底","high_temperature_deposition_substrate");
+    public static final ItemMapping<Item> HIGH_TEMPERATURE_DEPOSITION_SUBSTRATE = defaultMaterialItem("High Temperature Deposition Substrate", "高温沉积基底", "high_temperature_deposition_substrate");
     public static final ItemMapping<Item> SPACE_LINK_EYE = defaultMaterialItem("Eye of Space Link", "空间链接之眼", "space_link_eye");
+    public static final ItemMapping<Item> BLACKSTONE_WITH_IRON = defaultMaterialItem("Blackstone With Iron", "含铁的黑石", "blackstone_with_iron");
+    public static final ItemMapping<Item> BLACKSTONE_INGOT = defaultMaterialItem("Blackstone Ingot", "黑石锭", "blackstone_ingot");
+    public static final ItemMapping<FluidBucketItem> TEST_BUCKET_A =
+            item("Test Water Bucket A", "测试水桶A", "test_bucket_a", () -> new FluidBucketItem(() -> Fluids.WATER, false));
+    public static final ItemMapping<FluidBucketItem> TEST_BUCKET_B =
+            item("Test Water Bucket B", "测试水桶B", "test_bucket_b", () -> new FluidBucketItem(() -> Fluids.WATER, true));
 
     private static ItemMapping<Item> defaultMaterialItem(String englishName, String chineseName, String id) {
         return item(englishName, chineseName, id, () -> new Item(new Item.Properties().tab(SpongeFactoryCreativeModTabs.MATERIAL.get())));
     }
 
-    private static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item) {
+    public static <T extends Item> @NotNull ItemMapping<T> item(String englishName, String chineseName, String id, Supplier<T> item) {
         return item(englishName, chineseName, id, item, false);
     }
 

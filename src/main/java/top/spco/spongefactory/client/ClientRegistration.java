@@ -16,15 +16,20 @@
 package top.spco.spongefactory.client;
 
 import mekanism.client.ClientRegistrationUtil;
+import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.Registry;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.model.DynamicFluidContainerModel;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegisterEvent;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.client.gui.MassEnergyConverterGui;
+import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.registries.SpongeFactoryContainerTypes;
+import top.spco.spongefactory.registries.SpongeFactoryFluids;
 
 @Mod.EventBusSubscriber(modid = SpongeFactory.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistration {
@@ -33,5 +38,14 @@ public class ClientRegistration {
         event.register(Registry.MENU_REGISTRY, helper -> {
             ClientRegistrationUtil.registerScreen(SpongeFactoryContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
         });
+    }
+
+    private static final ItemColor BUCKET_ITEM_COLOR = new DynamicFluidContainerModel.Colors();
+
+    @SubscribeEvent
+    public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {
+        for (FluidMapping fluid : SpongeFactoryFluids.FLUIDS) {
+            event.register(BUCKET_ITEM_COLOR, fluid.getBucket());
+        }
     }
 }

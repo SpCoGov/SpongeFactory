@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket",
+  "fluid": "spongefactory:sulfuric_acid",
+  "loader": "forge:fluid_container"
+}

@@ -22,6 +22,10 @@ import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.registries.SpongeFactoryBlocks;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Generate block's loottables
  *
@@ -37,12 +41,23 @@ public class SpongeFactoryBlockLootTables extends BlockLoot {
     @Override
     protected void addTables() {
         for (BlockMapping<?> block : SpongeFactoryBlocks.BLOCKS) {
+            if (block == SpongeFactoryBlocks.MASS_ENERGY_CONVERTER) {
+                continue;
+            }
             dropSelf(block.getRegisteredBlock().get());
         }
     }
 
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks() {
-        return SpongeFactoryBlocks.REGISTER.getEntries().stream().flatMap(RegistryObject::stream)::iterator;
+        Collection<RegistryObject<Block>> entries = SpongeFactoryBlocks.REGISTER.getEntries();
+        Collection<RegistryObject<Block>> filtered = new ArrayList<>();
+        for (RegistryObject<? extends Block> entry : entries) {
+            if (entry == SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.getRegisteredBlock()) {
+                continue;
+            }
+            filtered.add((RegistryObject<Block>) entry);
+        }
+        return filtered.stream().flatMap(RegistryObject::stream)::iterator;
     }
 }

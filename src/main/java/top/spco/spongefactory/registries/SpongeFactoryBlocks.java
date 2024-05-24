@@ -16,11 +16,11 @@
 package top.spco.spongefactory.registries;
 
 import mekanism.common.block.prefab.BlockTile.BlockTileModel;
-import mekanism.common.item.block.machine.ItemBlockMachine;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -30,10 +30,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.block.StorageStabilizerBaseBlock;
 import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.blocktype.SpongeFactoryMachine;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.item.ItemMachine;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
@@ -46,8 +48,12 @@ public class SpongeFactoryBlocks {
                     requiresCorrectToolForDrops().strength(50.0F, 1200.0F)));
     public static final BlockMapping<BlockTileModel<TileEntityMassEnergyConverter, SpongeFactoryMachine<TileEntityMassEnergyConverter>>> MASS_ENERGY_CONVERTER = blockWithItem(
             "Mass-Energy Converter", "质能转换器", "mass_energy_converter", () -> new BlockTileModel<>(SpongeFactoryBlockTypes.MASS_ENERGY_CONVERTER),
-            () -> new ItemBlockMachine(SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.getRegisteredBlock().get())
+            () -> new ItemMachine(SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.getRegisteredBlock().get(), new Item.Properties().stacksTo(1).tab(SpongeFactoryCreativeModTabs.BLOCK.get()))
     );
+    public static final BlockMapping<StorageStabilizerBaseBlock> STORAGE_STABILIZER_BASE = blockWithItem("Storage Stabilizer Base", "存储稳定器基座", "storage_stabilizer_base",
+            () -> new StorageStabilizerBaseBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
+    public static final BlockMapping<Block> UNPROCESSED_MACHINE_FRAME = blockWithItem("Unprocessed Machine Frame", "未处理的机器框架", "unprocessed_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion()));
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                             Supplier<T> block) {

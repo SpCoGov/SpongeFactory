@@ -1,5 +1,7 @@
 {
   "values": [
-    "spongefactory:portal_frame"
+    "spongefactory:portal_frame",
+    "spongefactory:mass_energy_converter",
+    "spongefactory:unprocessed_machine_frame"
   ]
 }

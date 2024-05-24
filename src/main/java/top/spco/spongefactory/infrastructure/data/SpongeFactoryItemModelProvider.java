@@ -19,9 +19,12 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.loaders.DynamicFluidContainerModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.registries.SpongeFactoryFluids;
 import top.spco.spongefactory.registries.SpongeFactoryItems;
 
 import java.util.ArrayList;
@@ -43,8 +46,19 @@ public class SpongeFactoryItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         List<ItemMapping<?>> handheldItems = new ArrayList<>();
         handheldItems.add(SpongeFactoryItems.STONE_HAMMER);
+        ArrayList<String> bucketItems = new ArrayList<>();
+        for (FluidMapping fluid : SpongeFactoryFluids.FLUIDS) {
+            String bucketId = fluid.getId() + "_bucket";
+            bucketItems.add(bucketId);
+            withExistingParent(bucketId, new ResourceLocation("forge", "item/bucket"))
+                    .customLoader(DynamicFluidContainerModelBuilder::begin)
+                    .fluid(fluid.getStillFluid().get());
+        }
         for (var item : SpongeFactoryItems.ITEMS) {
             if (item.isBlockItem()) {
+                continue;
+            }
+            if (bucketItems.contains(item.getId())) {
                 continue;
             }
             if (handheldItems.contains(item)) {

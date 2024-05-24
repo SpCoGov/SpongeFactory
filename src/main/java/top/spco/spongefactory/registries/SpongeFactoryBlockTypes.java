@@ -29,7 +29,7 @@ public class SpongeFactoryBlockTypes {
             .withSound(MekanismSounds.ISOTOPIC_CENTRIFUGE)
             .withGui(SpongeFactoryContainerTypes.MASS_ENERGY_CONVERTER::getContainer)
             .withSupportedUpgrades(EnumSet.of(Upgrade.ENERGY, Upgrade.MUFFLING, Upgrade.SPEED))
-            .withEnergyConfig(() -> FloatingLong.create(500), () -> FloatingLong.create(1800000))
+            .withEnergyConfig(() -> FloatingLong.create(5000), () -> FloatingLong.create(1800000))
             .withComputerSupport("massEnergyConverter")
             .build();
 }

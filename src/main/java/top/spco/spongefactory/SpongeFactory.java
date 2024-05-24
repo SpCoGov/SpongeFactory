@@ -22,7 +22,10 @@ public class SpongeFactory {
 
         SpongeFactoryItems.register(modEventBus);
         SpongeFactoryBlocks.register(modEventBus);
+        SpongeFactoryFluids.register(modEventBus);
+        SpongeFactoryFluidTypes.register(modEventBus);
         SpongeFactoryGases.register(modEventBus);
+        SpongeFactoryInfuseTypes.register(modEventBus);
         SpongeFactoryContainerTypes.register(modEventBus);
         SpongeFactoryTileEntityTypes.register(modEventBus);
         SpongeFactoryRecipeType.register(modEventBus);
