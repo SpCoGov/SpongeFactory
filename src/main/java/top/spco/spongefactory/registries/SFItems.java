@@ -31,11 +31,13 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import top.spco.spongefactory.Colors;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.DustItem;
 import top.spco.spongefactory.item.FluidBucketItem;
 import top.spco.spongefactory.item.HammerItem;
+import top.spco.spongefactory.item.IngotItem;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
@@ -52,6 +54,7 @@ import static cofh.lib.util.constants.NBTTags.*;
 public class SFItems {
     public static final HashSet<ItemMapping<?>> ITEMS = new HashSet<>();
     public static final HashSet<ItemMapping<DustItem>> DUST_ITEM = new HashSet<>();
+    public static final HashSet<ItemMapping<IngotItem>> INGOT_ITEM = new HashSet<>();
     public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, SpongeFactory.MOD_ID);
     public static final ItemMapping<Item> FURNACE_LINING = defaultMaterialItem("Furnace Lining", "熔炉内衬", "furnace_lining");
     public static final ItemMapping<Item> HIGH_TEMPERATURE_RESISTANT_LINING = defaultMaterialItem("High Temperature Resistant Lining", "耐高温内衬", "high_temperature_resistant_lining");
@@ -152,7 +155,11 @@ public class SFItems {
                             .build()));
     public static final ItemMapping<Item> SOLVATION_FABRIC = defaultMaterialItem("Solvation Fabric", "溶剂化织物", "solvation_fabric");
     public static final ItemMapping<Item> COMPRESSED_AIR_BOTTLE = defaultMaterialItem("Compressed Air Bottle", "瓶装压缩空气", "compressed_air_bottle");
-    public static final ItemMapping<DustItem> POTASSIUM_HYDROXIDE_DUST = dustItem("Potassium Hydroxide Dust", "氢氧化钾粉", "potassium_hydroxide_dust", 0xFF4f53c8);
+    public static final ItemMapping<DustItem> POTASSIUM_HYDROXIDE_DUST = dustItem("Potassium Hydroxide Dust", "氢氧化钾粉", "potassium_hydroxide_dust", Colors.POTASSIUM);
+    public static final ItemMapping<IngotItem> CALCIUM_INGOT = ingotItem("Calcium Ingot", "钙锭","calcium_ingot", Colors.CALCIUM);
+    public static final ItemMapping<IngotItem> POTASSIUM_INGOT = ingotItem("Potassium Ingot", "钾锭","potassium_ingot", Colors.POTASSIUM);
+    public static final ItemMapping<IngotItem> TITANIUM_INGOT = ingotItem("Titanium Ingot", "钛锭","titanium_ingot", 0xFFFCCCEF);
+    public static final ItemMapping<IngotItem> SODIUM_INGOT = ingotItem("Sodium Ingot", "钠锭","sodium_ingot", Colors.SODIUM);
 
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),
@@ -170,6 +177,13 @@ public class SFItems {
         RegistryObject<DustItem> registeredItem = REGISTER.register(id, () -> new DustItem(new Item.Properties().tab(SFCreativeModTabs.MATERIAL.get()), color));
         ItemMapping<DustItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem, false);
         DUST_ITEM.add(dustItemMapping);
+        return dustItemMapping;
+    }
+
+    private static ItemMapping<IngotItem> ingotItem(String englishName, String chineseName, String id, int color) {
+        RegistryObject<IngotItem> registeredItem = REGISTER.register(id, () -> new IngotItem(new Item.Properties().tab(SFCreativeModTabs.MATERIAL.get()), color));
+        ItemMapping<IngotItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem, false);
+        INGOT_ITEM.add(dustItemMapping);
         return dustItemMapping;
     }
 

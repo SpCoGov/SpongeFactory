@@ -30,6 +30,7 @@ import top.spco.spongefactory.client.gui.MassEnergyConverterGui;
 import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.DustItem;
+import top.spco.spongefactory.item.IngotItem;
 import top.spco.spongefactory.registries.SFContainerTypes;
 import top.spco.spongefactory.registries.SFFluids;
 import top.spco.spongefactory.registries.SFItems;
@@ -52,6 +53,9 @@ public class ClientRegistration {
         }
         for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
             event.register((p_92672_, p_92673_) -> dustItem.getItem().getColor(p_92672_, p_92673_), dustItem);
+        }
+        for (ItemMapping<IngotItem> ingotItem : SFItems.INGOT_ITEM) {
+            event.register((p_92672_, p_92673_) -> ingotItem.getItem().getColor(p_92672_, p_92673_), ingotItem);
         }
     }
 }

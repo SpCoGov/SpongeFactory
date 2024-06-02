@@ -21,6 +21,7 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.*;
 import top.spco.spongefactory.infrastructure.quest.QuestContent;
 import top.spco.spongefactory.item.DustItem;
+import top.spco.spongefactory.item.IngotItem;
 import top.spco.spongefactory.quest.SFQuests;
 import top.spco.spongefactory.registries.*;
 
@@ -64,6 +65,9 @@ public class SupportedLanguageProviders {
             }
             for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
                 add(dustItem.getTranslationKey(), dustItem.getChineseName());
+            }
+            for (ItemMapping<IngotItem> item : SFItems.INGOT_ITEM) {
+                add(item.getTranslationKey(), item.getChineseName());
             }
             for (BlockMapping<?> block : SFBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getChineseName());
@@ -112,6 +116,9 @@ public class SupportedLanguageProviders {
             }
             for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
                 add(dustItem.getTranslationKey(), dustItem.getEnglishName());
+            }
+            for (ItemMapping<IngotItem> item : SFItems.INGOT_ITEM) {
+                add(item.getTranslationKey(), item.getEnglishName());
             }
             for (BlockMapping<?> block : SFBlocks.BLOCKS) {
                 add(block.getTranslationKey(), block.getEnglishName());

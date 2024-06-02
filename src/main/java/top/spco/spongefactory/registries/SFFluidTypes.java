@@ -21,6 +21,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import top.spco.spongefactory.Colors;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.fluid.BaseFluidType;
 
@@ -34,7 +35,7 @@ public class SFFluidTypes {
             new ResourceLocation("spongefactory:block/fluids/gloomy_extract_still"),
             new ResourceLocation("spongefactory:block/fluids/gloomy_extract_flow")));
 
-    public static final RegistryObject<FluidType> POTASSIUM_HYDROXIDE_SOLUTION = REGISTER.register("potassium_hydroxide_solution", () -> new BaseFluidType().color(0xFF4F53C8));
+    public static final RegistryObject<FluidType> POTASSIUM_HYDROXIDE_SOLUTION = REGISTER.register("potassium_hydroxide_solution", () -> new BaseFluidType().color(Colors.POTASSIUM));
     public static final RegistryObject<FluidType> GOLD_PLATING_SOLUTION = REGISTER.register("gold_plating_solution", () -> new BaseFluidType().color(0xFFBBB345));
     public static final RegistryObject<FluidType> AURATE_SOLUTION = REGISTER.register("aurate_solution", () -> new BaseFluidType().color(0xFFCB8C2F));
     public static final RegistryObject<FluidType> DILUTE_SULFURIC_ACID = REGISTER.register("dilute_sulfuric_acid", () -> new BaseFluidType().color(0xFFA6A32C));
@@ -44,7 +45,7 @@ public class SFFluidTypes {
     public static final RegistryObject<FluidType> AQUA_REGIA = REGISTER.register("aqua_regia", () -> new BaseFluidType().color(0xFFC07602));
     public static final RegistryObject<FluidType> CHLOROAURIC_ACID_SOLUTION = REGISTER.register("chloroauric_acid_solution", () -> new BaseFluidType().color(0xFFFCBD16));
     public static final RegistryObject<FluidType> NITRIC_ACID = REGISTER.register("nitric_acid", () -> new BaseFluidType().color(0xFFB58603));
-    public static final RegistryObject<FluidType> MOLTEN_SODIUM = REGISTER.register("molten_sodium", () -> new BaseFluidType(MOLTEN_STILL, MOLTEN_FLOW).color(0xFFBE878A));
+    public static final RegistryObject<FluidType> MOLTEN_SODIUM = REGISTER.register("molten_sodium", () -> new BaseFluidType(MOLTEN_STILL, MOLTEN_FLOW).color(Colors.SODIUM));
 
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);

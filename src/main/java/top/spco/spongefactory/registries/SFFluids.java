@@ -21,6 +21,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import top.spco.spongefactory.Colors;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.fluid.BaseFluidType;
 import top.spco.spongefactory.infrastructure.FluidMapping;
@@ -48,9 +49,9 @@ public class SFFluids {
     public static final FluidMapping ZINC_PLATING_SOLUTION = fluidAndType("Zinc Plating Solution", "锌电镀液", "zinc_plating_solution", 0xFF99BCFF);
     public static final FluidMapping ZINC_SULFATE_SOLUTION = fluidAndType("Zinc Sulfate Solution", "硫酸锌溶液", "zinc_sulfate_solution", 0xFFA3BEAB);
     public static final FluidMapping MOLTEN_SODIUM = fluid("Molten Sodium", "熔融钠", SFFluidTypes.MOLTEN_SODIUM);
-    public static final FluidMapping MOLTEN_SODIUM_CARBONATE = molten("Sodium Carbonate", "碳酸钠", 0xFFE5AFAF);
+    public static final FluidMapping MOLTEN_SODIUM_CARBONATE = molten("Sodium Carbonate", "碳酸钠", Colors.SODIUM);
     public static final FluidMapping LIQUID_AIR = fluidAndType("Liquid Air", "液态空气", "liquid_air", 0xAA5DEAFF);
-    public static final FluidMapping MOLTEN_POTASSIUM = molten("Potassium", "钾", 0xFFBE565B);
+    public static final FluidMapping MOLTEN_POTASSIUM = molten("Potassium", "钾", Colors.POTASSIUM);
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");

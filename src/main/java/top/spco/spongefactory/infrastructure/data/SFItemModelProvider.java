@@ -25,6 +25,7 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.DustItem;
+import top.spco.spongefactory.item.IngotItem;
 import top.spco.spongefactory.registries.SFFluids;
 import top.spco.spongefactory.registries.SFItems;
 
@@ -71,6 +72,13 @@ public class SFItemModelProvider extends ItemModelProvider {
         for (var dustItem : SFItems.DUST_ITEM) {
             dustItem(dustItem);
         }
+        for (var item : SFItems.INGOT_ITEM) {
+            ingotItem(item);
+        }
+    }
+
+    private void ingotItem(ItemMapping<IngotItem> item) {
+        withExistingParent(item.getId(), modLoc("item/ingot_item"));
     }
 
     private void dustItem(ItemMapping<DustItem> dustItem) {
