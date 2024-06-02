@@ -28,7 +28,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import top.spco.spongefactory.registries.SpongeFactoryCreativeModTabs;
+import top.spco.spongefactory.registries.SFCreativeModTabs;
 
 import java.util.function.Supplier;
 
@@ -36,7 +36,7 @@ public class FluidBucketItem extends BucketItem {
     private final boolean hasFluidBlock;
 
     public FluidBucketItem(Supplier<? extends Fluid> supplier, boolean hasFluidBlock) {
-        super(supplier, new Properties().tab(SpongeFactoryCreativeModTabs.MATERIAL.get()).craftRemainder(Items.BUCKET).stacksTo(1));
+        super(supplier, new Properties().tab(SFCreativeModTabs.MATERIAL.get()).craftRemainder(Items.BUCKET).stacksTo(1));
         this.hasFluidBlock = hasFluidBlock;
     }
 

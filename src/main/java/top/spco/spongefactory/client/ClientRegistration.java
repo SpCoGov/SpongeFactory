@@ -28,15 +28,18 @@ import net.minecraftforge.registries.RegisterEvent;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.client.gui.MassEnergyConverterGui;
 import top.spco.spongefactory.infrastructure.FluidMapping;
-import top.spco.spongefactory.registries.SpongeFactoryContainerTypes;
-import top.spco.spongefactory.registries.SpongeFactoryFluids;
+import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.item.DustItem;
+import top.spco.spongefactory.registries.SFContainerTypes;
+import top.spco.spongefactory.registries.SFFluids;
+import top.spco.spongefactory.registries.SFItems;
 
 @Mod.EventBusSubscriber(modid = SpongeFactory.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistration {
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerContainers(RegisterEvent event) {
         event.register(Registry.MENU_REGISTRY, helper -> {
-            ClientRegistrationUtil.registerScreen(SpongeFactoryContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
+            ClientRegistrationUtil.registerScreen(SFContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
         });
     }
 
@@ -44,8 +47,11 @@ public class ClientRegistration {
 
     @SubscribeEvent
     public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {
-        for (FluidMapping fluid : SpongeFactoryFluids.FLUIDS) {
+        for (FluidMapping fluid : SFFluids.FLUIDS) {
             event.register(BUCKET_ITEM_COLOR, fluid.getBucket());
+        }
+        for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
+            event.register((p_92672_, p_92673_) -> dustItem.getItem().getColor(p_92672_, p_92673_), dustItem);
         }
     }
 }

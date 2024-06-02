@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "spongefactory:item/source_steel_coin_0",
+      "predicate": {
+        "minecraft:count": 0.0
+      }
+    },
+    {
+      "model": "spongefactory:item/source_steel_coin_1",
+      "predicate": {
+        "minecraft:count": 0.031255
+      }
+    },
+    {
+      "model": "spongefactory:item/source_steel_coin_2",
+      "predicate": {
+        "minecraft:count": 0.25
+      }
+    },
+    {
+      "model": "spongefactory:item/source_steel_coin_3",
+      "predicate": {
+        "minecraft:count": 0.5
+      }
+    },
+    {
+      "model": "spongefactory:item/source_steel_coin_4",
+      "predicate": {
+        "minecraft:count": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "spongefactory:item/source_steel_coin_0"
+  }
+}

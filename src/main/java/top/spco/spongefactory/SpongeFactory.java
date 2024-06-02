@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import top.spco.spongefactory.infrastructure.data.SpongeFactoryDatagen;
-import top.spco.spongefactory.registries.SpongeFactoryRecipeType;
+import top.spco.spongefactory.infrastructure.data.SFDataGen;
+import top.spco.spongefactory.registries.SFRecipeType;
 import top.spco.spongefactory.registries.*;
 
 @Mod(SpongeFactory.MOD_ID)
@@ -20,18 +20,18 @@ public class SpongeFactory {
     public SpongeFactory() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        SpongeFactoryItems.register(modEventBus);
-        SpongeFactoryBlocks.register(modEventBus);
-        SpongeFactoryFluids.register(modEventBus);
-        SpongeFactoryFluidTypes.register(modEventBus);
-        SpongeFactoryGases.register(modEventBus);
-        SpongeFactoryInfuseTypes.register(modEventBus);
-        SpongeFactoryContainerTypes.register(modEventBus);
-        SpongeFactoryTileEntityTypes.register(modEventBus);
-        SpongeFactoryRecipeType.register(modEventBus);
-        SpongeFactoryRecipeSerializers.register(modEventBus);
+        SFItems.register(modEventBus);
+        SFBlocks.register(modEventBus);
+        SFFluids.register(modEventBus);
+        SFFluidTypes.register(modEventBus);
+        SFGases.register(modEventBus);
+        SFInfuseTypes.register(modEventBus);
+        SFContainerTypes.register(modEventBus);
+        SFTileEntityTypes.register(modEventBus);
+        SFRecipeType.register(modEventBus);
+        SFRecipeSerializers.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(EventPriority.LOWEST, SpongeFactoryDatagen::gatherData);
+        modEventBus.addListener(EventPriority.LOWEST, SFDataGen::gatherData);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -149,6 +149,7 @@ repositories {
             includeGroup 'appeng'
             includeGroup 'mekanism'
             includeGroup 'mezz.jei'
+            includeGroup('com.teamcofh')
         }
     }
     maven {
@@ -170,6 +171,8 @@ dependencies {
     compileOnly fg.deobf("appeng:appliedenergistics2-forge:${ae_veriosn}")
     runtimeOnly fg.deobf("curse.maven:applied-energistics-2-223794:4548558")
     implementation fg.deobf("mekanism:Mekanism:${minecraft_version}-${mekanism_version}")
+    implementation fg.deobf("com.teamcofh:cofh_core:${minecraft_version}-${cofh_core_version}.+")
+    implementation fg.deobf("com.teamcofh:thermal_core:${minecraft_version}-${thermal_core_version}.+")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
@@ -202,7 +205,7 @@ tasks.named('processResources', ProcessResources).configure {
             loader_version_range: loader_version_range,
             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description,
-            jei_version_range   : jei_version_range, mekanism_version_range : mekanism_version_range
+            jei_version_range   : jei_version_range, mekanism_version_range: mekanism_version_range
     ]
 
     inputs.properties replaceProperties

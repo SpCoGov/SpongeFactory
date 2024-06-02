@@ -16,7 +16,7 @@
 package top.spco.spongefactory.item;
 
 import net.minecraft.world.item.Item;
-import top.spco.spongefactory.registries.SpongeFactoryCreativeModTabs;
+import top.spco.spongefactory.registries.SFCreativeModTabs;
 
 /**
  * @author SpCo
@@ -25,6 +25,6 @@ import top.spco.spongefactory.registries.SpongeFactoryCreativeModTabs;
  */
 public class HammerItem extends Item {
     public HammerItem(int durability) {
-        super(new Properties().durability(durability).tab(SpongeFactoryCreativeModTabs.TOOL.get()).defaultDurability(durability));
+        super(new Properties().durability(durability).tab(SFCreativeModTabs.TOOL.get()).defaultDurability(durability));
     }
 }

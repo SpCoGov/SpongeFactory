@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket",
+  "fluid": "spongefactory:zinc_sulfate_solution",
+  "loader": "forge:fluid_container"
+}

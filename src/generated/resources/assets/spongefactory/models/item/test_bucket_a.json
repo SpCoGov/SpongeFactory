@@ -1,5 +1,6 @@
 {
-  "parent": "forge:item/bucket",
-  "fluid": "spongefactory:gloomy_extract",
-  "loader": "forge:fluid_container"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "spongefactory:item/test_bucket_a"
+  }
 }

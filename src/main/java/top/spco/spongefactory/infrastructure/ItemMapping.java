@@ -21,6 +21,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 
+import java.util.HashSet;
+
 /**
  * A class representing the mapping of an {@link Item}.
  *
@@ -33,6 +35,7 @@ public class ItemMapping<T extends Item> extends Translatable implements ItemLik
     private final String id;
     private final RegistryObject<T> item;
     private final boolean isBlockItem;
+    private final HashSet<ItemDerivative> derivatives = new HashSet<>();
 
     public ItemMapping(String englishName, String chineseName, String id, RegistryObject<T> item, boolean isBlockItem) {
         super(englishName, chineseName, "item." + SpongeFactory.MOD_ID + "." + id);
@@ -64,5 +67,18 @@ public class ItemMapping<T extends Item> extends Translatable implements ItemLik
     @Override
     public @NotNull Item asItem() {
         return getItem();
+    }
+
+    public ItemMapping<T> addDerivative(ItemDerivative derivative) {
+        derivatives.add(derivative);
+        return this;
+    }
+
+    public HashSet<ItemDerivative> getDerivatives() {
+        return derivatives;
+    }
+
+    public boolean hasDerivative() {
+        return !derivatives.isEmpty();
     }
 }

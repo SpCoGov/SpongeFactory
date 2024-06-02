@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "spongefactory:item/heat_resistant_dielectric_paste_sheet"
+  }
+}

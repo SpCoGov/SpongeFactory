@@ -24,7 +24,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.item.FluidBucketItem;
-import top.spco.spongefactory.registries.SpongeFactoryItems;
+import top.spco.spongefactory.registries.SFItems;
 
 import java.util.function.Supplier;
 
@@ -41,7 +41,7 @@ public class FluidMapping extends Translatable {
         this.id = id;
         this.stillFluid = register.register(id, () -> new ForgeFlowingFluid.Source(fluidProperties()));
         this.flowingFluid = register.register(id + "_flowing", () -> new ForgeFlowingFluid.Flowing(fluidProperties()));
-        this.bucket = SpongeFactoryItems.item(englishName + "Bucket", chineseName + "桶", id + "_bucket",
+        this.bucket = SFItems.item(englishName + "Bucket", chineseName + "桶", id + "_bucket",
                 () -> new FluidBucketItem(stillFluid, false));
     }
 

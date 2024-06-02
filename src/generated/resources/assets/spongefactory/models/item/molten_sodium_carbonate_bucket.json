@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket",
+  "fluid": "spongefactory:molten_sodium_carbonate",
+  "loader": "forge:fluid_container"
+}

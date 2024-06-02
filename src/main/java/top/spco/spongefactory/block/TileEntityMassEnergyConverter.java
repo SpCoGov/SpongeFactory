@@ -60,8 +60,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import top.spco.spongefactory.registries.SpongeFactoryRecipeType;
-import top.spco.spongefactory.registries.SpongeFactoryBlocks;
+import top.spco.spongefactory.registries.SFRecipeType;
+import top.spco.spongefactory.registries.SFBlocks;
 
 import java.util.List;
 
@@ -96,7 +96,7 @@ public class TileEntityMassEnergyConverter extends TileEntityRecipeMachine<GasTo
     private final IInputHandler<@NotNull GasStack> inputHandler;
 
     public TileEntityMassEnergyConverter(BlockPos pos, BlockState state) {
-        super(SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), pos, state, TRACKED_ERROR_TYPES);
+        super(SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), pos, state, TRACKED_ERROR_TYPES);
         configComponent = new TileComponentConfig(this, TransmissionType.ITEM, TransmissionType.GAS, TransmissionType.ENERGY);
         configComponent.setupItemIOConfig(inputSlot, outputSlot, energySlot);
         configComponent.setupIOConfig(TransmissionType.GAS, inputTank, outputTank, RelativeSide.FRONT, false, true).setEjecting(true);
@@ -164,7 +164,7 @@ public class TileEntityMassEnergyConverter extends TileEntityRecipeMachine<GasTo
 
     @Override
     public @NotNull IMekanismRecipeTypeProvider<GasToGasRecipe, InputRecipeCache.SingleChemical<Gas, GasStack, GasToGasRecipe>> getRecipeType() {
-        return SpongeFactoryRecipeType.ME_CONVERTING;
+        return SFRecipeType.ME_CONVERTING;
     }
 
     @Override

@@ -23,9 +23,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.NotNull;
-import top.spco.spongefactory.registries.SpongeFactoryBlocks;
-import top.spco.spongefactory.registries.SpongeFactoryRecipeSerializers;
-import top.spco.spongefactory.registries.SpongeFactoryRecipeType;
+import top.spco.spongefactory.registries.SFBlocks;
+import top.spco.spongefactory.registries.SFRecipeSerializers;
+import top.spco.spongefactory.registries.SFRecipeType;
 
 public class MEConvertingIRecipe extends GasToGasRecipe {
 
@@ -35,21 +35,21 @@ public class MEConvertingIRecipe extends GasToGasRecipe {
 
     @Override
     public @NotNull RecipeType<GasToGasRecipe> getType() {
-        return SpongeFactoryRecipeType.ME_CONVERTING.get();
+        return SFRecipeType.ME_CONVERTING.get();
     }
 
     @Override
     public @NotNull RecipeSerializer<GasToGasRecipe> getSerializer() {
-        return SpongeFactoryRecipeSerializers.ME_CONVERTING.get();
+        return SFRecipeSerializers.ME_CONVERTING.get();
     }
 
     @Override
     public @NotNull String getGroup() {
-        return SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getName();
+        return SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getName();
     }
 
     @Override
     public @NotNull ItemStack getToastSymbol() {
-        return SpongeFactoryBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getItemStack();
+        return SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getItemStack();
     }
 }
