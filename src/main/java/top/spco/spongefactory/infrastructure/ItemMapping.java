@@ -21,6 +21,8 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 
+import java.util.HashSet;
+
 /**
  * A class representing the mapping of an {@link Item}.
  *
@@ -29,20 +31,25 @@ import top.spco.spongefactory.SpongeFactory;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class ItemMapping<T extends Item> implements ItemLike, Translatable {
-    private final String englishName;
-    private final String chineseName;
+public class ItemMapping<T extends Item> extends Translatable implements ItemLike {
     private final String id;
-    private final String translationKey;
     private final RegistryObject<T> item;
-    private String itemModel;
+    private final boolean isBlockItem;
+    private final HashSet<ItemDerivative> derivatives = new HashSet<>();
+
+    public ItemMapping(String englishName, String chineseName, String id, RegistryObject<T> item, boolean isBlockItem) {
+        super(englishName, chineseName, "item." + SpongeFactory.MOD_ID + "." + id);
+        this.id = id;
+        this.item = item;
+        this.isBlockItem = isBlockItem;
+    }
 
     public ItemMapping(String englishName, String chineseName, String id, RegistryObject<T> item) {
-        this.englishName = englishName;
-        this.chineseName = chineseName;
-        this.id = id;
-        this.translationKey = "item." + SpongeFactory.MOD_ID + "." + id;
-        this.item = item;
+        this(englishName, chineseName, id, item, false);
+    }
+
+    public boolean isBlockItem() {
+        return isBlockItem;
     }
 
     public String getId() {
@@ -58,22 +65,20 @@ public class ItemMapping<T extends Item> implements ItemLike, Translatable {
     }
 
     @Override
-    public String getChineseName() {
-        return chineseName;
-    }
-
-    @Override
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return translationKey;
-    }
-
-    @Override
     public @NotNull Item asItem() {
         return getItem();
+    }
+
+    public ItemMapping<T> addDerivative(ItemDerivative derivative) {
+        derivatives.add(derivative);
+        return this;
+    }
+
+    public HashSet<ItemDerivative> getDerivatives() {
+        return derivatives;
+    }
+
+    public boolean hasDerivative() {
+        return !derivatives.isEmpty();
     }
 }

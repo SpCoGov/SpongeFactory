@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "spongefactory:item/impure_crushed_uranium_ore"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "spongefactory:block/mass_energy_converter",
+  "textures": {
+    "front": "spongefactory:block/mass_energy_converter/front_active",
+    "west": "spongefactory:block/mass_energy_converter/right_active",
+    "east": "spongefactory:block/mass_energy_converter/left_active",
+    "south": "spongefactory:block/mass_energy_converter/back_active",
+    "up": "spongefactory:block/mass_energy_converter/top_active"
+  }
+}

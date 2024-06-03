@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket",
+  "fluid": "spongefactory:aqua_regia",
+  "loader": "forge:fluid_container"
+}

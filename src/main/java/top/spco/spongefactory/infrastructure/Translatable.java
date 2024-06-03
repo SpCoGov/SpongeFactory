@@ -15,6 +15,9 @@
  */
 package top.spco.spongefactory.infrastructure;
 
+import mekanism.api.text.ILangEntry;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Represents a translatable object for automatic generation of lang json.<p>
  * Implementing classes provide methods to retrieve the names and translation key
@@ -24,25 +27,41 @@ package top.spco.spongefactory.infrastructure;
  * @version 0.1.0
  * @since 0.1.0
  */
-public interface Translatable {
+public abstract class Translatable implements ILangEntry {
+    protected final String englishName;
+    protected final String chineseName;
+    protected final String translationKey;
+
+    public Translatable(String englishName, String chineseName, String translationKey) {
+        this.englishName = englishName;
+        this.chineseName = chineseName;
+        this.translationKey = translationKey;
+    }
+
     /**
      * Gets the name of the object in Chinese.
      *
      * @return The name of the object in Chinese
      */
-    String getChineseName();
+    public String getChineseName() {
+        return chineseName;
+    }
 
     /**
      * Gets the name of the object in English.
      *
      * @return The name of the object in English
      */
-    String getEnglishName();
+    public String getEnglishName() {
+        return englishName;
+    }
 
     /**
      * Gets the translation key of the object.
      *
      * @return The translation key of the object
      */
-    String getTranslationKey();
+    public @NotNull String getTranslationKey() {
+        return translationKey;
+    }
 }

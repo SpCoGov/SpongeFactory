@@ -47,3 +47,15 @@ mandatory = true
 versionRange = "[12.9.5,)"
 ordering = "AFTER"
 side=  "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "mekanism"
+mandatory = true
+versionRange = "${mekanism_version_range}"
+ordering = "AFTER"
+side=  "BOTH"
+[[dependencies."${mod_id}"]]
+modId="jei"
+mandatory=false
+versionRange="${jei_version_range}"
+ordering="AFTER"
+side="BOTH"

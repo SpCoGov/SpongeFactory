@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket",
+  "fluid": "spongefactory:potassium_hydroxide_solution",
+  "loader": "forge:fluid_container"
+}

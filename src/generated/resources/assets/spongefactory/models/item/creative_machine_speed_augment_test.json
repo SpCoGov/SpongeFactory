@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "spongefactory:item/creative_machine_speed_augment_test"
+  }
+}

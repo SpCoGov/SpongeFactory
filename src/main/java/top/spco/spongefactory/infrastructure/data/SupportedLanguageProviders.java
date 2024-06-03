@@ -18,9 +18,12 @@ package top.spco.spongefactory.infrastructure.data;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.infrastructure.Translatable;
-import top.spco.spongefactory.item.ModCreativeModTabs;
-import top.spco.spongefactory.item.ModItems;
+import top.spco.spongefactory.infrastructure.*;
+import top.spco.spongefactory.infrastructure.quest.QuestContent;
+import top.spco.spongefactory.item.DustItem;
+import top.spco.spongefactory.item.IngotItem;
+import top.spco.spongefactory.quest.SFQuests;
+import top.spco.spongefactory.registries.*;
 
 /**
  * Provides supported language providers for generating language files.
@@ -36,6 +39,8 @@ public class SupportedLanguageProviders {
     public final LanguageProvider english;
 
     public SupportedLanguageProviders(DataGenerator generator) {
+        SFQuests.init();
+        addMetalDerivatives(SFItems.SOURCE_STEEL_INGOT);
         chinese = new ChineseProvider(generator);
         english = new EnglishProvider(generator);
     }
@@ -47,11 +52,46 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (Translatable item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : SFItems.ITEMS) {
+                if (item.isBlockItem()) {
+                    continue;
+                }
+                add(item.getTranslationKey(), item.getChineseName());
+                if (item.hasDerivative()) {
+                    for (ItemDerivative derivative : item.getDerivatives()) {
+                        add(derivative.getTranslationKey(), derivative.getChineseName());
+                    }
+                }
+            }
+            for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
+                add(dustItem.getTranslationKey(), dustItem.getChineseName());
+            }
+            for (ItemMapping<IngotItem> item : SFItems.INGOT_ITEM) {
                 add(item.getTranslationKey(), item.getChineseName());
             }
-            for (Translatable tabs : ModCreativeModTabs.TABS) {
+            for (BlockMapping<?> block : SFBlocks.BLOCKS) {
+                add(block.getTranslationKey(), block.getChineseName());
+            }
+            for (CreativeModeTabMapping tabs : SFCreativeModTabs.TABS) {
                 add(tabs.getTranslationKey(), tabs.getChineseName());
+            }
+            for (QuestContent questContents : SFQuests.QUESTS) {
+                add(questContents.getTranslationKey(), questContents.getChineseName());
+            }
+            for (GasMapping gas : SFGases.GASES) {
+                add(gas.getTranslationKey(), gas.getChineseName());
+            }
+            for (ContainerMapping<?> container : SFContainerTypes.CONTAINERS) {
+                add(container.getTranslationKey(), container.getChineseName());
+            }
+            for (SFMachineDescription description : SFMachineDescription.DESCRIPTIONS) {
+                add(description.getTranslationKey(), description.getChineseName());
+            }
+            for (FluidMapping fluid : SFFluids.FLUIDS) {
+                add(fluid.getTranslationKey(), fluid.getChineseName());
+            }
+            for (InfuseTypeMapping infuseType : SFInfuseTypes.INFUSE_TYPES) {
+                add(infuseType.getTranslationKey(), infuseType.getChineseName());
             }
         }
     }
@@ -63,12 +103,54 @@ public class SupportedLanguageProviders {
 
         @Override
         protected void addTranslations() {
-            for (Translatable item : ModItems.ITEMS) {
+            for (ItemMapping<?> item : SFItems.ITEMS) {
+                if (item.isBlockItem()) {
+                    continue;
+                }
+                add(item.getTranslationKey(), item.getEnglishName());
+                if (item.hasDerivative()) {
+                    for (ItemDerivative derivative : item.getDerivatives()) {
+                        add(derivative.getTranslationKey(), derivative.getEnglishName());
+                    }
+                }
+            }
+            for (ItemMapping<DustItem> dustItem : SFItems.DUST_ITEM) {
+                add(dustItem.getTranslationKey(), dustItem.getEnglishName());
+            }
+            for (ItemMapping<IngotItem> item : SFItems.INGOT_ITEM) {
                 add(item.getTranslationKey(), item.getEnglishName());
             }
-            for (Translatable tabs : ModCreativeModTabs.TABS) {
-                add(tabs.getTranslationKey(), tabs.getEnglishName());
+            for (BlockMapping<?> block : SFBlocks.BLOCKS) {
+                add(block.getTranslationKey(), block.getEnglishName());
+            }
+            for (CreativeModeTabMapping tab : SFCreativeModTabs.TABS) {
+                add(tab.getTranslationKey(), tab.getEnglishName());
+            }
+            for (QuestContent questContent : SFQuests.QUESTS) {
+                add(questContent.getTranslationKey(), questContent.getEnglishName());
+            }
+            for (GasMapping gas : SFGases.GASES) {
+                add(gas.getTranslationKey(), gas.getEnglishName());
+            }
+            for (ContainerMapping<?> container : SFContainerTypes.CONTAINERS) {
+                add(container.getTranslationKey(), container.getEnglishName());
+            }
+            for (SFMachineDescription description : SFMachineDescription.DESCRIPTIONS) {
+                add(description.getTranslationKey(), description.getEnglishName());
+            }
+            for (FluidMapping fluid : SFFluids.FLUIDS) {
+                add(fluid.getTranslationKey(), fluid.getEnglishName());
+            }
+            for (InfuseTypeMapping infuseType : SFInfuseTypes.INFUSE_TYPES) {
+                add(infuseType.getTranslationKey(), infuseType.getEnglishName());
             }
         }
+    }
+
+    private static void addMetalDerivatives(ItemMapping<?> base) {
+        base.addDerivative(new ItemDerivative("Source Steel Plate", "魔源钢板", "item.spongefactory.source_steel" + "_plate"));
+        base.addDerivative(new ItemDerivative("Source Steel Dust", "魔源钢粉", "item.spongefactory.source_steel" + "_dust"));
+        base.addDerivative(new ItemDerivative("Source Steel Coin", "魔源钢币", "item.spongefactory.source_steel" + "_coin"));
+        base.addDerivative(new ItemDerivative("Source Steel Gear", "魔源钢齿轮", "item.spongefactory.source_steel" + "_gear"));
     }
 }

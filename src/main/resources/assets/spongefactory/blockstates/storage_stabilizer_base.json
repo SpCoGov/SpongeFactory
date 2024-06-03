@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "spongefactory:block/storage_stabilizer_base",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "spongefactory:block/storage_stabilizer_base",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "spongefactory:block/storage_stabilizer_base",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "spongefactory:block/storage_stabilizer_base",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "spongefactory:block/storage_stabilizer_base"
+    },
+    "facing=west": {
+      "model": "spongefactory:block/storage_stabilizer_base",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

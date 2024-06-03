@@ -67,6 +67,7 @@ minecraft {
     // This default location is a best practice to automatically put the file in the right place in the final jar.
     // See https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/ for more information.
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -140,12 +141,15 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
     maven {
         name "Modmaven"
         url "https://modmaven.dev/"
-        // For Gradle 5.1 and above, limit it to just AE2
         content {
             includeGroup 'appeng'
+            includeGroup 'mekanism'
+            includeGroup 'mezz.jei'
+            includeGroup('com.teamcofh')
         }
     }
     maven {
@@ -164,8 +168,14 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    compileOnly fg.deobf("appeng:appliedenergistics2-forge:12.9.5")
+    compileOnly fg.deobf("appeng:appliedenergistics2-forge:${ae_veriosn}")
     runtimeOnly fg.deobf("curse.maven:applied-energistics-2-223794:4548558")
+    implementation fg.deobf("mekanism:Mekanism:${minecraft_version}-${mekanism_version}")
+    implementation fg.deobf("com.teamcofh:cofh_core:${minecraft_version}-${cofh_core_version}.+")
+    implementation fg.deobf("com.teamcofh:thermal_core:${minecraft_version}-${thermal_core_version}.+")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -190,29 +200,31 @@ dependencies {
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
+            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version       : forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
+            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description,
+            jei_version_range   : jei_version_range, mekanism_version_range: mekanism_version_range
     ]
 
     inputs.properties replaceProperties
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
-    }}
+    }
+}
 
 // Example for how to get properties into the manifest for reading at runtime.
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-                "Specification-Title": mod_id,
-                "Specification-Vendor": mod_authors,
-                "Specification-Version": "1", // We are version 1 of ourselves
-                "Implementation-Title": project.name,
-                "Implementation-Version": project.jar.archiveVersion,
-                "Implementation-Vendor": mod_authors,
+                "Specification-Title"     : mod_id,
+                "Specification-Vendor"    : mod_authors,
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : mod_authors,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

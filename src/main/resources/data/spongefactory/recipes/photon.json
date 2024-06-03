@@ -1,0 +1,11 @@
+{
+  "type": "spongefactory:mass_energy_converting",
+  "input": {
+    "amount": 10,
+    "gas": "mekanism:antimatter"
+  },
+  "output": {
+    "amount": 10,
+    "gas": "spongefactory:photon"
+  }
+}
