@@ -24,6 +24,7 @@ import top.spco.spongefactory.infrastructure.GasMapping;
 
 import java.util.HashSet;
 
+@SuppressWarnings("unused")
 public class SFGases {
     public static final HashSet<GasMapping> GASES = new HashSet<>();
     public static final GasDeferredRegister REGISTER = new GasDeferredRegister(SpongeFactory.MOD_ID);

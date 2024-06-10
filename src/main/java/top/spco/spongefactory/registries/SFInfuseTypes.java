@@ -24,6 +24,7 @@ import top.spco.spongefactory.infrastructure.InfuseTypeMapping;
 
 import java.util.HashSet;
 
+@SuppressWarnings("unused")
 public class SFInfuseTypes {
     public static final HashSet<InfuseTypeMapping> INFUSE_TYPES = new HashSet<>();
     public static final InfuseTypeDeferredRegister REGISTER = new InfuseTypeDeferredRegister(SpongeFactory.MOD_ID);

@@ -24,6 +24,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
+import top.spco.spongefactory.item.BasicSpongeCellItem;
 import top.spco.spongefactory.item.DustItem;
 import top.spco.spongefactory.item.IngotItem;
 import top.spco.spongefactory.registries.SFFluids;
@@ -57,6 +58,10 @@ public class SFItemModelProvider extends ItemModelProvider {
                     .fluid(fluid.getStillFluid().get());
         }
         for (var item : SFItems.ITEMS) {
+            if (item.getItem() instanceof BasicSpongeCellItem) {
+                storageCell(item);
+                continue;
+            }
             if (item.isBlockItem()) {
                 continue;
             }
@@ -75,6 +80,16 @@ public class SFItemModelProvider extends ItemModelProvider {
         for (var item : SFItems.INGOT_ITEM) {
             ingotItem(item);
         }
+    }
+
+    private void storageCell(ItemMapping<?> item) {
+        String id = item.getId();
+        singleTexture(
+                id,
+                mcLoc("item/generated"),
+                "layer0",
+                new ResourceLocation(SpongeFactory.MOD_ID, "item/" + id))
+                .texture("layer1", "item/storage_cell_led");
     }
 
     private void ingotItem(ItemMapping<IngotItem> item) {

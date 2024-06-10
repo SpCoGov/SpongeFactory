@@ -15,6 +15,7 @@
  */
 package top.spco.spongefactory.registries;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
@@ -28,6 +29,7 @@ import top.spco.spongefactory.infrastructure.FluidMapping;
 
 import java.util.HashSet;
 
+@SuppressWarnings("unused")
 public class SFFluids {
     public static final HashSet<FluidMapping> FLUIDS = new HashSet<>();
     public static final DeferredRegister<Fluid> REGISTER = DeferredRegister.create(ForgeRegistries.FLUIDS, SpongeFactory.MOD_ID);
@@ -52,10 +54,25 @@ public class SFFluids {
     public static final FluidMapping MOLTEN_SODIUM_CARBONATE = molten("Sodium Carbonate", "碳酸钠", Colors.SODIUM);
     public static final FluidMapping LIQUID_AIR = fluidAndType("Liquid Air", "液态空气", "liquid_air", 0xAA5DEAFF);
     public static final FluidMapping MOLTEN_POTASSIUM = molten("Potassium", "钾", Colors.POTASSIUM);
+    public static final FluidMapping MOLTEN_CALCIUM = molten("Calcium", "钙", Colors.CALCIUM);
+    public static final FluidMapping MOLTEN_TITANIUM = molten("Titanium", "钛", Colors.TITANIUM);
+    public static final FluidMapping TITANIUM_TETRACHLORIDE = fluidAndType("Titanium Tetrachloride", "四氯化钛", "titanium_tetrachloride", 0xFFFFDDC6);
+    public static final FluidMapping MOLTEN_SIGNALUM = molten("Signalum", "信素", Colors.SIGNALUM, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
+    public static final FluidMapping MOLTEN_LUMIUM = molten("Lumium", "流明", Colors.LUMIUM, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
+    public static final FluidMapping CHORUS_OIL = fluidAndType("Chorus Oil", "紫颂油", "chorus_oil", Colors.CHORUS, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
+    public static final FluidMapping CHORUS_JUICE = fluidAndType("Chorus Juice", "紫颂汁", "chorus_juice", Colors.CHORUS);
+    public static final FluidMapping P_XYLENE = fluidAndType("p-Xylene", "对二甲苯","p_xylene", 0xFFA4BECD);
+    public static final FluidMapping PHTHALOYL_CHLORIDE = fluidAndType("Phthaloyl Chloride","苯二甲酰氯","phthaloyl_chloride", 0xFFABBF0A);
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");
         RegistryObject<FluidType> type = SFFluidTypes.REGISTER.register(id, () -> new BaseFluidType(SFFluidTypes.MOLTEN_STILL, SFFluidTypes.MOLTEN_FLOW).color(color));
+        return fluid("Molten " + englishName, "熔融" + chineseName, type);
+    }
+
+    private static FluidMapping molten(String englishName, String chineseName, int color, ResourceLocation still, ResourceLocation flow) {
+        String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");
+        RegistryObject<FluidType> type = SFFluidTypes.REGISTER.register(id, () -> new BaseFluidType(still, flow).color(color));
         return fluid("Molten " + englishName, "熔融" + chineseName, type);
     }
 
@@ -64,6 +81,11 @@ public class SFFluids {
         FLUIDS.add(fluidMapping);
 
         return fluidMapping;
+    }
+
+    private static FluidMapping fluidAndType(String englishName, String chineseName, String id, int color, ResourceLocation still, ResourceLocation flow) {
+        RegistryObject<FluidType> type = SFFluidTypes.REGISTER.register(id, () -> new BaseFluidType(still, flow).color(color));
+        return fluid(englishName, chineseName, type);
     }
 
     private static FluidMapping fluidAndType(String englishName, String chineseName, String id, int color) {

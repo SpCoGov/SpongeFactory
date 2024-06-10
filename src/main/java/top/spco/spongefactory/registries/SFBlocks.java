@@ -33,14 +33,17 @@ import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.block.StorageStabilizerBaseBlock;
 import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
+import top.spco.spongefactory.block.UnplaceableBlock;
 import top.spco.spongefactory.blocktype.SFMachine;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.ItemMachine;
+import top.spco.spongefactory.item.UnplaceableBlockItem;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class SFBlocks {
     public static final HashSet<BlockMapping<?>> BLOCKS = new HashSet<>();
     public static final DeferredRegister<Block> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, SpongeFactory.MOD_ID);
@@ -56,6 +59,8 @@ public class SFBlocks {
             () -> new ItemMachine(SFBlocks.MASS_ENERGY_CONVERTER.getRegisteredBlock().get(), new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.BLOCK.get())));
     public static final BlockMapping<StorageStabilizerBaseBlock> STORAGE_STABILIZER_BASE = blockWithItem("Storage Stabilizer Base", "存储稳定器基座", "storage_stabilizer_base", () -> new StorageStabilizerBaseBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
     public static final BlockMapping<Block> UNPROCESSED_MACHINE_FRAME = blockWithItem("Unprocessed Machine Frame", "未处理的机器框架", "unprocessed_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion()));
+    public static final BlockMapping<Block> ADVANCED_MACHINE_FRAME = blockWithItem("Advanced Machine Frame", "高级机器框架", "advanced_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion()));
+    public static final BlockMapping<Block> TIME_STORAGE_CONTROLLER = unplaceableBlockWithItem("Time Storage Controller", "时间存储控制器", "time_storage_controller",() -> new UnplaceableBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                             Supplier<T> block) {
@@ -84,6 +89,16 @@ public class SFBlocks {
     private static <T extends Block, I extends BlockItem> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                                                  Supplier<T> block, Supplier<I> blockItem) {
         RegistryObject<T> registeredBlock = REGISTER.register(id, block);
+        var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock,
+                blockItem(englishName, chineseName, id, blockItem));
+        BLOCKS.add(blockMapping);
+        return blockMapping;
+    }
+
+    private static <T extends Block> @NotNull BlockMapping<T> unplaceableBlockWithItem(String englishName, String chineseName, String id,
+                                                                                       Supplier<T> block) {
+        RegistryObject<T> registeredBlock = REGISTER.register(id, block);
+        Supplier<UnplaceableBlockItem> blockItem = ()-> new UnplaceableBlockItem(registeredBlock.get(),new Item.Properties().tab(SFCreativeModTabs.BLOCK.get()));
         var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock,
                 blockItem(englishName, chineseName, id, blockItem));
         BLOCKS.add(blockMapping);

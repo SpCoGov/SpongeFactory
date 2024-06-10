@@ -25,6 +25,9 @@ import top.spco.spongefactory.item.IngotItem;
 import top.spco.spongefactory.quest.SFQuests;
 import top.spco.spongefactory.registries.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Provides supported language providers for generating language files.
  * This class initializes separate language providers for {@link ChineseProvider Chinese} and {@link EnglishProvider English} .
@@ -37,21 +40,25 @@ import top.spco.spongefactory.registries.*;
 public class SupportedLanguageProviders {
     public final LanguageProvider chinese;
     public final LanguageProvider english;
-
+    private final Set<Translatable> translatableSet = new HashSet<>();
     public SupportedLanguageProviders(DataGenerator generator) {
         SFQuests.init();
         addMetalDerivatives(SFItems.SOURCE_STEEL_INGOT);
+        translatableSet.add(translate("Infinity","无限","tooltip.infinity"));
         chinese = new ChineseProvider(generator);
         english = new EnglishProvider(generator);
     }
 
-    public static class ChineseProvider extends LanguageProvider {
+    public class ChineseProvider extends LanguageProvider {
         public ChineseProvider(DataGenerator gen) {
             super(gen, SpongeFactory.MOD_ID, "zh_cn");
         }
 
         @Override
         protected void addTranslations() {
+            for (Translatable translatable : translatableSet) {
+                add(translatable.getTranslationKey(), translatable.getChineseName());
+            }
             for (ItemMapping<?> item : SFItems.ITEMS) {
                 if (item.isBlockItem()) {
                     continue;
@@ -96,13 +103,16 @@ public class SupportedLanguageProviders {
         }
     }
 
-    public static class EnglishProvider extends LanguageProvider {
+    public class EnglishProvider extends LanguageProvider {
         public EnglishProvider(DataGenerator gen) {
             super(gen, SpongeFactory.MOD_ID, "en_us");
         }
 
         @Override
         protected void addTranslations() {
+            for (Translatable translatable : translatableSet) {
+                add(translatable.getTranslationKey(), translatable.getEnglishName());
+            }
             for (ItemMapping<?> item : SFItems.ITEMS) {
                 if (item.isBlockItem()) {
                     continue;
@@ -152,5 +162,10 @@ public class SupportedLanguageProviders {
         base.addDerivative(new ItemDerivative("Source Steel Dust", "魔源钢粉", "item.spongefactory.source_steel" + "_dust"));
         base.addDerivative(new ItemDerivative("Source Steel Coin", "魔源钢币", "item.spongefactory.source_steel" + "_coin"));
         base.addDerivative(new ItemDerivative("Source Steel Gear", "魔源钢齿轮", "item.spongefactory.source_steel" + "_gear"));
+    }
+
+    private static Translatable translate(String englishName, String chineseName, String key) {
+        return new Translatable(englishName, chineseName, key) {
+        };
     }
 }

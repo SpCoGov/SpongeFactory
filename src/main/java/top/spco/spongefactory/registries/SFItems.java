@@ -15,6 +15,7 @@
  */
 package top.spco.spongefactory.registries;
 
+import appeng.api.stacks.AEKeyType;
 import cofh.core.item.CoinItem;
 import cofh.core.item.CountedItem;
 import cofh.core.item.ItemCoFH;
@@ -25,19 +26,18 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SimpleFoiledItem;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import top.spco.spongefactory.Colors;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.ItemMapping;
-import top.spco.spongefactory.item.DustItem;
-import top.spco.spongefactory.item.FluidBucketItem;
-import top.spco.spongefactory.item.HammerItem;
-import top.spco.spongefactory.item.IngotItem;
+import top.spco.spongefactory.item.*;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
@@ -51,6 +51,7 @@ import static cofh.lib.util.constants.NBTTags.*;
  * @version 0.1.0
  * @since 0.1.0
  */
+@SuppressWarnings("unused")
 public class SFItems {
     public static final HashSet<ItemMapping<?>> ITEMS = new HashSet<>();
     public static final HashSet<ItemMapping<DustItem>> DUST_ITEM = new HashSet<>();
@@ -156,10 +157,32 @@ public class SFItems {
     public static final ItemMapping<Item> SOLVATION_FABRIC = defaultMaterialItem("Solvation Fabric", "溶剂化织物", "solvation_fabric");
     public static final ItemMapping<Item> COMPRESSED_AIR_BOTTLE = defaultMaterialItem("Compressed Air Bottle", "瓶装压缩空气", "compressed_air_bottle");
     public static final ItemMapping<DustItem> POTASSIUM_HYDROXIDE_DUST = dustItem("Potassium Hydroxide Dust", "氢氧化钾粉", "potassium_hydroxide_dust", Colors.POTASSIUM);
-    public static final ItemMapping<IngotItem> CALCIUM_INGOT = ingotItem("Calcium Ingot", "钙锭","calcium_ingot", Colors.CALCIUM);
-    public static final ItemMapping<IngotItem> POTASSIUM_INGOT = ingotItem("Potassium Ingot", "钾锭","potassium_ingot", Colors.POTASSIUM);
-    public static final ItemMapping<IngotItem> TITANIUM_INGOT = ingotItem("Titanium Ingot", "钛锭","titanium_ingot", 0xFFFCCCEF);
-    public static final ItemMapping<IngotItem> SODIUM_INGOT = ingotItem("Sodium Ingot", "钠锭","sodium_ingot", Colors.SODIUM);
+    public static final ItemMapping<IngotItem> CALCIUM_INGOT = ingotItem("Calcium Ingot", "钙锭", "calcium_ingot", Colors.CALCIUM);
+    public static final ItemMapping<IngotItem> POTASSIUM_INGOT = ingotItem("Potassium Ingot", "钾锭", "potassium_ingot", Colors.POTASSIUM);
+    public static final ItemMapping<IngotItem> TITANIUM_INGOT = ingotItem("Titanium Ingot", "钛锭", "titanium_ingot", Colors.TITANIUM);
+    public static final ItemMapping<IngotItem> SODIUM_INGOT = ingotItem("Sodium Ingot", "钠锭", "sodium_ingot", Colors.SODIUM);
+    public static final ItemMapping<DustItem> SODIUM_NITRATE = dustItem("Sodium Nitrate", "硝酸钠", "sodium_nitrate", Colors.SODIUM_NITRATE);
+    public static final ItemMapping<DustItem> SODIUM_NITRITE = dustItem("Sodium Nitrite", "亚硝酸钠", "sodium_nitrite", Colors.SODIUM_NITRITE);
+    public static final ItemMapping<DustItem> SODIUM_OXIDE = dustItem("Sodium Oxide", "氧化钠", "sodium_oxide", Colors.SODIUM_OXIDE);
+    public static final ItemMapping<DustItem> SODIUM_HYDROXIDE = dustItem("Sodium Hydroxide", "氢氧化钠", "sodium_hydroxide", Colors.SODIUM);
+    public static final ItemMapping<DustItem> HYDROCHLORIDE = dustItem("Hydrochloride", "盐酸盐", "hydrochloride", Colors.HYDROCHLORIDE);
+    public static final ItemMapping<DustItem> HYPOCHLORITE = dustItem("Hypochlorite", "次氯酸盐", "hypochlorite", Colors.HYPOCHLORITE);
+    public static final ItemMapping<Item> INDUCTION_COIL = defaultMaterialItem("Induction Coil", "磁感应线圈", "induction_coil");
+    public static final ItemMapping<Item> CHORUS_BUTTER = defaultMaterialItem("Chorus Butter", "紫颂脂", "chorus_butter");
+    public static final ItemMapping<Item> CHORUS_INGOT = defaultMaterialItem("Chorus Ingot", "紫颂锭", "chorus_ingot");
+    public static final ItemMapping<Item> ROCKET_CONTROL_CIRCUIT = defaultMaterialItem("Rocket Control Circuit", "火箭控制电路", "rocket_control_circuit");
+    public static final ItemMapping<Item> AEROSPACE_COMPOSITE_FABRIC = defaultMaterialItem("Aerospace Composite Fabric", "航天复合面料", "aerospace_composite_fabric");
+    public static final ItemMapping<Item> KEVLAR = defaultMaterialItem("Kevlar", "Kevlar", "kevlar");
+    public static final ItemMapping<Item> KAPTON = defaultMaterialItem("Kapton", "Kapton", "kapton");
+    public static final ItemMapping<Item> ELASTIC_FABRIC = defaultMaterialItem("Elastic Fabric", "弹性织物", "elastic_fabric");
+    public static final ItemMapping<DustItem> P_NITROANILINE = dustItem("p-Nitroaniline", "4-硝基苯胺", "p_nitroaniline", 0xFFFFCB6B);
+    public static final ItemMapping<DustItem> TEREPHTHALIC_ACID = dustItem("Terephthalic Acid", "对苯二甲酸", "terephthalic_acid", 0xFFE1E4E8);
+    public static final ItemMapping<DustItem> P_PHENYLENEDIAMINE = dustItem("p-Phenylenediamine", "对苯二胺", "p_phenylenediamine", 0xFFBABABA);
+    public static final ItemMapping<DustItem> PHTHALIC_ANHYDRIDE = dustItem("Phthalic Anhydride", "苯二酐", "phthalic_anhydride", 0xFFE5E7EB);
+    public static final ItemMapping<Item> UNIVERSAL_PRESS = defaultMaterialItem("Universal Press", "通用压印模板", "universal_press");
+    public static final ItemMapping<BasicSpongeCellItem> SPONGE_ITEM_STORAGE_CELL = item("Sponge Storage Cell", "海绵储存元件", "sponge_item_storage_cell",
+            () -> new BasicSpongeCellItem(new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.TOOL.get()),
+                    Blocks.SPONGE,Blocks.SPONGE, 1.5, 256, 512, AEKeyType.items()));
 
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),
@@ -175,14 +198,14 @@ public class SFItems {
 
     private static ItemMapping<DustItem> dustItem(String englishName, String chineseName, String id, int color) {
         RegistryObject<DustItem> registeredItem = REGISTER.register(id, () -> new DustItem(new Item.Properties().tab(SFCreativeModTabs.MATERIAL.get()), color));
-        ItemMapping<DustItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem, false);
+        ItemMapping<DustItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem);
         DUST_ITEM.add(dustItemMapping);
         return dustItemMapping;
     }
 
     private static ItemMapping<IngotItem> ingotItem(String englishName, String chineseName, String id, int color) {
         RegistryObject<IngotItem> registeredItem = REGISTER.register(id, () -> new IngotItem(new Item.Properties().tab(SFCreativeModTabs.MATERIAL.get()), color));
-        ItemMapping<IngotItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem, false);
+        ItemMapping<IngotItem> dustItemMapping = new ItemMapping<>(englishName, chineseName, id, registeredItem);
         INGOT_ITEM.add(dustItemMapping);
         return dustItemMapping;
     }
@@ -203,7 +226,7 @@ public class SFItems {
         return itemDef;
     }
 
-    private static Object registerMetalSet(String prefix, CreativeModeTab group, Rarity rarity) {
+    private static @Nullable Object registerMetalSet(String prefix, CreativeModeTab group, Rarity rarity) {
         // Hacky but whatever.
         REGISTER.register(prefix + "_dust", () -> new ItemCoFH(new Item.Properties().tab(group).rarity(rarity)));
         REGISTER.register(prefix + "_gear", () -> new ItemCoFH(new Item.Properties().tab(group).rarity(rarity)));

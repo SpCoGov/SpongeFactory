@@ -19,4 +19,13 @@ public class Colors {
     public static final int POTASSIUM = 0xFFD396D3;
     public static final int SODIUM = 0xFFE5AFAF;
     public static final int CALCIUM = 0xFF85A6AF;
+    public static final int TITANIUM = 0xFFFCCCEF;
+    public static final int SODIUM_OXIDE = 0xFFFFF6DB;
+    public static final int SODIUM_NITRATE = 0xFFFFF7DF;
+    public static final int SODIUM_NITRITE = 0xFFFFEAAC;
+    public static final int HYDROCHLORIDE = 0xFFBFD1E1;
+    public static final int HYPOCHLORITE = 0xFFCDDBEC;
+    public static final int SIGNALUM = 0xFFEC3606;
+    public static final int LUMIUM = 0xFFf4dd71;
+    public static final int CHORUS =0xFF8D638D;
 }

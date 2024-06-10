@@ -1,5 +1,6 @@
 package top.spco.spongefactory;
 
+import appeng.core.AELog;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -9,6 +10,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import top.spco.spongefactory.infrastructure.data.SFDataGen;
+import top.spco.spongefactory.infrastructure.init.CellModels;
+import top.spco.spongefactory.infrastructure.init.CellUpgrades;
 import top.spco.spongefactory.registries.SFRecipeType;
 import top.spco.spongefactory.registries.*;
 
@@ -36,7 +39,16 @@ public class SpongeFactory {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    public void postRegistrationInitialization() {
+        CellUpgrades.init();
+        CellModels.init();
+    }
 
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(this::postRegistrationInitialization).whenComplete((res, err) -> {
+            if (err != null) {
+                LOGGER.error(err.getLocalizedMessage());
+            }
+        });
     }
 }

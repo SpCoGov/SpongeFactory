@@ -37,6 +37,7 @@ public class SFRecipeType {
     public static final RecipeTypeRegistryObject<GasToGasRecipe, InputRecipeCache.SingleChemical<Gas, GasStack, GasToGasRecipe>> ME_CONVERTING =
             register("mass_energy_converting", recipeType -> new InputRecipeCache.SingleChemical<>(recipeType, ChemicalToChemicalRecipe::getInput));
 
+    @SuppressWarnings(value = {"rawtypes","unchecked"})
     private static <RECIPE extends MekanismRecipe, INPUT_CACHE extends IInputRecipeCache> RecipeTypeRegistryObject<RECIPE, INPUT_CACHE> register(String name,
                                                                                                                                                  Function<MekanismRecipeType<RECIPE, INPUT_CACHE>, INPUT_CACHE> inputCacheCreator) {
         try {

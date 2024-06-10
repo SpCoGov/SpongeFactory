@@ -30,6 +30,8 @@ public class SFFluidTypes {
 
     public static final ResourceLocation MOLTEN_STILL = new ResourceLocation(SpongeFactory.MOD_ID, "block/fluids/molten_still");
     public static final ResourceLocation MOLTEN_FLOW = new ResourceLocation(SpongeFactory.MOD_ID, "block/fluids/molten_flow");
+    public static final ResourceLocation MOLTEN_ALLOY_STILL = new ResourceLocation(SpongeFactory.MOD_ID, "block/fluids/molten_alloy_still");
+    public static final ResourceLocation MOLTEN_ALLOY_FLOW = new ResourceLocation(SpongeFactory.MOD_ID, "block/fluids/molten_alloy_flow");
 
     public static final RegistryObject<FluidType> GLOOMY_EXTRACT = REGISTER.register("gloomy_extract", () -> new BaseFluidType(
             new ResourceLocation("spongefactory:block/fluids/gloomy_extract_still"),
