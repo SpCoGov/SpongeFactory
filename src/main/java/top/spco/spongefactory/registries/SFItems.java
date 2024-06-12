@@ -186,7 +186,6 @@ public class SFItems {
     public static final ItemMapping<Item> CRAFT_CORE = defaultMaterialItem("Craft Core", "合成核心", "craft_core");
     public static final ItemMapping<Item> DESH_COIL = defaultMaterialItem("Desh Coil","戴斯线圈", "desh_coil");
 
-
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),
                     AugmentDataHelper.builder().type(TAG_AUGMENT_TYPE_MACHINE)

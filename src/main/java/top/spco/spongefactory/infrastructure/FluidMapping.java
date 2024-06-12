@@ -28,7 +28,7 @@ import top.spco.spongefactory.registries.SFItems;
 
 import java.util.function.Supplier;
 
-public class FluidMapping extends Translatable {
+public class FluidMapping extends ObjectMapping<Fluid> {
     private final RegistryObject<FlowingFluid> stillFluid;
     private final RegistryObject<FlowingFluid> flowingFluid;
     private final Supplier<FluidType> type;

@@ -25,7 +25,7 @@ import top.spco.spongefactory.SpongeFactory;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class GasMapping extends Translatable {
+public class GasMapping extends ObjectMapping<Gas> {
     private final String id;
 
     public GasMapping(String englishName, String chineseName, String id) {

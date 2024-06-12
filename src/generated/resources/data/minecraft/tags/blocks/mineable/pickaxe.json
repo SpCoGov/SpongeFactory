@@ -2,9 +2,10 @@
   "values": [
     "spongefactory:portal_frame",
     "spongefactory:mass_energy_converter",
-    "spongefactory:unprocessed_machine_frame",
     "spongefactory:sheetmetal_source_steel",
+    "spongefactory:deepslate_titanium_ore",
+    "spongefactory:unprocessed_machine_frame",
     "spongefactory:titanium_ore",
-    "spongefactory:deepslate_titanium_ore"
+    "spongefactory:advanced_machine_frame"
   ]
 }

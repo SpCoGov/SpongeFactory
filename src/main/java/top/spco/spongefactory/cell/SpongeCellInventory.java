@@ -248,7 +248,7 @@ public class SpongeCellInventory implements StorageCell {
         var amounts = getTag().getLongArray(STACK_AMOUNTS);
         var tags = getTag().getList(STACK_KEYS, Tag.TAG_COMPOUND);
         if (amounts.length != tags.size()) {
-            AELog.warn("Loading storage cell with mismatched amounts/tags: %d != %d",
+            AELog.warn("Loading storage cell with mismatched amounts/getTags: %d != %d",
                     amounts.length, tags.size());
         }
 

@@ -31,7 +31,7 @@ import java.util.HashSet;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class ItemMapping<T extends Item> extends Translatable implements ItemLike {
+public class ItemMapping<T extends Item> extends ObjectMapping<Item> implements ItemLike {
     private final String id;
     private final RegistryObject<T> item;
     private final boolean isBlockItem;

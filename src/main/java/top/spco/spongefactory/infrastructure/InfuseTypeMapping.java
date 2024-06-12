@@ -15,9 +15,10 @@
  */
 package top.spco.spongefactory.infrastructure;
 
+import mekanism.api.chemical.infuse.InfuseType;
 import top.spco.spongefactory.SpongeFactory;
 
-public class InfuseTypeMapping extends Translatable {
+public class InfuseTypeMapping extends ObjectMapping<InfuseType> {
     private final String id;
 
     public InfuseTypeMapping(String englishName, String chineseName, String id) {

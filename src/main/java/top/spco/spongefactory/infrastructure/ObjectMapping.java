@@ -13,7 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.infrastructure.data;
+package top.spco.spongefactory.infrastructure;
 
-public class SFItemTagGenerator {
+import net.minecraft.tags.TagKey;
+
+import java.util.Collection;
+import java.util.HashSet;
+
+public abstract class ObjectMapping<T> extends Translatable {
+    private final Collection<TagKey<T>> tags = new HashSet<>();
+    public ObjectMapping(String englishName, String chineseName, String translationKey) {
+        super(englishName, chineseName, translationKey);
+    }
+
+    public ObjectMapping<T> tag(TagKey<T> tag) {
+        tags.add(tag);
+        return this;
+    }
+
+    public Collection<TagKey<T>> getTags() {
+        return tags;
+    }
 }

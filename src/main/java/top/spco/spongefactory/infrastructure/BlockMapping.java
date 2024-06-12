@@ -32,7 +32,7 @@ import top.spco.spongefactory.SpongeFactory;
  * @version 0.1.0
  * @since 0.1.0
  */
-public class BlockMapping<T extends Block> extends Translatable implements ItemLike {
+public class BlockMapping<T extends Block> extends ObjectMapping<Block> implements ItemLike {
     private final String id;
     private final RegistryObject<T> block;
     private final ItemMapping<? extends BlockItem> blockItem;
