@@ -15,12 +15,5 @@
  */
 package top.spco.spongefactory.infrastructure.data;
 
-/**
- * Created on 2024/04/27 12:11
- *
- * @author SpCo
- * @version 0.1.0
- * @since 0.1.0
- */
 public class SFItemTagGenerator {
 }

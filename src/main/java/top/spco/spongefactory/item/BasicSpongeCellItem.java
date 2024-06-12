@@ -24,7 +24,11 @@ import appeng.api.upgrades.UpgradeInventories;
 import appeng.items.contents.CellConfig;
 import appeng.util.ConfigInventory;
 import appeng.util.InteractionUtil;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -35,38 +39,30 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
+import top.spco.spongefactory.SpongeFactory;
 
 import java.util.List;
 import java.util.Optional;
 
 public class BasicSpongeCellItem extends Item implements ISpongeCellItem {
-    /**
-     * This can be retrieved when disassembling the storage cell.
-     */
-    protected final ItemLike coreItem;
-    protected final ItemLike housingItem;
     protected final double idleDrain;
     protected final int totalBytes;
     protected final int bytesPerType;
     private final AEKeyType keyType;
 
     public BasicSpongeCellItem(Item.Properties properties,
-                            ItemLike coreItem,
-                            ItemLike housingItem,
-                            double idleDrain,
-                            int kilobytes,
-                            int bytesPerType,
-                            AEKeyType keyType) {
+                               double idleDrain,
+                               int kilobytes,
+                               int bytesPerType,
+                               AEKeyType keyType) {
         super(properties);
         this.idleDrain = idleDrain;
         this.totalBytes = kilobytes * 1024;
-        this.coreItem = coreItem;
-        this.housingItem = housingItem;
         this.bytesPerType = bytesPerType;
         this.keyType = keyType;
     }
@@ -108,7 +104,7 @@ public class BasicSpongeCellItem extends Item implements ISpongeCellItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack,
+    public void appendHoverText(@NotNull ItemStack stack,
                                 Level level,
                                 @NotNull List<Component> lines,
                                 @NotNull TooltipFlag advancedTooltips) {
@@ -151,10 +147,20 @@ public class BasicSpongeCellItem extends Item implements ISpongeCellItem {
             if (inv != null && playerInventory.getSelected() == stack) {
                 var list = inv.getAvailableStacks();
                 if (list.isEmpty()) {
+                    MinecraftServer server = level.getServer();
+                    if (server != null && player instanceof ServerPlayer serverPlayer) {
+                        Advancement advancement = server.getAdvancements().getAdvancement(new ResourceLocation(SpongeFactory.MOD_ID, "main/sponge_storage_cell"));
+                        if (advancement != null) {
+                            if (!serverPlayer.getAdvancements().getOrStartProgress(advancement).isDone()) {
+                                serverPlayer.getAdvancements().award(advancement, "unlock");
+                            }
+                        }
+                    }
+
                     playerInventory.setItem(playerInventory.selected, ItemStack.EMPTY);
 
                     // drop core
-                    playerInventory.placeItemBackInInventory(new ItemStack(coreItem));
+                    playerInventory.placeItemBackInInventory(new ItemStack(Blocks.SPONGE));
 
                     // drop upgrades
                     for (var upgrade : this.getUpgrades(stack)) {
@@ -162,7 +168,7 @@ public class BasicSpongeCellItem extends Item implements ISpongeCellItem {
                     }
 
                     // drop empty storage cell case
-                    playerInventory.placeItemBackInInventory(new ItemStack(housingItem));
+                    playerInventory.placeItemBackInInventory(new ItemStack(Blocks.SPONGE));
 
                     return true;
                 }

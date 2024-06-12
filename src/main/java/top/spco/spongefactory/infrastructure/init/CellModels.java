@@ -28,6 +28,6 @@ public class CellModels {
 
     public static void init() {
         StorageCells.addCellHandler(SpongeCellHandler.INSTANCE);
-        StorageCellModels.registerModel(SFItems.SPONGE_ITEM_STORAGE_CELL, MODEL_CELL_SPONGE);
+        StorageCellModels.registerModel(SFItems.SPONGE_ITEM_STORAGE_CELL_256K, MODEL_CELL_SPONGE);
     }
 }

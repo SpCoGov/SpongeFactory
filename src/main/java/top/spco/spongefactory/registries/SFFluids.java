@@ -61,8 +61,9 @@ public class SFFluids {
     public static final FluidMapping MOLTEN_LUMIUM = molten("Lumium", "流明", Colors.LUMIUM, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
     public static final FluidMapping CHORUS_OIL = fluidAndType("Chorus Oil", "紫颂油", "chorus_oil", Colors.CHORUS, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
     public static final FluidMapping CHORUS_JUICE = fluidAndType("Chorus Juice", "紫颂汁", "chorus_juice", Colors.CHORUS);
-    public static final FluidMapping P_XYLENE = fluidAndType("p-Xylene", "对二甲苯","p_xylene", 0xFFA4BECD);
-    public static final FluidMapping PHTHALOYL_CHLORIDE = fluidAndType("Phthaloyl Chloride","苯二甲酰氯","phthaloyl_chloride", 0xFFABBF0A);
+    public static final FluidMapping P_XYLENE = fluidAndType("p-Xylene", "对二甲苯", "p_xylene", 0xFFA4BECD);
+    public static final FluidMapping PHTHALOYL_CHLORIDE = fluidAndType("Phthaloyl Chloride", "苯二甲酰氯", "phthaloyl_chloride", 0xFFABBF0A);
+    public static final FluidMapping MOLTEN_DESH = molten("Desh", "戴斯", Colors.DESH, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");

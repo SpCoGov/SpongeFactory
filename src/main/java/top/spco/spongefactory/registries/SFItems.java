@@ -26,7 +26,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SimpleFoiledItem;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -164,6 +163,7 @@ public class SFItems {
     public static final ItemMapping<DustItem> SODIUM_NITRATE = dustItem("Sodium Nitrate", "硝酸钠", "sodium_nitrate", Colors.SODIUM_NITRATE);
     public static final ItemMapping<DustItem> SODIUM_NITRITE = dustItem("Sodium Nitrite", "亚硝酸钠", "sodium_nitrite", Colors.SODIUM_NITRITE);
     public static final ItemMapping<DustItem> SODIUM_OXIDE = dustItem("Sodium Oxide", "氧化钠", "sodium_oxide", Colors.SODIUM_OXIDE);
+    public static final ItemMapping<DustItem> SODIUM_PEROXIDE = dustItem("Sodium Peroxide", "过氧化钠", "sodium_peroxide", Colors.SODIUM_PEROXIDE);
     public static final ItemMapping<DustItem> SODIUM_HYDROXIDE = dustItem("Sodium Hydroxide", "氢氧化钠", "sodium_hydroxide", Colors.SODIUM);
     public static final ItemMapping<DustItem> HYDROCHLORIDE = dustItem("Hydrochloride", "盐酸盐", "hydrochloride", Colors.HYDROCHLORIDE);
     public static final ItemMapping<DustItem> HYPOCHLORITE = dustItem("Hypochlorite", "次氯酸盐", "hypochlorite", Colors.HYPOCHLORITE);
@@ -180,9 +180,12 @@ public class SFItems {
     public static final ItemMapping<DustItem> P_PHENYLENEDIAMINE = dustItem("p-Phenylenediamine", "对苯二胺", "p_phenylenediamine", 0xFFBABABA);
     public static final ItemMapping<DustItem> PHTHALIC_ANHYDRIDE = dustItem("Phthalic Anhydride", "苯二酐", "phthalic_anhydride", 0xFFE5E7EB);
     public static final ItemMapping<Item> UNIVERSAL_PRESS = defaultMaterialItem("Universal Press", "通用压印模板", "universal_press");
-    public static final ItemMapping<BasicSpongeCellItem> SPONGE_ITEM_STORAGE_CELL = item("Sponge Storage Cell", "海绵储存元件", "sponge_item_storage_cell",
-            () -> new BasicSpongeCellItem(new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.TOOL.get()),
-                    Blocks.SPONGE,Blocks.SPONGE, 1.5, 256, 512, AEKeyType.items()));
+    public static final ItemMapping<BasicSpongeCellItem> SPONGE_ITEM_STORAGE_CELL_256K = item("256k Sponge Item Storage Cell", "256k-海绵物品存储元件", "sponge_item_storage_cell_256k",
+            () -> new BasicSpongeCellItem(new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.TOOL.get()), 1.5, 256, 512, AEKeyType.items()));
+    public static final ItemMapping<Item> SPONGE_ITEM_CELL_HOUSING = defaultMaterialItem("Sponge Item Cell Housing", "海绵物品元件外壳", "sponge_item_cell_housing");
+    public static final ItemMapping<Item> CRAFT_CORE = defaultMaterialItem("Craft Core", "合成核心", "craft_core");
+    public static final ItemMapping<Item> DESH_COIL = defaultMaterialItem("Desh Coil","戴斯线圈", "desh_coil");
+
 
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),

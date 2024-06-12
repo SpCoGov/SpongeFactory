@@ -355,17 +355,14 @@ public class SpongeCellInventory implements StorageCell {
     @Override
     public long insert(AEKey what, long amount, Actionable mode, IActionSource source) {
         if (amount == 0 || !keyType.contains(what)) {
-            System.out.println("insert amount == 0 || !keyType.contains(what): " + amount);
             return 0;
         }
 
         if (!this.partitionList.matchesFilter(what, this.partitionListMode)) {
-            System.out.println("!this.partitionList.matchesFilter(what, this.partitionListMode): " + amount);
             return 0;
         }
 
         if (this.cellType.isBlackListed(this.i, what)) {
-            System.out.println("this.cellType.isBlackListed(this.i, what): " + amount);
             return 0;
         }
 
@@ -383,7 +380,6 @@ public class SpongeCellInventory implements StorageCell {
         if (what instanceof AEItemKey itemKey && this.isStorageCell(itemKey)) {
             var meInventory = createInventory(itemKey.toStack(), null);
             if (!isCellEmpty(meInventory)) {
-                System.out.println("!isCellEmpty(meInventory): " + 0);
                 return 0;
             }
         }
@@ -395,13 +391,11 @@ public class SpongeCellInventory implements StorageCell {
         if (currentAmount <= 0) {
             if (!canHoldNewItem()) {
                 // No space for more types
-                System.out.println("!canHoldNewItem(): " + 0);
                 return 0;
             }
 
             remainingItemCount -= (long) this.getBytesPerType() * keyType.getAmountPerByte();
             if (remainingItemCount <= 0) {
-                System.out.println("remainingItemCount <= 0: " + 0);
                 return 0;
             }
         }
@@ -412,7 +406,6 @@ public class SpongeCellInventory implements StorageCell {
         if (amount > remainingItemCount) {
             amount = remainingItemCount;
         }
-        System.out.println("Amount after remainingItemCount: " + amount);
         if (mode == Actionable.MODULATE) {
             getCellItems().put(what, currentAmount + amount);
             this.saveChanges();

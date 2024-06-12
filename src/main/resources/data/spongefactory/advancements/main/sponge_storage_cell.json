@@ -1,0 +1,28 @@
+{
+  "parent": "spongefactory:main/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:sponge"
+    },
+    "title": {
+      "translate": "spongefactory.advancements.main.sponge_storage_cell.title"
+    },
+    "description": {
+      "translate": "spongefactory.advancements.main.sponge_storage_cell.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "unlock": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "unlock"
+    ]
+  ]
+}

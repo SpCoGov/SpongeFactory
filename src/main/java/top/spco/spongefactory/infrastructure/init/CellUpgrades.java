@@ -27,7 +27,7 @@ public class CellUpgrades {
         String storageCellGroup = GuiText.StorageCells.getTranslationKey();
 
         var itemCells = List.of(
-                SFItems.SPONGE_ITEM_STORAGE_CELL);
+                SFItems.SPONGE_ITEM_STORAGE_CELL_256K);
         for (var itemCell : itemCells) {
             Upgrades.add(AEItems.FUZZY_CARD, itemCell, 1, storageCellGroup);
             Upgrades.add(AEItems.INVERTER_CARD, itemCell, 1, storageCellGroup);

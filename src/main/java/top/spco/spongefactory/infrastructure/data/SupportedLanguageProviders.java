@@ -45,6 +45,10 @@ public class SupportedLanguageProviders {
         SFQuests.init();
         addMetalDerivatives(SFItems.SOURCE_STEEL_INGOT);
         translatableSet.add(translate("Infinity","无限","tooltip.infinity"));
+        translatableSet.add(translate("Start Sponge Factory!","开始Sponge Factory！","spongefactory.advancements.main.root.title"));
+        translatableSet.add(translate("Prepare for the next challenge","为接下来的挑战做好准备","spongefactory.advancements.main.root.description"));
+        translatableSet.add(translate("Turn Treasure into Trash","变宝为废","spongefactory.advancements.main.sponge_storage_cell.title"));
+        translatableSet.add(translate("Disassemble a Sponge Storage Cell into two sponges","把一个海绵存储元件拆卸成两块海绵","spongefactory.advancements.main.sponge_storage_cell.description"));
         chinese = new ChineseProvider(generator);
         english = new EnglishProvider(generator);
     }

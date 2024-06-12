@@ -26,7 +26,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegisterEvent;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.cell.SpongeCellInventory;
 import top.spco.spongefactory.client.gui.MassEnergyConverterGui;
 import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
@@ -59,6 +58,6 @@ public class ClientRegistration {
         for (ItemMapping<IngotItem> ingotItem : SFItems.INGOT_ITEM) {
             event.register((p_92672_, p_92673_) -> ingotItem.getItem().getColor(p_92672_, p_92673_), ingotItem);
         }
-        event.register(BasicSpongeCellItem::getColor, SFItems.SPONGE_ITEM_STORAGE_CELL);
+        event.register(BasicSpongeCellItem::getColor, SFItems.SPONGE_ITEM_STORAGE_CELL_256K);
     }
 }
