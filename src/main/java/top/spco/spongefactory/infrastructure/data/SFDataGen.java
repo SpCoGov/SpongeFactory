@@ -29,7 +29,6 @@ import top.spco.spongefactory.infrastructure.data.loot.cofh.SFCoFHItemModelProvi
  */
 public class SFDataGen {
     public static void gatherData(GatherDataEvent event) {
-        System.out.println("Data gen " +StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass().getName());
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 

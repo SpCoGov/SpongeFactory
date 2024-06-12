@@ -46,9 +46,6 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class SFBlocks {
-     static {
-         System.out.println("Block " +StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass().getName());
-     }
     public static final HashSet<BlockMapping<?>> BLOCKS = new HashSet<>();
     public static final DeferredRegister<Block> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, SpongeFactory.MOD_ID);
     public static final BlockMapping<Block> PORTAL_FRAME = (BlockMapping<Block>) blockWithItem("Portal Frame", "传送门框架", "portal_frame",
