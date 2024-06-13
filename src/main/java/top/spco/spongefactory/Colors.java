@@ -30,4 +30,22 @@ public class Colors {
     public static final int LUMIUM = 0xFFf4dd71;
     public static final int CHORUS = 0xFF8D638D;
     public static final int DESH = 0xFFD68D4D;
+    public static final int NETHERITE = 0xFF2B292A;
+    public static final int BAUXITE = 0xFFAE744E;
+
+    // gasColor
+    public static final int CARBON_DIOXIDE = 0xD0D0D0;
+    public static final int CARBON_MONOXIDE = 0xE2E2E2;
+    public static final int NICKEL = 0xAE9E74;
+    public static final int NICKEL_TETRACARBONYL = 0x978965;
+    public static final int ALUMINUM = 0xBEC5C9;
+    public static final int MATTER = 0xFFFFFF;
+
+    public static int convertToArgb(int rgbColor) {
+        return convertToArgb(0xFF, rgbColor);
+    }
+
+    public static int convertToArgb(int alpha,int rgbColor) {
+        return (alpha << 24) | rgbColor;
+    }
 }

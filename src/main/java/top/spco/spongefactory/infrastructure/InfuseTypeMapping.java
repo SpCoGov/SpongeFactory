@@ -16,13 +16,20 @@
 package top.spco.spongefactory.infrastructure;
 
 import mekanism.api.chemical.infuse.InfuseType;
+import mekanism.common.registration.impl.InfuseTypeRegistryObject;
 import top.spco.spongefactory.SpongeFactory;
 
 public class InfuseTypeMapping extends ObjectMapping<InfuseType> {
     private final String id;
+    private final InfuseTypeRegistryObject<InfuseType> infuseType;
 
-    public InfuseTypeMapping(String englishName, String chineseName, String id) {
+    public InfuseTypeMapping(String englishName, String chineseName, String id, InfuseTypeRegistryObject<InfuseType> infuseType) {
         super(englishName, chineseName, "infuse_type." + SpongeFactory.MOD_ID + "." + id);
         this.id = id;
+        this.infuseType = infuseType;
+    }
+
+    public InfuseTypeRegistryObject<InfuseType> getInfuseType() {
+        return infuseType;
     }
 }

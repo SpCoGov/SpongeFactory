@@ -16,6 +16,7 @@
 package top.spco.spongefactory.infrastructure;
 
 import mekanism.api.chemical.gas.Gas;
+import mekanism.common.registration.impl.GasRegistryObject;
 import top.spco.spongefactory.SpongeFactory;
 
 /**
@@ -27,9 +28,15 @@ import top.spco.spongefactory.SpongeFactory;
  */
 public class GasMapping extends ObjectMapping<Gas> {
     private final String id;
+    private final GasRegistryObject<Gas> gas;
 
-    public GasMapping(String englishName, String chineseName, String id) {
+    public GasMapping(String englishName, String chineseName, String id, GasRegistryObject<Gas> gas) {
         super(englishName, chineseName, "gas." + SpongeFactory.MOD_ID + "." + id);
         this.id = id;
+        this.gas = gas;
+    }
+
+    public GasRegistryObject<Gas> getGas() {
+        return gas;
     }
 }

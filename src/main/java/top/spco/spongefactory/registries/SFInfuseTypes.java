@@ -22,11 +22,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.infrastructure.InfuseTypeMapping;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @SuppressWarnings("unused")
 public class SFInfuseTypes {
-    public static final HashSet<InfuseTypeMapping> INFUSE_TYPES = new HashSet<>();
+    public static final Set<InfuseTypeMapping> INFUSE_TYPES = new LinkedHashSet<>();
     public static final InfuseTypeDeferredRegister REGISTER = new InfuseTypeDeferredRegister(SpongeFactory.MOD_ID);
     public static final InfuseTypeMapping INFERIUM_ESSENCE = infuseType("Inferium Essence", "下级精华", "inferium_essence", 0xA0C400);
     public static final InfuseTypeMapping PRUDENTIUM_ESSENCE = infuseType("Prudentium Essence", "初级精华", "prudentium_essence", 0x00DC36);
@@ -37,7 +38,7 @@ public class SFInfuseTypes {
 
     private static InfuseTypeMapping infuseType(String englishName, String chineseName, String id, int color) {
         InfuseTypeRegistryObject<InfuseType> registered = REGISTER.register(id, color);
-        InfuseTypeMapping infuseTypeMapping = new InfuseTypeMapping(englishName, chineseName, id);
+        InfuseTypeMapping infuseTypeMapping = new InfuseTypeMapping(englishName, chineseName, id, registered);
         INFUSE_TYPES.add(infuseTypeMapping);
         return infuseTypeMapping;
     }

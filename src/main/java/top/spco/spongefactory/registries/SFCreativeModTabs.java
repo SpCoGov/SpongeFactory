@@ -45,5 +45,4 @@ public class SFCreativeModTabs {
         TABS.add(tab);
         return tab;
     }
-
 }

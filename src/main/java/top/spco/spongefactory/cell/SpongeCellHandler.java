@@ -133,10 +133,10 @@ public class SpongeCellHandler implements ICellHandler {
     private static final ChatFormatting[] fabulousness = new ChatFormatting[]{RED, GOLD, YELLOW, GREEN, AQUA, BLUE, LIGHT_PURPLE};
 
     public static String makeFabulous(String input) {
-        return ludicrousFormatting(input, fabulousness, 80.0, 1, 1);
+        return ludicrousFormatting(input, fabulousness, 80.0, 1);
     }
 
-    public static String ludicrousFormatting(String input, ChatFormatting[] colours, double delay, int step, int posstep) {
+    public static String ludicrousFormatting(String input, ChatFormatting[] colours, double delay, int posstep) {
         StringBuilder sb = new StringBuilder(input.length() * 3);
         if (delay <= 0) {
             delay = 0.001;

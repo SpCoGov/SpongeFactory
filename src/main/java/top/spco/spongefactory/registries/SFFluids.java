@@ -64,6 +64,12 @@ public class SFFluids {
     public static final FluidMapping P_XYLENE = fluidAndType("p-Xylene", "对二甲苯", "p_xylene", 0xFFA4BECD);
     public static final FluidMapping PHTHALOYL_CHLORIDE = fluidAndType("Phthaloyl Chloride", "苯二甲酰氯", "phthaloyl_chloride", 0xFFABBF0A);
     public static final FluidMapping MOLTEN_DESH = molten("Desh", "戴斯", Colors.DESH, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
+    public static final FluidMapping MOLTEN_NETHERITE = molten("Netherite", "下界合金", Colors.NETHERITE);
+    public static final FluidMapping MOLTEN_BAUXITE = molten("Bauxite", "铝土矿", Colors.BAUXITE);
+    public static final FluidMapping MOLTEN_ALUMINUM = molten("Aluminum", "铝", Colors.convertToArgb(Colors.ALUMINUM));
+    public static final FluidMapping MOLTEN_MATTER = molten("Matter", "物质", Colors.convertToArgb(Colors.MATTER));
+    public static final FluidMapping ANCIENT_DEBRIS_SUSPENSION = fluidAndType("Ancient Debris Suspension", "远古遗骸悬浊液", "ancient_debris_suspension", Colors.NETHERITE, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
+    public static final FluidMapping MOLTEN_NICKEL = molten("Nickel", "镍", Colors.convertToArgb(Colors.NICKEL));
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");
