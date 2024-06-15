@@ -146,13 +146,7 @@ public class SFItems {
     public static final ItemMapping<Item> ADVANCED_BLANK_ADDON = defaultMaterialItem("Advanced Blank Addon", "高级空白插件", "advanced_blank_addon");
     public static final ItemMapping<Item> GOLD_PLATED_BRASS_INGOT = defaultMaterialItem("Gold Plated Brass Ingot", "镀金黄铜锭", "gold_plated_brass_ingot");
     public static final ItemMapping<Item> HEAT_RESISTANT_DIELECTRIC_PASTE_SHEET = defaultMaterialItem("Heat Resistant Dielectric Paste Sheet", "耐热绝缘覆层片", "heat_resistant_dielectric_paste_sheet");
-    public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT = item("Creative Machine Speed Augment", "创造通量链接放大器", "creative_machine_speed_augment",
-            () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),
-                    AugmentDataHelper.builder().type(TAG_AUGMENT_TYPE_MACHINE)
-                            .mod(TAG_AUGMENT_MACHINE_SPEED, 5F)
-                            .mod(TAG_AUGMENT_MACHINE_ENERGY, 0F)
-                            .mod(TAG_AUGMENT_BASE_MOD, 20F)
-                            .build()));
+    public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT = item("Creative Machine Speed Augment", "创造通量链接放大器", "creative_machine_speed_augment", () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()), AugmentDataHelper.builder().type(TAG_AUGMENT_TYPE_MACHINE).mod(TAG_AUGMENT_MACHINE_SPEED, 5F).mod(TAG_AUGMENT_MACHINE_ENERGY, 0F).mod(TAG_AUGMENT_BASE_MOD, 20F).build()));
     public static final ItemMapping<Item> SOLVATION_FABRIC = defaultMaterialItem("Solvation Fabric", "溶剂化织物", "solvation_fabric");
     public static final ItemMapping<Item> COMPRESSED_AIR_BOTTLE = defaultMaterialItem("Compressed Air Bottle", "瓶装压缩空气", "compressed_air_bottle");
     public static final ItemMapping<DustItem> POTASSIUM_HYDROXIDE_DUST = dustItem("Potassium Hydroxide Dust", "氢氧化钾粉", "potassium_hydroxide_dust", Colors.POTASSIUM);
@@ -180,11 +174,11 @@ public class SFItems {
     public static final ItemMapping<DustItem> P_PHENYLENEDIAMINE = dustItem("p-Phenylenediamine", "对苯二胺", "p_phenylenediamine", 0xFFBABABA);
     public static final ItemMapping<DustItem> PHTHALIC_ANHYDRIDE = dustItem("Phthalic Anhydride", "苯二酐", "phthalic_anhydride", 0xFFE5E7EB);
     public static final ItemMapping<Item> UNIVERSAL_PRESS = defaultMaterialItem("Universal Press", "通用压印模板", "universal_press");
-    public static final ItemMapping<BasicSpongeCellItem> SPONGE_ITEM_STORAGE_CELL_256K = item("256k Sponge Item Storage Cell", "256k-海绵物品存储元件", "sponge_item_storage_cell_256k",
-            () -> new BasicSpongeCellItem(new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.TOOL.get()), 1.5, 256, 512, AEKeyType.items()));
+    public static final ItemMapping<BasicSpongeCellItem> SPONGE_ITEM_STORAGE_CELL_256K = item("256k Sponge Item Storage Cell", "256k-海绵物品存储元件", "sponge_item_storage_cell_256k", () -> new BasicSpongeCellItem(new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.TOOL.get()), 1.5, 256, 512, AEKeyType.items()));
     public static final ItemMapping<Item> SPONGE_ITEM_CELL_HOUSING = defaultMaterialItem("Sponge Item Cell Housing", "海绵物品元件外壳", "sponge_item_cell_housing");
     public static final ItemMapping<Item> CRAFT_CORE = defaultMaterialItem("Craft Core", "合成核心", "craft_core");
-    public static final ItemMapping<Item> DESH_COIL = defaultMaterialItem("Desh Coil","戴斯线圈", "desh_coil");
+    public static final ItemMapping<Item> DESH_COIL = defaultMaterialItem("Desh Coil", "戴斯线圈", "desh_coil");
+    public static final ItemMapping<Item> UPGRADE_BLANK = defaultMaterialItem("Blank Upgrade", "空白升级","upgrade_blank");
 
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),

@@ -35,8 +35,18 @@ public class SFGases {
     public static final GasMapping CARBON_DIOXIDE = gas("Carbon Dioxide", "二氧化碳", "carbon_dioxide", Colors.CARBON_DIOXIDE);
     public static final GasMapping ALUMINUM = gas("Aluminum", "铝", "aluminum", Colors.ALUMINUM);
     public static final GasMapping MATTER = gas("Matter", "物质", "matter", Colors.MATTER);
+    public static final GasMapping NICKEL = gas("Nickel", "镍", "nickel", Colors.NICKEL);
     public static final GasMapping NICKEL_TETRACARBONYL = gas("Nickel Tetracarbonyl", "四羰基镍", "nickel_tetracarbonyl", Colors.NICKEL_TETRACARBONYL);
-    public static final GasMapping NICKEL = gas("Nickel", "镍","nickel",Colors.NICKEL);
+    public static final GasMapping NICKEL_OXIDE = gas("Nickel Oxide", "氧化镍", "nickel_oxide", Colors.NICKEL_OXIDE);
+    public static final GasMapping OSMIUM = gas("Osmium", "锇", "osmium", Colors.OSMIUM);
+    public static final GasMapping OSMIUM_TETROXIDE = gas("Osmium Tetroxide", "四氧化锇", "osmium_tetroxide", Colors.OSMIUM_TETROXIDE);
+    public static final GasMapping AMMONIA = gas("Ammonia", "氨气", "ammonia", Colors.AMMONIA);
+    public static final GasMapping AMMONIA_WATER = gas("Ammonia Water", "氨水", "ammonia_water", Colors.AMMONIA_WATER);
+    public static final GasMapping URANIUM = gas("Uranium", "铀", "uranium", Colors.URANIUM);
+    public static final GasMapping URANIUM_DIOXIDE = gas("Uranium Dioxide", "二氧化铀", "uranium_dioxide", Colors.URANIUM_DIOXIDE);
+    public static final GasMapping URANYL_SULFATE = gas("Uranyl Sulfate", "硫酸铀酰", "uranyl_sulfate", Colors.URANYL_SULFATE);
+    public static final GasMapping AMMONIUM_DIURANATE = gas("Ammonium Diuranate", "重铀酸铵", "ammonium_diuranate", Colors.AMMONIUM_DIURANATE);
+    public static final GasMapping URANIUM_TETRAFLUORIDE = gas("Uranium Tetrafluoride", "四氟化铀", "uranium_tetrafluoride", Colors.URANIUM_TETRAFLUORIDE);
     // 费米子
     public static final GasMapping UP_QUARK = gas("Up Quark", "上夸克", "up_quark", 0x6969E0);
     public static final GasMapping DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", 0x2CDE2C);

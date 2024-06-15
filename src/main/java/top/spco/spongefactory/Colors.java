@@ -37,15 +37,26 @@ public class Colors {
     public static final int CARBON_DIOXIDE = 0xD0D0D0;
     public static final int CARBON_MONOXIDE = 0xE2E2E2;
     public static final int NICKEL = 0xAE9E74;
+    public static final int NICKEL_OXIDE = 0xDEDFBB;
     public static final int NICKEL_TETRACARBONYL = 0x978965;
     public static final int ALUMINUM = 0xBEC5C9;
     public static final int MATTER = 0xFFFFFF;
+    public static final int OSMIUM_TETROXIDE = 0xACCCD5;
+    public static final int OSMIUM = 0x84B5C3;
+    public static final int AMMONIA = 0x6FB0F6;
+    public static final int AMMONIA_WATER = 0x8989BD;
+    public static final int URANIUM = 0xA2F2A0;
+    public static final int URANIUM_DIOXIDE = 0xA7B558;
+    public static final int URANYL_SULFATE = 0xBAAE4F;
+    public static final int AMMONIUM_DIURANATE = 0x395A47;
+    public static final int URANIUM_TETRAFLUORIDE = 0x7A915C;
+
 
     public static int convertToArgb(int rgbColor) {
         return convertToArgb(0xFF, rgbColor);
     }
 
-    public static int convertToArgb(int alpha,int rgbColor) {
+    public static int convertToArgb(int alpha, int rgbColor) {
         return (alpha << 24) | rgbColor;
     }
 }

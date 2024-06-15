@@ -35,12 +35,9 @@ public class SFFluids {
     public static final DeferredRegister<Fluid> REGISTER = DeferredRegister.create(ForgeRegistries.FLUIDS, SpongeFactory.MOD_ID);
 
     public static final FluidMapping GLOOMY_EXTRACT = fluid("Gloomy Extract", "忧郁提取物", SFFluidTypes.GLOOMY_EXTRACT);
-    public static final FluidMapping POTASSIUM_HYDROXIDE_SOLUTION = fluid("Potassium Hydroxide Solution", "氢氧化钾溶液",
-            SFFluidTypes.POTASSIUM_HYDROXIDE_SOLUTION);
-    public static final FluidMapping GOLD_PLATING_SOLUTION = fluid("Gold Plating Solution", "金电镀液",
-            SFFluidTypes.GOLD_PLATING_SOLUTION);
-    public static final FluidMapping AURATE_SOLUTION = fluid("Aurate Solution", "金酸盐溶液",
-            SFFluidTypes.AURATE_SOLUTION);
+    public static final FluidMapping POTASSIUM_HYDROXIDE_SOLUTION = fluid("Potassium Hydroxide Solution", "氢氧化钾溶液", SFFluidTypes.POTASSIUM_HYDROXIDE_SOLUTION);
+    public static final FluidMapping GOLD_PLATING_SOLUTION = fluid("Gold Plating Solution", "金电镀液", SFFluidTypes.GOLD_PLATING_SOLUTION);
+    public static final FluidMapping AURATE_SOLUTION = fluid("Aurate Solution", "金酸盐溶液", SFFluidTypes.AURATE_SOLUTION);
     public static final FluidMapping DILUTE_SULFURIC_ACID = fluid("Dilute Sulfuric Acid", "稀硫酸", SFFluidTypes.DILUTE_SULFURIC_ACID);
     public static final FluidMapping OLEUM = fluid("Oleum", "发烟硫酸", SFFluidTypes.OLEUM);
     public static final FluidMapping SULFURIC_ACID = fluid("Concentrated sulfuric acid", "浓硫酸", SFFluidTypes.SULFURIC_ACID);
@@ -70,6 +67,8 @@ public class SFFluids {
     public static final FluidMapping MOLTEN_MATTER = molten("Matter", "物质", Colors.convertToArgb(Colors.MATTER));
     public static final FluidMapping ANCIENT_DEBRIS_SUSPENSION = fluidAndType("Ancient Debris Suspension", "远古遗骸悬浊液", "ancient_debris_suspension", Colors.NETHERITE, SFFluidTypes.MOLTEN_ALLOY_STILL, SFFluidTypes.MOLTEN_ALLOY_FLOW);
     public static final FluidMapping MOLTEN_NICKEL = molten("Nickel", "镍", Colors.convertToArgb(Colors.NICKEL));
+    public static final FluidMapping MOLTEN_OSMIUM = molten("Osmium", "锇", Colors.convertToArgb(Colors.OSMIUM));
+    public static final FluidMapping MOLTEN_URANIUM = molten("Uranium", "铀", Colors.convertToArgb(Colors.URANIUM));
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");
