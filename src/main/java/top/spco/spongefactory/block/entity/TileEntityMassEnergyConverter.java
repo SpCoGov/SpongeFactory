@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.block;
+package top.spco.spongefactory.block.entity;
 
 import mekanism.api.IContentsListener;
 import mekanism.api.RelativeSide;
@@ -60,7 +60,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import top.spco.spongefactory.registries.SFRecipeType;
+import top.spco.spongefactory.registries.SFMekRecipeType;
 import top.spco.spongefactory.registries.SFBlocks;
 
 import java.util.List;
@@ -164,7 +164,7 @@ public class TileEntityMassEnergyConverter extends TileEntityRecipeMachine<GasTo
 
     @Override
     public @NotNull IMekanismRecipeTypeProvider<GasToGasRecipe, InputRecipeCache.SingleChemical<Gas, GasStack, GasToGasRecipe>> getRecipeType() {
-        return SFRecipeType.ME_CONVERTING;
+        return SFMekRecipeType.ME_CONVERTING;
     }
 
     @Override

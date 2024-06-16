@@ -40,6 +40,7 @@ public class SFBlockLootTables extends BlockLoot {
         skip.add(SFBlocks.MASS_ENERGY_CONVERTER);
         skip.add(SFBlocks.TITANIUM_ORE);
         skip.add(SFBlocks.DEEPSLATE_TITANIUM_ORE);
+        skip.add(SFBlocks.MAGNETIZER);
     }
 
     @Override

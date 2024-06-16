@@ -31,7 +31,7 @@ import top.spco.spongefactory.SpongeFactory;
 import java.lang.reflect.Constructor;
 import java.util.function.Function;
 
-public class SFRecipeType {
+public class SFMekRecipeType {
     public static final RecipeTypeDeferredRegister REGISTER = new RecipeTypeDeferredRegister(SpongeFactory.MOD_ID);
 
     public static final RecipeTypeRegistryObject<GasToGasRecipe, InputRecipeCache.SingleChemical<Gas, GasStack, GasToGasRecipe>> ME_CONVERTING =

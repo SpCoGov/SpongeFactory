@@ -15,18 +15,21 @@
  */
 package top.spco.spongefactory.registries;
 
-import mekanism.common.registration.impl.TileEntityTypeDeferredRegister;
-import mekanism.common.registration.impl.TileEntityTypeRegistryObject;
+import cofh.lib.util.recipes.SerializableRecipeType;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
+import top.spco.spongefactory.recipe.MagnetizerRecipe;
 
-public class SFTileEntityTypes {
-    public static final TileEntityTypeDeferredRegister REGISTER = new TileEntityTypeDeferredRegister(SpongeFactory.MOD_ID);
+public class SFRecipeTypes {
+    public static final DeferredRegister<RecipeType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, SpongeFactory.MOD_ID);
+
+    public static final RegistryObject<SerializableRecipeType<MagnetizerRecipe>> MAGNETIZER = REGISTER.register("magnetizer", () -> new SerializableRecipeType<>(SpongeFactory.MOD_ID, "magnetizer"));
 
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);
     }
-
-    public static final TileEntityTypeRegistryObject<TileEntityMassEnergyConverter> MASS_ENERGY_CONVERTER = REGISTER.register(SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), TileEntityMassEnergyConverter::new);
 }

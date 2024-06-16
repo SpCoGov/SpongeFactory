@@ -92,7 +92,7 @@ public class SupportedLanguageProviders {
             for (GasMapping gas : SFGases.GASES) {
                 add(gas.getTranslationKey(), gas.getChineseName());
             }
-            for (ContainerMapping<?> container : SFContainerTypes.CONTAINERS) {
+            for (ContainerMapping<?> container : SFMekContainerTypes.CONTAINERS) {
                 add(container.getTranslationKey(), container.getChineseName());
             }
             for (SFMachineDescription description : SFMachineDescription.DESCRIPTIONS) {
@@ -146,7 +146,7 @@ public class SupportedLanguageProviders {
             for (GasMapping gas : SFGases.GASES) {
                 add(gas.getTranslationKey(), gas.getEnglishName());
             }
-            for (ContainerMapping<?> container : SFContainerTypes.CONTAINERS) {
+            for (ContainerMapping<?> container : SFMekContainerTypes.CONTAINERS) {
                 add(container.getTranslationKey(), container.getEnglishName());
             }
             for (SFMachineDescription description : SFMachineDescription.DESCRIPTIONS) {

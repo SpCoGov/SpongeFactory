@@ -32,7 +32,7 @@ import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.BasicSpongeCellItem;
 import top.spco.spongefactory.item.DustItem;
 import top.spco.spongefactory.item.IngotItem;
-import top.spco.spongefactory.registries.SFContainerTypes;
+import top.spco.spongefactory.registries.SFMekContainerTypes;
 import top.spco.spongefactory.registries.SFFluids;
 import top.spco.spongefactory.registries.SFItems;
 
@@ -41,7 +41,7 @@ public class ClientRegistration {
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerContainers(RegisterEvent event) {
         event.register(Registry.MENU_REGISTRY, helper -> {
-            ClientRegistrationUtil.registerScreen(SFContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
+            ClientRegistrationUtil.registerScreen(SFMekContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
         });
     }
 

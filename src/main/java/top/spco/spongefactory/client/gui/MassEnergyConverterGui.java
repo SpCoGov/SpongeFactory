@@ -32,7 +32,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
+import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 
 @Mod.EventBusSubscriber(modid = SpongeFactory.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MassEnergyConverterGui extends GuiConfigurableTile<TileEntityMassEnergyConverter, MekanismTileContainer<TileEntityMassEnergyConverter>> {

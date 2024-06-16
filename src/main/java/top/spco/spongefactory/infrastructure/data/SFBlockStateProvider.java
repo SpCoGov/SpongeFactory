@@ -44,6 +44,7 @@ public class SFBlockStateProvider extends BlockStateProvider {
         skip.add(SFBlocks.UNPROCESSED_MACHINE_FRAME);
         skip.add(SFBlocks.ADVANCED_MACHINE_FRAME);
         skip.add(SFBlocks.TIME_STORAGE_CONTROLLER);
+        skip.add(SFBlocks.MAGNETIZER);
         for (BlockMapping<?> block : SFBlocks.BLOCKS) {
             if (skip.contains(block)) {
                 continue;

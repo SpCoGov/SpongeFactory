@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.infrastructure.data.loot.cofh;
+package top.spco.spongefactory.infrastructure.data.cofh;
 
 import cofh.lib.data.ItemModelProviderCoFH;
 import net.minecraft.data.DataGenerator;

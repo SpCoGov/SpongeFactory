@@ -1,0 +1,13 @@
+{
+  "type": "spongefactory:magnetizer",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": [
+    {
+      "item": "spongefactory:ferromagnetic_material"
+    }
+  ]
+}

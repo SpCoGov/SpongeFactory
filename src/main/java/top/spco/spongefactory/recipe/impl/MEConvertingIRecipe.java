@@ -25,7 +25,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.registries.SFBlocks;
 import top.spco.spongefactory.registries.SFRecipeSerializers;
-import top.spco.spongefactory.registries.SFRecipeType;
+import top.spco.spongefactory.registries.SFMekRecipeType;
 
 public class MEConvertingIRecipe extends GasToGasRecipe {
 
@@ -35,7 +35,7 @@ public class MEConvertingIRecipe extends GasToGasRecipe {
 
     @Override
     public @NotNull RecipeType<GasToGasRecipe> getType() {
-        return SFRecipeType.ME_CONVERTING.get();
+        return SFMekRecipeType.ME_CONVERTING.get();
     }
 
     @Override

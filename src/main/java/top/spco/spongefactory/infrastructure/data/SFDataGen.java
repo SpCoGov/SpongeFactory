@@ -18,7 +18,7 @@ package top.spco.spongefactory.infrastructure.data;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
-import top.spco.spongefactory.infrastructure.data.loot.cofh.SFCoFHItemModelProvider;
+import top.spco.spongefactory.infrastructure.data.cofh.SFCoFHItemModelProvider;
 
 /**
  * Data generator

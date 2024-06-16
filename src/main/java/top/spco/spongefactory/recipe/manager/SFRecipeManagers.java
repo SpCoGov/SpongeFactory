@@ -13,14 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.client.jei;
+package top.spco.spongefactory.recipe.manager;
 
-import cofh.thermal.lib.compat.jei.ThermalRecipeCategory;
-import mekanism.api.recipes.GasToGasRecipe;
-import mekanism.client.jei.MekanismJEIRecipeType;
-import top.spco.spongefactory.recipe.MagnetizerRecipe;
-import top.spco.spongefactory.registries.SFBlocks;
+import static cofh.thermal.lib.common.ThermalRecipeManagers.registerManager;
 
-public class SFJEIRecipeType {
-    public static final MekanismJEIRecipeType<GasToGasRecipe> ME_CONVERTING = new MekanismJEIRecipeType<>(SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), GasToGasRecipe.class);
+public class SFRecipeManagers {
+    public static void register() {
+        registerManager(MagnetizerRecipeManager.instance());
+    }
 }

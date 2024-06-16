@@ -15,6 +15,8 @@
  */
 package top.spco.spongefactory.registries;
 
+import cofh.core.block.TileBlockActive4Way;
+import cofh.thermal.lib.item.BlockItemAugmentable;
 import mekanism.common.block.prefab.BlockTile.BlockTileModel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
@@ -33,8 +35,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.block.StorageStabilizerBaseBlock;
-import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.block.UnplaceableBlock;
+import top.spco.spongefactory.block.entity.MachineMagnetizerTile;
+import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.blocktype.SFMachine;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
@@ -43,6 +46,9 @@ import top.spco.spongefactory.item.UnplaceableBlockItem;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
+
+import static cofh.lib.util.constants.BlockStatePropertiesCoFH.ACTIVE;
+import static cofh.lib.util.helpers.BlockHelper.lightValue;
 
 @SuppressWarnings("unused")
 public class SFBlocks {
@@ -63,6 +69,7 @@ public class SFBlocks {
     public static final BlockMapping<Block> UNPROCESSED_MACHINE_FRAME = (BlockMapping<Block>) blockWithItem("Unprocessed Machine Frame", "未处理的机器框架", "unprocessed_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion())).tag(BlockTags.MINEABLE_WITH_PICKAXE);
     public static final BlockMapping<Block> ADVANCED_MACHINE_FRAME = (BlockMapping<Block>) blockWithItem("Advanced Machine Frame", "高级机器框架", "advanced_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion())).tag(BlockTags.MINEABLE_WITH_PICKAXE);
     public static final BlockMapping<Block> TIME_STORAGE_CONTROLLER = unplaceableBlockWithItem("Time Storage Controller", "时间存储控制器", "time_storage_controller", () -> new UnplaceableBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
+    public static final BlockMapping<TileBlockActive4Way> MAGNETIZER = thermalMachineBlock("Magnetizer", "充磁机", "machine_magnetizer", () -> new TileBlockActive4Way(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK).strength(2.0F).lightLevel(lightValue(ACTIVE, 14)), MachineMagnetizerTile.class, SFBlockEntities.MAGNETIZER));
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                             Supplier<T> block) {
@@ -84,6 +91,14 @@ public class SFBlocks {
 
         var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock,
                 blockItem(englishName, chineseName, id, registeredBlock, tab));
+        BLOCKS.add(blockMapping);
+        return blockMapping;
+    }
+
+    private static <T extends TileBlockActive4Way> BlockMapping<T> thermalMachineBlock(String englishName, String chineseName, String id, Supplier<T> machine) {
+        RegistryObject<T> registeredBlock = REGISTER.register(id, machine);
+        var blockMapping = new BlockMapping<>(englishName, chineseName, id, registeredBlock,
+                blockItem(englishName, chineseName, id, () -> new BlockItemAugmentable(registeredBlock.get(), new Item.Properties().tab(SFCreativeModTabs.BLOCK.get()))));
         BLOCKS.add(blockMapping);
         return blockMapping;
     }

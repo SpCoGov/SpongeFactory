@@ -15,22 +15,18 @@
  */
 package top.spco.spongefactory.registries;
 
-import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeMenuType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
-import top.spco.spongefactory.client.gui.MachineMagnetizerContainer;
+import top.spco.spongefactory.block.entity.MachineMagnetizerTile;
 
-import static cofh.core.util.ProxyUtils.getClientPlayer;
-import static cofh.core.util.ProxyUtils.getClientWorld;
+public class SFBlockEntities {
+    public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, SpongeFactory.MOD_ID);
 
-public class SFContainerTypes {
-    public static final DeferredRegister<MenuType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.MENU_TYPES, SpongeFactory.MOD_ID);
-
-    public static final RegistryObject<MenuType<MachineMagnetizerContainer>> MAGNETIZER = REGISTER.register("magnetizer", () -> IForgeMenuType.create((windowId, inv, data) -> new MachineMagnetizerContainer(windowId, getClientWorld(), data.readBlockPos(), inv, getClientPlayer())));
+    public static final RegistryObject<BlockEntityType<?>> MAGNETIZER = REGISTER.register("magnetizer", () -> BlockEntityType.Builder.of(MachineMagnetizerTile::new, SFBlocks.MAGNETIZER.getRegisteredBlock().get()).build(null));
 
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);

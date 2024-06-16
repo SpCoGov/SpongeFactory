@@ -18,16 +18,16 @@ package top.spco.spongefactory.registries;
 import mekanism.api.Upgrade;
 import mekanism.api.math.FloatingLong;
 import mekanism.common.registries.MekanismSounds;
-import top.spco.spongefactory.block.TileEntityMassEnergyConverter;
+import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.blocktype.SFMachine;
 
 import java.util.EnumSet;
 
 public class SFBlockTypes {
     public static final SFMachine<TileEntityMassEnergyConverter> MASS_ENERGY_CONVERTER = SFMachine.MachineBuilder
-            .createMachine(() -> SFTileEntityTypes.MASS_ENERGY_CONVERTER, SFMachineDescription.MASS_ENERGY_CONVERTER)
+            .createMachine(() -> SFMekTileEntityTypes.MASS_ENERGY_CONVERTER, SFMachineDescription.MASS_ENERGY_CONVERTER)
             .withSound(MekanismSounds.ISOTOPIC_CENTRIFUGE)
-            .withGui(SFContainerTypes.MASS_ENERGY_CONVERTER::getContainer)
+            .withGui(SFMekContainerTypes.MASS_ENERGY_CONVERTER::getContainer)
             .withSupportedUpgrades(EnumSet.of(Upgrade.ENERGY, Upgrade.MUFFLING, Upgrade.SPEED))
             .withEnergyConfig(() -> FloatingLong.create(5000), () -> FloatingLong.create(1800000))
             .withComputerSupport("massEnergyConverter")

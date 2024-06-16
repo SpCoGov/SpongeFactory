@@ -1,0 +1,6 @@
+{
+  "parent": "spongefactory:block/machine_magnetizer",
+  "textures": {
+    "north": "spongefactory:block/machines/machine_magnetizer_active"
+  }
+}

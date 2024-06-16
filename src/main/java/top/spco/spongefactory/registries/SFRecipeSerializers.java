@@ -15,18 +15,24 @@
  */
 package top.spco.spongefactory.registries;
 
+import cofh.thermal.lib.util.recipes.MachineRecipeSerializer;
 import mekanism.api.recipes.GasToGasRecipe;
 import mekanism.common.recipe.serializer.GasToGasRecipeSerializer;
-import mekanism.common.registration.impl.RecipeSerializerDeferredRegister;
-import mekanism.common.registration.impl.RecipeSerializerRegistryObject;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.recipe.MagnetizerRecipe;
 import top.spco.spongefactory.recipe.impl.MEConvertingIRecipe;
+import top.spco.spongefactory.recipe.manager.MagnetizerRecipeManager;
 
 public class SFRecipeSerializers {
-    public static final RecipeSerializerDeferredRegister REGISTER = new RecipeSerializerDeferredRegister(SpongeFactory.MOD_ID);
+    public static final DeferredRegister<RecipeSerializer<?>> REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, SpongeFactory.MOD_ID);
 
-    public static final RecipeSerializerRegistryObject<GasToGasRecipe> ME_CONVERTING = REGISTER.register("mass_energy_converting", () -> new GasToGasRecipeSerializer<>(MEConvertingIRecipe::new));
+    public static final RegistryObject<GasToGasRecipeSerializer<GasToGasRecipe>> ME_CONVERTING = REGISTER.register("mass_energy_converting", () -> new GasToGasRecipeSerializer<>(MEConvertingIRecipe::new));
+    public static final RegistryObject<MachineRecipeSerializer<MagnetizerRecipe>> MAGNETIZER = REGISTER.register("magnetizer", () -> new MachineRecipeSerializer<>(MagnetizerRecipe::new, MagnetizerRecipeManager.instance().getDefaultEnergy()));
 
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);
