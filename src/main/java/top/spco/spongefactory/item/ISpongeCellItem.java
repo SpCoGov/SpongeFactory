@@ -68,7 +68,7 @@ public interface ISpongeCellItem extends ICellWorkbenchItem {
      * items like the matter cannon that are not general purpose storage.
      *
      * @return true if the storage cell can be stored inside other storage cells, this is generally false, except for
-     *         certain situations such as the matter cannon.
+     * certain situations such as the matter cannon.
      */
     default boolean storableInStorageCell() {
         return false;

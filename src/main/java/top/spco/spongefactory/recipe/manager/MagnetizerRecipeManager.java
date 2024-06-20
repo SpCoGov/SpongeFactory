@@ -40,7 +40,7 @@ import static java.util.Collections.singletonList;
 
 public class MagnetizerRecipeManager extends AbstractManager implements IRecipeManager {
     private static final MagnetizerRecipeManager INSTANCE = new MagnetizerRecipeManager();
-    protected static final int DEFAULT_ENERGY = 400;
+    protected static final int DEFAULT_ENERGY = 5000;
 
     protected Map<List<Integer>, IMachineRecipe> recipeMap = new Object2ObjectOpenHashMap<>();
     protected Set<ComparableItemStack> validItems = new ObjectOpenHashSet<>();

@@ -24,15 +24,19 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.recipe.FluidizedBedRecipe;
 import top.spco.spongefactory.recipe.MagnetizerRecipe;
+import top.spco.spongefactory.recipe.impl.FluidizedBedIRecipe;
 import top.spco.spongefactory.recipe.impl.MEConvertingIRecipe;
 import top.spco.spongefactory.recipe.manager.MagnetizerRecipeManager;
+import top.spco.spongefactory.recipe.serializer.FluidizedBedSerializer;
 
 public class SFRecipeSerializers {
     public static final DeferredRegister<RecipeSerializer<?>> REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, SpongeFactory.MOD_ID);
 
     public static final RegistryObject<GasToGasRecipeSerializer<GasToGasRecipe>> ME_CONVERTING = REGISTER.register("mass_energy_converting", () -> new GasToGasRecipeSerializer<>(MEConvertingIRecipe::new));
     public static final RegistryObject<MachineRecipeSerializer<MagnetizerRecipe>> MAGNETIZER = REGISTER.register("magnetizer", () -> new MachineRecipeSerializer<>(MagnetizerRecipe::new, MagnetizerRecipeManager.instance().getDefaultEnergy()));
+    public static final RegistryObject<FluidizedBedSerializer<FluidizedBedRecipe>> FLUIDIZED_BED = REGISTER.register("fluidized_bed_reactor", () -> new FluidizedBedSerializer<>(FluidizedBedIRecipe::new));
 
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);

@@ -37,6 +37,7 @@ import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.block.StorageStabilizerBaseBlock;
 import top.spco.spongefactory.block.UnplaceableBlock;
 import top.spco.spongefactory.block.entity.MachineMagnetizerTile;
+import top.spco.spongefactory.block.entity.TileEntityFluidizedBedReactor;
 import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.blocktype.SFMachine;
 import top.spco.spongefactory.infrastructure.BlockMapping;
@@ -65,11 +66,14 @@ public class SFBlocks {
             blockWithItem(
                     "Mass-Energy Converter", "质能转换器", "mass_energy_converter", () -> new BlockTileModel<>(SFBlockTypes.MASS_ENERGY_CONVERTER),
                     () -> new ItemMachine(SFBlocks.MASS_ENERGY_CONVERTER.getRegisteredBlock().get(), new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.BLOCK.get()))).tag(BlockTags.MINEABLE_WITH_PICKAXE);
+    public static final BlockMapping<BlockTileModel<TileEntityFluidizedBedReactor, SFMachine<TileEntityFluidizedBedReactor>>> FLUIDIZED_BED_REACTOR = (BlockMapping<BlockTileModel<TileEntityFluidizedBedReactor, SFMachine<TileEntityFluidizedBedReactor>>>)
+            blockWithItem("Fluidized Bed Reactor", "流化床反应器", "fluidized_bed_reactor", () -> new BlockTileModel<>(SFBlockTypes.FLUIDIZED_BED_REACTOR),
+                    () -> new ItemMachine(SFBlocks.FLUIDIZED_BED_REACTOR.getRegisteredBlock().get(), new Item.Properties().stacksTo(1).tab(SFCreativeModTabs.BLOCK.get()))).tag(BlockTags.MINEABLE_WITH_PICKAXE);
     public static final BlockMapping<StorageStabilizerBaseBlock> STORAGE_STABILIZER_BASE = blockWithItem("Storage Stabilizer Base", "存储稳定器基座", "storage_stabilizer_base", () -> new StorageStabilizerBaseBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
     public static final BlockMapping<Block> UNPROCESSED_MACHINE_FRAME = (BlockMapping<Block>) blockWithItem("Unprocessed Machine Frame", "未处理的机器框架", "unprocessed_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion())).tag(BlockTags.MINEABLE_WITH_PICKAXE);
     public static final BlockMapping<Block> ADVANCED_MACHINE_FRAME = (BlockMapping<Block>) blockWithItem("Advanced Machine Frame", "高级机器框架", "advanced_machine_frame", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.LANTERN).strength(2.0F).noOcclusion())).tag(BlockTags.MINEABLE_WITH_PICKAXE);
     public static final BlockMapping<Block> TIME_STORAGE_CONTROLLER = unplaceableBlockWithItem("Time Storage Controller", "时间存储控制器", "time_storage_controller", () -> new UnplaceableBlock(Block.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 30).noOcclusion()));
-    public static final BlockMapping<TileBlockActive4Way> MAGNETIZER = thermalMachineBlock("Magnetizer", "充磁机", "machine_magnetizer", () -> new TileBlockActive4Way(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK).strength(2.0F).lightLevel(lightValue(ACTIVE, 14)), MachineMagnetizerTile.class, SFBlockEntities.MAGNETIZER));
+    public static final BlockMapping<TileBlockActive4Way> MAGNETIZER = (BlockMapping<TileBlockActive4Way>) thermalMachineBlock("Magnetizer", "充磁机", "machine_magnetizer", () -> new TileBlockActive4Way(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.NETHERITE_BLOCK).strength(2.0F).lightLevel(lightValue(ACTIVE, 14)), MachineMagnetizerTile.class, SFBlockEntities.MAGNETIZER)).tag(BlockTags.MINEABLE_WITH_PICKAXE);
 
     private static <T extends Block> @NotNull BlockMapping<T> blockWithItem(String englishName, String chineseName, String id,
                                                                             Supplier<T> block) {

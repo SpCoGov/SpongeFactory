@@ -26,15 +26,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegisterEvent;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.client.gui.FluidizedBedReactorGui;
 import top.spco.spongefactory.client.gui.MassEnergyConverterGui;
 import top.spco.spongefactory.infrastructure.FluidMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.BasicSpongeCellItem;
 import top.spco.spongefactory.item.DustItem;
 import top.spco.spongefactory.item.IngotItem;
-import top.spco.spongefactory.registries.SFMekContainerTypes;
 import top.spco.spongefactory.registries.SFFluids;
 import top.spco.spongefactory.registries.SFItems;
+import top.spco.spongefactory.registries.SFMekContainerTypes;
 
 @Mod.EventBusSubscriber(modid = SpongeFactory.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistration {
@@ -42,6 +43,7 @@ public class ClientRegistration {
     public static void registerContainers(RegisterEvent event) {
         event.register(Registry.MENU_REGISTRY, helper -> {
             ClientRegistrationUtil.registerScreen(SFMekContainerTypes.MASS_ENERGY_CONVERTER.getContainer(), MassEnergyConverterGui::new);
+            ClientRegistrationUtil.registerScreen(SFMekContainerTypes.FLUIDIZED_BED_REACTOR.getContainer(), FluidizedBedReactorGui::new);
         });
     }
 

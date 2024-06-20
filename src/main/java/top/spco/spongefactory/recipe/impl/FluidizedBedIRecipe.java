@@ -16,40 +16,40 @@
 package top.spco.spongefactory.recipe.impl;
 
 import mekanism.api.chemical.gas.GasStack;
-import mekanism.api.recipes.GasToGasRecipe;
+import mekanism.api.math.FloatingLong;
 import mekanism.api.recipes.ingredients.ChemicalStackIngredient;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.NotNull;
+import top.spco.spongefactory.recipe.FluidizedBedRecipe;
 import top.spco.spongefactory.registries.SFBlocks;
 import top.spco.spongefactory.registries.SFMekRecipeType;
 import top.spco.spongefactory.registries.SFRecipeSerializers;
 
-public class MEConvertingIRecipe extends GasToGasRecipe {
-
-    public MEConvertingIRecipe(ResourceLocation id, ChemicalStackIngredient.GasStackIngredient input, GasStack output) {
-        super(id, input, output);
+public class FluidizedBedIRecipe extends FluidizedBedRecipe {
+    public FluidizedBedIRecipe(ResourceLocation id, ChemicalStackIngredient.GasStackIngredient inputGas, FloatingLong energyRequired, int duration, ItemStack output, GasStack outputGas) {
+        super(id, inputGas, energyRequired, duration, output, outputGas);
     }
 
     @Override
-    public @NotNull RecipeType<GasToGasRecipe> getType() {
-        return SFMekRecipeType.ME_CONVERTING.get();
+    public @NotNull RecipeSerializer<FluidizedBedRecipe> getSerializer() {
+        return SFRecipeSerializers.FLUIDIZED_BED.get();
     }
 
     @Override
-    public @NotNull RecipeSerializer<GasToGasRecipe> getSerializer() {
-        return SFRecipeSerializers.ME_CONVERTING.get();
-    }
-
-    @Override
-    public @NotNull String getGroup() {
-        return SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getName();
+    public @NotNull RecipeType<?> getType() {
+        return SFMekRecipeType.FLUIDIZED_BED_REACTOR.get();
     }
 
     @Override
     public @NotNull ItemStack getToastSymbol() {
-        return SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject().getItemStack();
+        return SFBlocks.FLUIDIZED_BED_REACTOR.toMekRegistryObject().getItemStack();
+    }
+
+    @Override
+    public @NotNull String getGroup() {
+        return SFBlocks.FLUIDIZED_BED_REACTOR.toMekRegistryObject().getName();
     }
 }

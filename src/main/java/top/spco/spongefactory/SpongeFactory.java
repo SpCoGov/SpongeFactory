@@ -22,7 +22,7 @@ public class SpongeFactory {
     public static final String MOD_ID = "spongefactory";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    static  {
+    static {
         SFRecipeManagers.register();
     }
 

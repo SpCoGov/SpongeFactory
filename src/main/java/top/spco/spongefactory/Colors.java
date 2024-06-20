@@ -50,7 +50,8 @@ public class Colors {
     public static final int URANYL_SULFATE = 0xBAAE4F;
     public static final int AMMONIUM_DIURANATE = 0x395A47;
     public static final int URANIUM_TETRAFLUORIDE = 0x7A915C;
-
+    public static final int NITROGEN = 0xCCA3A7;
+    public static final int ARGON = 0xF875DD;
 
     public static int convertToArgb(int rgbColor) {
         return convertToArgb(0xFF, rgbColor);

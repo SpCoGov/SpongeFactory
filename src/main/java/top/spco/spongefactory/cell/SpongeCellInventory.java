@@ -346,9 +346,6 @@ public class SpongeCellInventory implements StorageCell {
         if (this.canHoldNewItem()) {
             return CellState.NOT_EMPTY;
         }
-//        if (this.getRemainingItemCount() > 0) {
-//            return CellState.TYPES_FULL;
-//        }
         return CellState.FULL;
     }
 

@@ -15,12 +15,12 @@
  */
 package top.spco.spongefactory.client.jei;
 
-import cofh.thermal.lib.compat.jei.ThermalRecipeCategory;
 import mekanism.api.recipes.GasToGasRecipe;
 import mekanism.client.jei.MekanismJEIRecipeType;
-import top.spco.spongefactory.recipe.MagnetizerRecipe;
+import top.spco.spongefactory.recipe.FluidizedBedRecipe;
 import top.spco.spongefactory.registries.SFBlocks;
 
 public class SFJEIRecipeType {
     public static final MekanismJEIRecipeType<GasToGasRecipe> ME_CONVERTING = new MekanismJEIRecipeType<>(SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), GasToGasRecipe.class);
+    public static final MekanismJEIRecipeType<FluidizedBedRecipe> FLUIDIZED_BED_REACTOR = new MekanismJEIRecipeType<>(SFBlocks.FLUIDIZED_BED_REACTOR.toMekRegistryObject(), FluidizedBedRecipe.class);
 }

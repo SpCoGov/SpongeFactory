@@ -22,6 +22,7 @@ import java.util.HashSet;
 
 public abstract class ObjectMapping<T> extends Translatable {
     private final Collection<TagKey<T>> tags = new HashSet<>();
+
     public ObjectMapping(String englishName, String chineseName, String translationKey) {
         super(englishName, chineseName, translationKey);
     }

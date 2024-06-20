@@ -21,7 +21,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -45,6 +44,7 @@ public class StorageStabilizerBaseBlock extends Block {
                     .put(Direction.SOUTH, Shapes.create(new AABB(0, 0, 0, 1, 1, 0.3)))
                     .put(Direction.UP, Shapes.create(new AABB(0, 0, 0, 1, 0.3, 1)))
                     .put(Direction.DOWN, Shapes.create(new AABB(0, 0.7, 0, 1, 1, 1))).build());
+
     public StorageStabilizerBaseBlock(Properties properties) {
         super(properties);
     }

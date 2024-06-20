@@ -25,18 +25,27 @@ import mekanism.common.content.blocktype.BlockTypeTile;
 import mekanism.common.lib.math.Pos3D;
 import mekanism.common.registration.impl.TileEntityTypeRegistryObject;
 import mekanism.common.tile.base.TileEntityMekanism;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 
 import java.util.EnumSet;
 import java.util.function.Supplier;
 
 public class SFMachine<TILE extends TileEntityMekanism> extends BlockTypeTile<TILE> {
-    public SFMachine(Supplier<TileEntityTypeRegistryObject<TILE>> tileEntityRegistrar, ILangEntry description) {
+    public SFMachine(Supplier<TileEntityTypeRegistryObject<TILE>> tileEntityRegistrar, ILangEntry description, ParticleOptions... particles) {
         super(tileEntityRegistrar, description);
-        add(new AttributeParticleFX()
-                .add(ParticleTypes.ELECTRIC_SPARK, rand -> new Pos3D(rand.nextFloat() * 0.6F - 0.3F, rand.nextFloat() * 6.0F / 16.0F, 0.52)));
+        AttributeParticleFX particleFX = new AttributeParticleFX();
+        for (ParticleOptions options : particles) {
+            particleFX.add(options, rand -> new Pos3D(rand.nextFloat() * 0.6F - 0.3F, rand.nextFloat() * 6.0F / 16.0F, 0.52));
+        }
+        add(particleFX);
         add(Attributes.ACTIVE_LIGHT, new AttributeStateFacing(), Attributes.INVENTORY, Attributes.SECURITY, Attributes.REDSTONE, Attributes.COMPARATOR);
         add(new AttributeUpgradeSupport(EnumSet.of(Upgrade.SPEED, Upgrade.ENERGY, Upgrade.MUFFLING)));
+    }
+
+    public SFMachine(Supplier<TileEntityTypeRegistryObject<TILE>> tileEntityRegistrar, ILangEntry description) {
+        this(tileEntityRegistrar, description, ParticleTypes.SMOKE, DustParticleOptions.REDSTONE);
     }
 
     public static class MachineBuilder<MACHINE extends SFMachine<TILE>, TILE extends TileEntityMekanism, T extends SFMachine.MachineBuilder<MACHINE, TILE, T>> extends BlockTileBuilder<MACHINE, TILE, T> {
@@ -47,6 +56,10 @@ public class SFMachine<TILE extends TileEntityMekanism> extends BlockTypeTile<TI
 
         public static <TILE extends TileEntityMekanism> SFMachine.MachineBuilder<SFMachine<TILE>, TILE, ?> createMachine(Supplier<TileEntityTypeRegistryObject<TILE>> tileEntityRegistrar, ILangEntry description) {
             return new SFMachine.MachineBuilder<>(new SFMachine<>(tileEntityRegistrar, description));
+        }
+
+        public static <TILE extends TileEntityMekanism> SFMachine.MachineBuilder<SFMachine<TILE>, TILE, ?> createMachine(Supplier<TileEntityTypeRegistryObject<TILE>> tileEntityRegistrar, ILangEntry description, ParticleOptions... particles) {
+            return new SFMachine.MachineBuilder<>(new SFMachine<>(tileEntityRegistrar, description, particles));
         }
     }
 }

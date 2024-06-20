@@ -69,6 +69,9 @@ public class SFFluids {
     public static final FluidMapping MOLTEN_NICKEL = molten("Nickel", "镍", Colors.convertToArgb(Colors.NICKEL));
     public static final FluidMapping MOLTEN_OSMIUM = molten("Osmium", "锇", Colors.convertToArgb(Colors.OSMIUM));
     public static final FluidMapping MOLTEN_URANIUM = molten("Uranium", "铀", Colors.convertToArgb(Colors.URANIUM));
+    public static final FluidMapping LIQUID_NITROGEN = fluidAndType("Liquid Nitrogen", "液氮", "liquid_nitrogen", Colors.convertToArgb(Colors.NITROGEN));
+    public static final FluidMapping LIQUID_CARBON_DIOXIDE = fluidAndType("Liquid Carbon Dioxide", "液态二氧化碳", "liquid_carbon_dioxide", Colors.convertToArgb(Colors.CARBON_DIOXIDE));
+    public static final FluidMapping LIQUID_ARGON = fluidAndType("Liquid Argon", "液氩", "liquid_argon", Colors.convertToArgb(Colors.ARGON));
 
     private static FluidMapping molten(String englishName, String chineseName, int color) {
         String id = "molten_" + englishName.toLowerCase().replaceAll(" ", "_");

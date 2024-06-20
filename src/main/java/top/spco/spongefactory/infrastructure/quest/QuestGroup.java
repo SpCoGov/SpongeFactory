@@ -19,6 +19,7 @@ import top.spco.spongefactory.SpongeFactory;
 
 public class QuestGroup extends QuestContent {
     private final String id;
+
     public QuestGroup(String id, String chineseTitle, String englishTitle) {
         super("questGroup." + SpongeFactory.MOD_ID + "." + id, chineseTitle, englishTitle);
         this.id = id;

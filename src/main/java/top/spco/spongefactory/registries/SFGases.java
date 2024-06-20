@@ -47,6 +47,8 @@ public class SFGases {
     public static final GasMapping URANYL_SULFATE = gas("Uranyl Sulfate", "硫酸铀酰", "uranyl_sulfate", Colors.URANYL_SULFATE);
     public static final GasMapping AMMONIUM_DIURANATE = gas("Ammonium Diuranate", "重铀酸铵", "ammonium_diuranate", Colors.AMMONIUM_DIURANATE);
     public static final GasMapping URANIUM_TETRAFLUORIDE = gas("Uranium Tetrafluoride", "四氟化铀", "uranium_tetrafluoride", Colors.URANIUM_TETRAFLUORIDE);
+    public static final GasMapping NITROGEN = gas("Nitrogen", "氮气", "nitrogen", Colors.NITROGEN);
+    public static final GasMapping ARGON = gas("Argon", "氩气", "argon", Colors.ARGON);
     // 费米子
     public static final GasMapping UP_QUARK = gas("Up Quark", "上夸克", "up_quark", 0x6969E0);
     public static final GasMapping DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", 0x2CDE2C);

@@ -22,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ColorItem extends Item implements ItemColor {
     private final int color;
+
     public ColorItem(Properties p_41383_, int color) {
         super(p_41383_);
         this.color = color;

@@ -34,6 +34,8 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import org.jetbrains.annotations.NotNull;
 import top.spco.spongefactory.SpongeFactory;
 import top.spco.spongefactory.client.gui.MachineMagnetizerScreen;
+import top.spco.spongefactory.client.jei.category.FluidizedBedReactorCategory;
+import top.spco.spongefactory.client.jei.category.MagnetizerRecipeCategory;
 import top.spco.spongefactory.recipe.MagnetizerRecipe;
 import top.spco.spongefactory.registries.SFBlocks;
 import top.spco.spongefactory.registries.SFMekRecipeType;
@@ -53,19 +55,20 @@ public class SFJEI implements IModPlugin {
         IGuiHelper guiHelper = registry.getJeiHelpers().getGuiHelper();
 
         registry.addRecipeCategories(new GasToGasRecipeCategory(guiHelper, SFJEIRecipeType.ME_CONVERTING, SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject()));
+        registry.addRecipeCategories(new FluidizedBedReactorCategory(guiHelper, SFJEIRecipeType.FLUIDIZED_BED_REACTOR));
         registry.addRecipeCategories(new MagnetizerRecipeCategory(guiHelper, new ItemStack(SFBlocks.MAGNETIZER), MAGNETIZER));
     }
 
     @Override
     public void registerRecipes(@NotNull IRecipeRegistration registry) {
         RecipeRegistryHelper.register(registry, SFJEIRecipeType.ME_CONVERTING, SFMekRecipeType.ME_CONVERTING);
+        RecipeRegistryHelper.register(registry, SFJEIRecipeType.FLUIDIZED_BED_REACTOR, SFMekRecipeType.FLUIDIZED_BED_REACTOR);
 
         RecipeManager recipeManager = getRecipeManager();
         registry.addRecipes(MAGNETIZER, recipeManager.getAllRecipesFor(SFRecipeTypes.MAGNETIZER.get()));
     }
 
     private RecipeManager getRecipeManager() {
-
         RecipeManager recipeManager = null;
         ClientLevel level = Minecraft.getInstance().level;
         if (level != null) {
@@ -86,6 +89,7 @@ public class SFJEI implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(@NotNull IRecipeCatalystRegistration registry) {
         CatalystRegistryHelper.register(registry, SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject());
+        CatalystRegistryHelper.register(registry, SFBlocks.FLUIDIZED_BED_REACTOR.toMekRegistryObject());
 
         registry.addRecipeCatalyst(new ItemStack(SFBlocks.MAGNETIZER), MAGNETIZER);
     }

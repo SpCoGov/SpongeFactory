@@ -22,6 +22,7 @@ import mekanism.common.tile.base.TileEntityMekanism;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.block.entity.TileEntityFluidizedBedReactor;
 import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.infrastructure.ContainerMapping;
@@ -37,6 +38,7 @@ public class SFMekContainerTypes {
     }
 
     public static final ContainerMapping<MekanismTileContainer<TileEntityMassEnergyConverter>> MASS_ENERGY_CONVERTER = container(SFBlocks.MASS_ENERGY_CONVERTER, TileEntityMassEnergyConverter.class);
+    public static final ContainerMapping<MekanismTileContainer<TileEntityFluidizedBedReactor>> FLUIDIZED_BED_REACTOR = container(SFBlocks.FLUIDIZED_BED_REACTOR, TileEntityFluidizedBedReactor.class);
 
     private static <B extends TileEntityMekanism> ContainerMapping<MekanismTileContainer<B>> container(BlockMapping<? extends Block> block, Class<B> clazz) {
         ContainerTypeRegistryObject<MekanismTileContainer<B>> registeredContainer = REGISTER.register(block.toMekRegistryObject(), clazz);

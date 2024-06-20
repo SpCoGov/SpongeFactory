@@ -1,0 +1,15 @@
+{
+  "type": "spongefactory:fluidized_bed_reactor",
+  "duration": 100,
+  "gasInput": {
+    "amount": 100,
+    "gas": "spongefactory:up_quark"
+  },
+  "gasOutput": {
+    "amount": 100,
+    "gas": "spongefactory:tauon"
+  },
+  "itemOutput": {
+    "item": "minecraft:bedrock"
+  }
+}

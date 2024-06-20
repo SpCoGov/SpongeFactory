@@ -35,7 +35,6 @@ public class SFRecipeProvider extends RecipeProvider implements IConditionBuilde
         super(generator);
     }
 
-
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
     }

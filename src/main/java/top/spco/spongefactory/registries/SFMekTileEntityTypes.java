@@ -19,6 +19,7 @@ import mekanism.common.registration.impl.TileEntityTypeDeferredRegister;
 import mekanism.common.registration.impl.TileEntityTypeRegistryObject;
 import net.minecraftforge.eventbus.api.IEventBus;
 import top.spco.spongefactory.SpongeFactory;
+import top.spco.spongefactory.block.entity.TileEntityFluidizedBedReactor;
 import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
 
 public class SFMekTileEntityTypes {
@@ -29,4 +30,5 @@ public class SFMekTileEntityTypes {
     }
 
     public static final TileEntityTypeRegistryObject<TileEntityMassEnergyConverter> MASS_ENERGY_CONVERTER = REGISTER.register(SFBlocks.MASS_ENERGY_CONVERTER.toMekRegistryObject(), TileEntityMassEnergyConverter::new);
+    public static final TileEntityTypeRegistryObject<TileEntityFluidizedBedReactor> FLUIDIZED_BED_REACTOR = REGISTER.register(SFBlocks.FLUIDIZED_BED_REACTOR.toMekRegistryObject(), TileEntityFluidizedBedReactor::new);
 }
