@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.spco.spongefactory.registries;
+package top.spco.spongefactory.blocktype;
 
 import mekanism.api.Upgrade;
 import mekanism.api.math.FloatingLong;
@@ -21,7 +21,9 @@ import mekanism.common.registries.MekanismSounds;
 import net.minecraft.core.particles.ParticleTypes;
 import top.spco.spongefactory.block.entity.TileEntityFluidizedBedReactor;
 import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
-import top.spco.spongefactory.blocktype.SFMachine;
+import top.spco.spongefactory.registries.SFMachineDescription;
+import top.spco.spongefactory.registries.SFMekContainerTypes;
+import top.spco.spongefactory.registries.SFMekTileEntityTypes;
 
 import java.util.EnumSet;
 
@@ -42,5 +44,6 @@ public class SFBlockTypes {
             .withSupportedUpgrades(EnumSet.of(Upgrade.ENERGY, Upgrade.MUFFLING, Upgrade.SPEED))
             .withEnergyConfig(() -> FloatingLong.create(50), () -> FloatingLong.create(20000))
             .withComputerSupport("fluidizedBedReactor")
+            .withCustomShape(SFBlockShapes.FLUIDIZED_BED_REACTOR)
             .build();
 }

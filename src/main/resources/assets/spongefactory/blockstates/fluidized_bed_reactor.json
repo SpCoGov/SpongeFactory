@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "spongefactory:block/fluidized_bed_reactor"
+    },
+    "facing=south": {
+      "model": "spongefactory:block/fluidized_bed_reactor",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "spongefactory:block/fluidized_bed_reactor",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "spongefactory:block/fluidized_bed_reactor",
+      "y": -90
+    }
+  }
+}

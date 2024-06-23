@@ -39,6 +39,7 @@ import top.spco.spongefactory.block.UnplaceableBlock;
 import top.spco.spongefactory.block.entity.MachineMagnetizerTile;
 import top.spco.spongefactory.block.entity.TileEntityFluidizedBedReactor;
 import top.spco.spongefactory.block.entity.TileEntityMassEnergyConverter;
+import top.spco.spongefactory.blocktype.SFBlockTypes;
 import top.spco.spongefactory.blocktype.SFMachine;
 import top.spco.spongefactory.infrastructure.BlockMapping;
 import top.spco.spongefactory.infrastructure.ItemMapping;

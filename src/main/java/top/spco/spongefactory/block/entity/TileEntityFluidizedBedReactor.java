@@ -30,7 +30,6 @@ import mekanism.api.recipes.cache.CachedRecipe;
 import mekanism.api.recipes.inputs.IInputHandler;
 import mekanism.api.recipes.inputs.InputHelper;
 import mekanism.api.recipes.outputs.IOutputHandler;
-import mekanism.common.capabilities.energy.MachineEnergyContainer;
 import mekanism.common.capabilities.holder.chemical.ChemicalTankHelper;
 import mekanism.common.capabilities.holder.chemical.IChemicalTankHolder;
 import mekanism.common.capabilities.holder.energy.EnergyContainerHelper;
@@ -61,6 +60,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import top.spco.spongefactory.capability.energy.FluidizedBedReactorEnergyContainer;
 import top.spco.spongefactory.recipe.FluidizedBedRecipe;
 import top.spco.spongefactory.recipe.FluidizedBedRecipe.FluidizedBedRecipeOutput;
 import top.spco.spongefactory.recipe.cache.FluidizedBedCachedRecipe;
@@ -93,7 +93,7 @@ public class TileEntityFluidizedBedReactor extends TileEntityProgressMachine<Flu
     private final IOutputHandler<@NotNull FluidizedBedRecipeOutput> outputHandler;
     private final IInputHandler<@NotNull GasStack> gasInputHandler;
 
-    private MachineEnergyContainer<TileEntityFluidizedBedReactor> energyContainer;
+    private FluidizedBedReactorEnergyContainer energyContainer;
     @WrappingComputerMethod(wrapper = SpecialComputerMethodWrapper.ComputerIInventorySlotWrapper.class, methodNames = "getInputItem")
     private GasInventorySlot inputSlot;
     @WrappingComputerMethod(wrapper = SpecialComputerMethodWrapper.ComputerIInventorySlotWrapper.class, methodNames = "getOutputItem")
@@ -137,7 +137,7 @@ public class TileEntityFluidizedBedReactor extends TileEntityProgressMachine<Flu
     @Override
     protected IEnergyContainerHolder getInitialEnergyContainers(IContentsListener listener, IContentsListener recipeCacheListener) {
         EnergyContainerHelper builder = EnergyContainerHelper.forSideWithConfig(this::getDirection, this::getConfig);
-        builder.addContainer(energyContainer = MachineEnergyContainer.input(this, listener));
+        builder.addContainer(energyContainer = FluidizedBedReactorEnergyContainer.input(this, listener));
         return builder.build();
     }
 
@@ -162,7 +162,7 @@ public class TileEntityFluidizedBedReactor extends TileEntityProgressMachine<Flu
         return builder.build();
     }
 
-    public MachineEnergyContainer<TileEntityFluidizedBedReactor> getEnergyContainer() {
+    public FluidizedBedReactorEnergyContainer getEnergyContainer() {
         return energyContainer;
     }
 

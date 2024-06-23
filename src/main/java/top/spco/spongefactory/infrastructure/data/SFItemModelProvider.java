@@ -27,6 +27,7 @@ import top.spco.spongefactory.infrastructure.ItemMapping;
 import top.spco.spongefactory.item.BasicSpongeCellItem;
 import top.spco.spongefactory.item.DustItem;
 import top.spco.spongefactory.item.IngotItem;
+import top.spco.spongefactory.item.WrappedChemicalStackItem;
 import top.spco.spongefactory.registries.SFFluids;
 import top.spco.spongefactory.registries.SFItems;
 
@@ -62,6 +63,10 @@ public class SFItemModelProvider extends ItemModelProvider {
                 storageCell(item);
                 continue;
             }
+            if (item.getItem() instanceof WrappedChemicalStackItem) {
+                emptyItem(item);
+                continue;
+            }
             if (item.isBlockItem()) {
                 continue;
             }
@@ -80,6 +85,10 @@ public class SFItemModelProvider extends ItemModelProvider {
         for (var item : SFItems.INGOT_ITEM) {
             ingotItem(item);
         }
+    }
+
+    private void emptyItem(ItemMapping<?> item) {
+        this.getBuilder(item.getId());
     }
 
     private void storageCell(ItemMapping<?> item) {

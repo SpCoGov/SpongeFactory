@@ -179,6 +179,7 @@ public class SFItems {
     public static final ItemMapping<Item> CRAFT_CORE = defaultMaterialItem("Craft Core", "合成核心", "craft_core");
     public static final ItemMapping<Item> DESH_COIL = defaultMaterialItem("Desh Coil", "戴斯线圈", "desh_coil");
     public static final ItemMapping<Item> UPGRADE_BLANK = defaultMaterialItem("Blank Upgrade", "空白升级", "upgrade_blank");
+    public static final ItemMapping<WrappedChemicalStackItem> WRAPPED_CHEMICAL_STACK_ITEM = item("Chemical", "化学品", "wrapped_chemical_stack_item", () -> new WrappedChemicalStackItem(new Item.Properties()));
 
     public static final ItemMapping<AugmentItem> CREATIVE_MACHINE_SPEED_AUGMENT_TEST = item("Creative Machine Speed Augment Test", "创造通量链接放大器测试物品", "creative_machine_speed_augment_test",
             () -> new AugmentItem(new Item.Properties().rarity(Rarity.EPIC).tab(SFCreativeModTabs.MATERIAL.get()),

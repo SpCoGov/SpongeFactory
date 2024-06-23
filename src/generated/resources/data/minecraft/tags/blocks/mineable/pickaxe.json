@@ -1,13 +1,13 @@
 {
   "values": [
-    "spongefactory:fluidized_bed_reactor",
+    "spongefactory:sheetmetal_source_steel",
     "spongefactory:unprocessed_machine_frame",
-    "spongefactory:machine_magnetizer",
     "spongefactory:deepslate_titanium_ore",
     "spongefactory:mass_energy_converter",
-    "spongefactory:sheetmetal_source_steel",
     "spongefactory:portal_frame",
+    "spongefactory:fluidized_bed_reactor",
+    "spongefactory:titanium_ore",
     "spongefactory:advanced_machine_frame",
-    "spongefactory:titanium_ore"
+    "spongefactory:machine_magnetizer"
   ]
 }
