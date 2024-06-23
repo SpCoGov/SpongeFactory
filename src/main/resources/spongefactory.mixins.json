@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "top.spco.spongefactory.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "SpongeFactory.refmap.json",
+  "refmap": "spongefactory.refmap.json",
   "client": [
     "ItemRendererMixin"
   ],
