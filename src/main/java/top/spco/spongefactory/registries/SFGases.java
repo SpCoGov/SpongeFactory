@@ -49,23 +49,24 @@ public class SFGases {
     public static final GasMapping URANIUM_TETRAFLUORIDE = gas("Uranium Tetrafluoride", "四氟化铀", "uranium_tetrafluoride", Colors.URANIUM_TETRAFLUORIDE);
     public static final GasMapping NITROGEN = gas("Nitrogen", "氮气", "nitrogen", Colors.NITROGEN);
     public static final GasMapping ARGON = gas("Argon", "氩气", "argon", Colors.ARGON);
+    public static final GasMapping ETHER = gas("Ether", "以太", "ether", Colors.ETHER);
     // 费米子
-    public static final GasMapping UP_QUARK = gas("Up Quark", "上夸克", "up_quark", 0x6969E0);
-    public static final GasMapping DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", 0x2CDE2C);
-    public static final GasMapping STRANGE_QUARK = gas("Strange Quark", "奇夸克", "strange_quark", 0xDEB0ED);
-    public static final GasMapping CHARM_QUARK = gas("Charm Quark", "粲夸克", "charm_quark", 0xFB7299);
-    public static final GasMapping BOTTOM_QUARK = gas("Bottom Quark", "底夸克", "bottom_quark", 0x4FC3F7);
-    public static final GasMapping TOP_QUARK = gas("Top Quark", "顶夸克", "top_quark", 0xFBE000);
-    public static final GasMapping ELECTRON = gas("Electron", "电子", "electron", 0x044289);
-    public static final GasMapping MUON = gas("Muon", "μ子", "muon", 0x24292E);
-    public static final GasMapping TAUON = gas("Tauon", "τ子", "tauon", 0xF97570);
-    public static final GasMapping NEUTRINO = gas("Neutrino", "中微子", "neutrino", 0xADD8E6);
+    public static final GasMapping UP_QUARK = gas("Up Quark", "上夸克", "up_quark", Colors.UP_QUARK);
+    public static final GasMapping DOWN_QUARK = gas("Down Quark", "下夸克", "down_quark", Colors.DOWN_QUARK);
+    public static final GasMapping STRANGE_QUARK = gas("Strange Quark", "奇夸克", "strange_quark", Colors.STRANGE_QUARK);
+    public static final GasMapping CHARM_QUARK = gas("Charm Quark", "粲夸克", "charm_quark", Colors.CHARM_QUARK);
+    public static final GasMapping BOTTOM_QUARK = gas("Bottom Quark", "底夸克", "bottom_quark", Colors.BOTTOM_QUARK);
+    public static final GasMapping TOP_QUARK = gas("Top Quark", "顶夸克", "top_quark", Colors.TOP_QUARK);
+    public static final GasMapping ELECTRON = gas("Electron", "电子", "electron", Colors.ELECTRON);
+    public static final GasMapping MUON = gas("Muon", "μ子", "muon", Colors.MUON);
+    public static final GasMapping TAUON = gas("Tauon", "τ子", "tauon", Colors.TAUON);
+    public static final GasMapping NEUTRINO = gas("Neutrino", "中微子", "neutrino", Colors.NEUTRINO);
     // 玻色子
-    public static final GasMapping BOSON = gas("Boson", "W及Z玻色子", "boson", 0x6495ED);
-    public static final GasMapping PHOTON = gas("Photon", "光子", "photon", 0xFFFF00);
-    public static final GasMapping GLUON = gas("Gluon", "胶子", "gluon", 0xFFD700);
-    public static final GasMapping HIGGS_BOSON = gas("Higgs Boson", "希格斯玻色子", "higgs_boson", 0x800080);
-    public static final GasMapping GRAVITON = gas("Graviton", "引力子", "graviton", 0x333333);
+    public static final GasMapping BOSON = gas("Boson", "W及Z玻色子", "boson", Colors.BOSON);
+    public static final GasMapping PHOTON = gas("Photon", "光子", "photon", Colors.PHOTON);
+    public static final GasMapping GLUON = gas("Gluon", "胶子", "gluon", Colors.GLUON);
+    public static final GasMapping HIGGS_BOSON = gas("Higgs Boson", "希格斯玻色子", "higgs_boson", Colors.HIGGS_BOSON);
+    public static final GasMapping GRAVITON = gas("Graviton", "引力子", "graviton", Colors.GRAVITON);
 
     private static GasMapping gas(String englishName, String chineseName, String id, int color) {
         GasRegistryObject<Gas> registeredGas = REGISTER.register(id, color);

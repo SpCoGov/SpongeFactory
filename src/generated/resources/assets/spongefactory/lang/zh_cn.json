@@ -1,6 +1,7 @@
 {
   "block.spongefactory.advanced_machine_frame": "高级机器框架",
   "block.spongefactory.deepslate_titanium_ore": "深层钛矿石",
+  "block.spongefactory.electromagnetic_shielding_machine_frame": "电磁屏蔽机器框架",
   "block.spongefactory.fluidized_bed_reactor": "流化床反应器",
   "block.spongefactory.machine_magnetizer": "充磁机",
   "block.spongefactory.mass_energy_converter": "质能转换器",
@@ -67,6 +68,7 @@
   "gas.spongefactory.charm_quark": "粲夸克",
   "gas.spongefactory.down_quark": "下夸克",
   "gas.spongefactory.electron": "电子",
+  "gas.spongefactory.ether": "以太",
   "gas.spongefactory.gluon": "胶子",
   "gas.spongefactory.graviton": "引力子",
   "gas.spongefactory.higgs_boson": "希格斯玻色子",
@@ -185,6 +187,7 @@
   "item.spongefactory.liquid_nitrogen_bucket": "液氮桶",
   "item.spongefactory.logo": "Logo",
   "item.spongefactory.magnet_wire": "漆包线",
+  "item.spongefactory.mana_field_ingot": "魔力场锭",
   "item.spongefactory.molten_aluminum_bucket": "熔融铝桶",
   "item.spongefactory.molten_bauxite_bucket": "熔融铝土矿桶",
   "item.spongefactory.molten_calcium_bucket": "熔融钙桶",

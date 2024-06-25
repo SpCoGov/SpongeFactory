@@ -52,6 +52,24 @@ public class Colors {
     public static final int URANIUM_TETRAFLUORIDE = 0x7A915C;
     public static final int NITROGEN = 0xCCA3A7;
     public static final int ARGON = 0xF875DD;
+    public static final int ETHER = 0xA5D1D1;
+
+    public static final int UP_QUARK = 0x6969E0;
+    public static final int DOWN_QUARK = 0x2CDE2C;
+    public static final int STRANGE_QUARK = 0xDEB0ED;
+    public static final int CHARM_QUARK = 0xFB7299;
+    public static final int BOTTOM_QUARK = 0x4FC3F7;
+    public static final int TOP_QUARK = 0xFBE000;
+    public static final int ELECTRON = 0x044289;
+    public static final int MUON = 0x24292E;
+    public static final int TAUON = 0xF97570;
+    public static final int NEUTRINO = 0xADD8E6;
+    public static final int BOSON = 0x6495ED;
+    public static final int PHOTON = 0xFFFF00;
+    public static final int GLUON = 0xFFD700;
+    public static final int HIGGS_BOSON = 0x800080;
+    public static final int GRAVITON = 0x333333;
+
 
     public static int convertToArgb(int rgbColor) {
         return convertToArgb(0xFF, rgbColor);

@@ -1,6 +1,7 @@
 {
   "block.spongefactory.advanced_machine_frame": "Advanced Machine Frame",
   "block.spongefactory.deepslate_titanium_ore": "Deepslate Titanium Ore",
+  "block.spongefactory.electromagnetic_shielding_machine_frame": "Electromagnetic Shielding Machine Frame",
   "block.spongefactory.fluidized_bed_reactor": "Fluidized Bed Reactor",
   "block.spongefactory.machine_magnetizer": "Magnetizer",
   "block.spongefactory.mass_energy_converter": "Mass-Energy Converter",
@@ -67,6 +68,7 @@
   "gas.spongefactory.charm_quark": "Charm Quark",
   "gas.spongefactory.down_quark": "Down Quark",
   "gas.spongefactory.electron": "Electron",
+  "gas.spongefactory.ether": "Ether",
   "gas.spongefactory.gluon": "Gluon",
   "gas.spongefactory.graviton": "Graviton",
   "gas.spongefactory.higgs_boson": "Higgs Boson",
@@ -185,6 +187,7 @@
   "item.spongefactory.liquid_nitrogen_bucket": "Liquid NitrogenBucket",
   "item.spongefactory.logo": "Logo",
   "item.spongefactory.magnet_wire": "Magnet Wire",
+  "item.spongefactory.mana_field_ingot": "Mana Field Ingot",
   "item.spongefactory.molten_aluminum_bucket": "Molten AluminumBucket",
   "item.spongefactory.molten_bauxite_bucket": "Molten BauxiteBucket",
   "item.spongefactory.molten_calcium_bucket": "Molten CalciumBucket",

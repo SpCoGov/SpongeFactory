@@ -31,6 +31,7 @@ public class ItemRendererHook {
             if (chemical == null) {
                 return false;
             }
+            RenderSystem.enableBlend();
             MekanismRenderer.color(chemical);
             GuiUtils.drawTiledSprite(new PoseStack(), x, y, 16, 16, 16,
                     MekanismRenderer.getSprite(chemical.getIcon()), 16, 16, 100, GuiUtils.TilingDirection.UP_RIGHT, false);

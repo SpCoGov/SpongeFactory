@@ -8,6 +8,6 @@
     "east": "spongefactory:block/machine_frame/machine_frame_side",
     "south": "spongefactory:block/machine_frame/machine_frame_side",
     "west": "spongefactory:block/machine_frame/machine_frame_side",
-    "inner": "spongefactory:block/machine_frame/advanced_machine_frame_inner"
+    "inner": "spongefactory:block/machine_frame/electromagnetic_shielding_machine_frame_inner"
   }
 }

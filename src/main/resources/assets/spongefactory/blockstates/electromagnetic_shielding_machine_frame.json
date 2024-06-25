@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "spongefactory:block/electromagnetic_shielding_machine_frame"
+    }
+  }
+}

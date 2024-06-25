@@ -43,6 +43,7 @@ public class SFBlockStateProvider extends BlockStateProvider {
         skip.add(SFBlocks.STORAGE_STABILIZER_BASE);
         skip.add(SFBlocks.UNPROCESSED_MACHINE_FRAME);
         skip.add(SFBlocks.ADVANCED_MACHINE_FRAME);
+        skip.add(SFBlocks.ELECTROMAGNETIC_SHIELDING_MACHINE_FRAME);
         skip.add(SFBlocks.TIME_STORAGE_CONTROLLER);
         skip.add(SFBlocks.MAGNETIZER);
         skip.add(SFBlocks.FLUIDIZED_BED_REACTOR);
